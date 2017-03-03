@@ -1,0 +1,15 @@
+$cx-default-icon-size: 24px;
+$cx-default-box-line-height: 24px;
+
+@import "~cx-core/src/variables";
+@import "~cx-core/src/index";
+
+@import "layout/index";
+@import "routes/index";
+
+
+//remove when fixed
+.cxb-icon {
+  width: 24px;
+  height: 24px;
+}
