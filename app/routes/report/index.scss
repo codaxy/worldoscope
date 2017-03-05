@@ -1,20 +1,26 @@
-.report {
-}
-
 .section {
   padding: 1rem 2.5rem;
-  transition: margin 0.2s;
+  transition: all 0.2s;
   margin: 0;
+  position: relative;
 
   &:not(:last-child) {
-    border-bottom: 1px dotted gray;
+    border-bottom: 1px dotted lightgray;
   }
 }
 
-.edit {
-  background: #eee;
+.section.edit {
+  background: #f3f3f3;
   padding: 1rem 2.5rem;
-  margin: 0 -5px;
+  margin: -5px -5px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   border-bottom: none;
+  z-index: 1;
+}
+
+.loading {
+  padding: 3rem;
+  color: gray;
+  font-style: italic;
+  font-size: 1.5rem;
 }

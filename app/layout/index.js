@@ -12,10 +12,12 @@ export default <cx>
             <Icon name="insert_chart"  />
          </Link>
          <ContentPlaceholder name="header" />
+         <Link href="~/sign-in" baseClass="button" mod="hollow" visible:expr="{user.uid} == null">
+            Sign In
+         </Link>
+         <img src:bind="user.photoURL" style="height: 32px" />
       </FlexRow>
-      <div class="page">
-         <ContentPlaceholder />
-      </div>
+      <ContentPlaceholder />
       <ContentPlaceholder name="footer" />
    </div>
 </cx>

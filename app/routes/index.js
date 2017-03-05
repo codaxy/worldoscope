@@ -7,6 +7,7 @@ import Default from './default';
 import About from './about';
 import Samples from './samples';
 import Report from './report';
+import SignIn from './sign-in';
 
 
 export default <cx>
@@ -19,6 +20,9 @@ export default <cx>
         </Route>
         <Route route="~/samples" url:bind="url">
             <Samples/>
+        </Route>
+        <Route route="~/sign-in" url:bind="url">
+            <SignIn/>
         </Route>
         <Route route="~/:id" url:bind="url">
             <Report />

@@ -15,8 +15,12 @@ export function loadReport(id) {
 }
 
 export function saveReport(id, report) {
+    let data = Object.assign({}, report, {
+        id: id
+    });
     return database.ref(`reports/${id}`)
-        .set(report).key;
+        .set(data)
+        .then(x => data);
 }
 
 export function getPublicReports() {
