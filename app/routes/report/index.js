@@ -27,6 +27,8 @@ export default <cx>
         <PureContainer putInto="header">
             <h1></h1>
             <Button mod="hollow" icon="save" style="margin-left: auto" onClick="saveReport"/>
+            <Button mod="hollow" icon="star_border" onClick="starReport" visible:expr="{$page.starred} === false"/>
+            <Button mod="hollow" icon="star" onClick="unstarReport" visible:expr="{$page.starred} === true"/>
         </PureContainer>
 
         <div visible:expr="{$page.status} == 'loading'" class="loading">

@@ -1,6 +1,7 @@
-import { HtmlElement, FlexRow, Button, Icon, Link } from 'cx/widgets';
+import { HtmlElement, FlexRow, Button, Icon, Link, Menu, Submenu } from 'cx/widgets';
 import { ContentPlaceholder } from 'cx/ui';
 import './icons';
+import { auth } from 'api';
 
 export default <cx>
    <div class="app">
@@ -15,7 +16,20 @@ export default <cx>
          <Link href="~/sign-in" baseClass="button" mod="hollow" visible:expr="{user.uid} == null">
             Sign In
          </Link>
-         <img src:bind="user.photoURL" style="height: 32px" />
+         <Menu horizontal visible:expr="{user.uid} != null">
+            <Submenu placement="down-left" style="line-height: 0">
+               <img src:bind="user.photoURL" style="height: 32px;line-height:0" />
+               <Menu putInto="dropdown">
+                  <a
+                      href="#"
+                      onClick={e=> {
+                          e.preventDefault();
+                          auth.signOut();
+                      }}
+                  >Sign Out</a>
+               </Menu>
+            </Submenu>
+         </Menu>
       </FlexRow>
       <ContentPlaceholder />
       <ContentPlaceholder name="footer" />

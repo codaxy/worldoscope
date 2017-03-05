@@ -1,6 +1,6 @@
 import { Controller, History } from 'cx/ui';
 
-import { loadReport, addReport, saveReport, auth } from 'api';
+import { loadReport, addReport, saveReport, auth, addStar, removeStar, isStarred } from 'api';
 
 export default class extends Controller {
     onInit() {
@@ -15,7 +15,12 @@ export default class extends Controller {
                 .then(def => {
                     this.store.set('$page.report', def);
                     this.store.delete('$page.status');
-                })
+                });
+
+            if (auth.currentUser) {
+                isStarred(id)
+                    .then(value => this.store.set('$page.starred', value));
+            }
         }
         else {
             this.store.init('$page.report', {
@@ -40,6 +45,14 @@ export default class extends Controller {
         else {
             saveReport(id, report);
         }
+    }
+
+    starReport() {
+        let id = this.store.get('$route.id');
+        addStar(id)
+            .then(() => {
+                this.store.set('$page.starred', true);
+            })
     }
 
     addMap(e) {
