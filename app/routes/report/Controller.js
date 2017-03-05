@@ -16,9 +16,21 @@ export default class extends Controller {
                 })
         }
         else {
-            this.store.set('$page.report', {
-                title: 'New Report'
+            this.store.init('$page.report', {
+                title: 'New Report',
+                sections: []
             });
         }
+    }
+
+    addMap(e) {
+        e.preventDefault();
+        document.activeElement.blur();
+
+        this.store.update('$page.report.sections', sections => [...sections, {
+            form: {
+                title: 'New Section'
+            }
+        }])
     }
 }

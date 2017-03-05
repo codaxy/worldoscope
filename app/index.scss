@@ -1,15 +1,23 @@
 $cx-default-icon-size: 24px;
 $cx-default-box-line-height: 24px;
+$cx-default-button-font-size: 15px;
 
 @import "~cx-core/src/variables";
+
+$cx-input-state-style-map: cx-deep-map-merge($cx-input-state-style-map, (
+  default: (
+    font-size: 15px
+  )
+));
+
 @import "~cx-core/src/index";
+
+.cxb-menuitem.cxs-medium-padding .cxb-icon {
+  margin-right: 10px;
+}
+
+
 
 @import "layout/index";
 @import "routes/index";
 
-
-//remove when fixed
-.cxb-icon {
-  width: 24px;
-  height: 24px;
-}

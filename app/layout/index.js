@@ -13,6 +13,9 @@ export default <cx>
          </Link>
          <ContentPlaceholder name="header" />
       </FlexRow>
-      <ContentPlaceholder />
+      <div class="page">
+         <ContentPlaceholder />
+      </div>
+      <ContentPlaceholder name="footer" />
    </div>
 </cx>

@@ -1,5 +1,5 @@
-import { Route, PureContainer, HtmlElement } from 'cx/widgets';
-import { FirstVisibleChildLayout } from 'cx/ui';
+import {Route, PureContainer, HtmlElement, Sandbox} from 'cx/widgets';
+import {FirstVisibleChildLayout } from 'cx/ui';
 
 import AppLayout from '../layout';
 
@@ -10,7 +10,7 @@ import Report from './report';
 
 
 export default <cx>
-    <PureContainer outerLayout={AppLayout} layout={FirstVisibleChildLayout}>
+    <Sandbox key:bind="url" storage:bind="pages" outerLayout={AppLayout} layout={FirstVisibleChildLayout}>
         <Route route="~/" url:bind="url">
             <Default/>
         </Route>
@@ -26,6 +26,6 @@ export default <cx>
         <div class="prose">
             Page not found.
         </div>
-    </PureContainer>
+    </Sandbox>
 </cx>
 
