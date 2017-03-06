@@ -2,6 +2,8 @@ import { Controller, History } from 'cx/ui';
 
 import { loadReport, addReport, saveReport, auth, addStar, removeStar, isStarred } from 'api';
 
+import uid from 'uid';
+
 export default class extends Controller {
     onInit() {
         this.loadReport();
@@ -10,11 +12,14 @@ export default class extends Controller {
     loadReport() {
         let id = this.store.get('$route.id');
         if (id != 'new') {
-            this.store.set('$page.status', 'loading');
+            if (!this.store.get('$page.report'))
+                this.store.set('$page.status', 'loading');
+
             loadReport(id)
                 .then(def => {
                     this.store.set('$page.report', def);
                     this.store.delete('$page.status');
+                    this.setupAutoSave();
                 });
 
             if (auth.currentUser) {
@@ -30,6 +35,15 @@ export default class extends Controller {
                 userId: auth.currentUser ? auth.currentUser.uid : null
             });
         }
+    }
+
+    setupAutoSave() {
+        this.addTrigger('autoSave', ['$page.report'], report => {
+            if (report.autoSave) {
+                console.log('autosave');
+                this.saveReport();
+            }
+        });
     }
 
     saveReport() {
@@ -55,14 +69,60 @@ export default class extends Controller {
             })
     }
 
+    unstarReport() {
+        let id = this.store.get('$route.id');
+        removeStar(id)
+            .then(() => {
+                this.store.set('$page.starred', false);
+            })
+    }
+
     addMap(e) {
+        this.addSection(e, {
+            type: 'map'
+        });
+    }
+
+    addLineGraph(e) {
+        this.addSection(e, {
+            type: 'line-chart'
+        });
+    }
+
+    addColumnGraph(e) {
+        this.addSection(e, {
+            type: 'column-chart'
+        });
+    }
+
+    addBarGraph(e) {
+        this.addSection(e, {
+            type: 'bar-chart'
+        });
+    }
+
+    addTable(e) {
+        this.addSection(e, {
+            type: 'table'
+        });
+    }
+
+    addSection(e, section) {
         e.preventDefault();
         document.activeElement.blur();
 
-        this.store.update('$page.report.sections', sections => [...sections, {
-            form: {
-                title: 'New Section'
-            }
-        }])
+        let data = {
+            title: 'New Section',
+            ...section,
+            id: uid()
+        };
+
+        this.store.update('$page.report.sections', sections => [...sections, data]);
+
+        //open in edit mode
+        this.store.update('$page.sections', sections => ({
+            ...sections,
+            [data.id]: {form: data}
+        }));
     }
 }

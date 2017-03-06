@@ -1,8 +1,10 @@
-import {HtmlElement, Link, Icon} from 'cx/widgets';
+import {HtmlElement, Link, Icon, Repeater} from 'cx/widgets';
+
+import Controller from './Controller';
 
 export default <cx>
     <h1 putInto="header">World Bank Data Explorer</h1>
-    <div class="page">
+    <div class="page" controller={Controller}>
         <div class="prose">
             <h2>Welcome</h2>
             <p ws>
@@ -36,7 +38,15 @@ export default <cx>
             <p>
                 Starred reports:
             </p>
-            <i style="color:gray">You can star reports only if you sign in.</i>
+            <i
+                style="color:gray"
+                visible:expr="!{user.uid}"
+            >
+                You can star reports only if you sign in.
+            </i>
+            <Repeater records:bind="$page.stars" visible:expr="!!{user.uid}">
+                <Link href:tpl="~/{$record.id}" baseClass="button" mod="hollow" text:bind="$record.title" /><br/>
+            </Repeater>
         </div>
     </div>
 </cx>

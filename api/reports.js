@@ -1,4 +1,4 @@
-import { database } from './db';
+import { database, currentUserId } from './db';
 import uid from 'uid';
 
 let reports = database.ref('reports');
@@ -26,6 +26,18 @@ export function saveReport(id, report) {
 export function getPublicReports() {
     return reports
         .orderByChild('public').equalTo(true)
+        .once('value')
+        .then(x => {
+            let v = x.val() || {};
+            return Object.keys(v).map(k => Object.assign({}, v[k], {
+                key: k
+            }));
+        });
+}
+
+export function getMyReports() {
+    return reports
+        .orderByChild('userId').equalTo(currentUserId())
         .once('value')
         .then(x => {
             let v = x.val() || {};

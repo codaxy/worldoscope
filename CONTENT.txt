@@ -1,0 +1,64 @@
+HOME (/)
+
+Welcome to the World Bank Data Explorer. The World Bank provides historical data
+for almost all countries across thousands of indicators.
+This app allows you to create beautiful reports
+based on this vast data-set and a predefined section templates.
+Compare your country with the neighbourhood and share the report with the world.
+
+What would you like to do?
+
+* See some of the sample reports
+* Create a new report
+* Manage my reports
+* Read more about the app
+
+
+ABOUT (/)
+App
+This application is built using a number of open-source products such as React, Babel and Webpack.
+Widgets and charts are provided by the powerful, commercial front-end framework called Cx.
+Data for reports is fetched using the [World Bank Data API](http://data.worldbank.org/).
+Report definitions are stored using Firebase and Firebase is also used for authentication and hosting.
+
+Codaxy
+We're a small software company from Bosnia specialized in developing business application front-ends.
+You may already know us if you're familiar with Cx or if you have used one of our themes for
+Sencha Ext JS. We also provide software development services, so if you have an interesting project,
+feel free to contact us.
+
+SAMPLES (/samples)
+NEW (/new)
+
+Section Types
+=============
+
+World Map
+The countries are colored based on the indicator value. This is very useful
+for a quick overview of how a selected indicator is spread in different parts of the world.
+
+Line Graph
+Line graph shows historical trend of a selected indicator for a handful of selected countries.
+It's useful to display data for longer time periods or compare two or more countries.
+
+Column Graph
+Column graph presents multiple related indicators for a handful list of selected countries.
+This is useful to compare countries on multiple things at once.
+
+Bar Graph
+Bar graph compares values of the selected indicator across multiple countries.
+This is useful to compare countries many countries at once.
+
+Single Indicator Table
+This widget presents values of a selected indicator and a selected time period using
+a data table. Each year is a column. This is useful to see the development of an
+indicator across many countries at once.
+
+Multiple Indicator Table
+This widget presents values of multiple selected indicators (columns) across all countries (rows).
+This is useful to compare countries on multiple things at once.
+
+
+
+
+

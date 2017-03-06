@@ -9,9 +9,7 @@ export default <cx>
          <Link href="~/" baseClass="button" mod="hollow" visible:expr="{url}!='~/'">
             <Icon name="arrow_back"  />
          </Link>
-         <Link href="~/" baseClass="button" mod="hollow" visible:expr="{url}=='~/'">
-            <Icon name="insert_chart"  />
-         </Link>
+         <Icon name="timeline"  visible:expr="{url}=='~/'" />
          <ContentPlaceholder name="header" />
          <Link href="~/sign-in" baseClass="button" mod="hollow" visible:expr="{user.uid} == null">
             Sign In

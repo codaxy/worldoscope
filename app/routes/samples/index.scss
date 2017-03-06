@@ -1,5 +1,5 @@
 .report-card {
-  width: 20rem;
+  min-width: 20rem;
   border: 1px solid lightgray;
   border-radius: 3px;
   padding: 10px;
@@ -8,6 +8,7 @@
   text-decoration: none;
   color: inherit;
   transition: box-shadow 0.3s;
+  flex: 1;
 
   &:hover {
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.5);

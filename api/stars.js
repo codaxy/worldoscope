@@ -1,25 +1,23 @@
-import { database, auth } from './db';
+import { database, currentUserId } from './db';
 import { loadReport } from './reports';
-import uid from 'uid';
 
 let stars = database.ref('stars');
 
 export function addStar(reportId) {
     return loadReport(reportId)
         .then((report) => {
-            let x = stars.child(reportId).child(auth.currentUser.uid).set({
-                active: true,
-                lastChange: new Date().toISOString()
+            let x = stars.child(reportId).child(currentUserId()).set({
+                starDate: new Date().toISOString()
             });
 
             let y = database.ref('users')
-                .child(auth.currentUser.uid)
+                .child(currentUserId())
                 .child('starred')
                 .child(reportId)
                 .set({
                     id: reportId,
                     title: report.title,
-                    starDate: new Date().toISOString()
+                    date: new Date().toISOString()
                 });
 
             return Promise.all([x, y]);
@@ -27,14 +25,36 @@ export function addStar(reportId) {
 }
 
 export function removeStar(reportId) {
+    let x = stars.child(reportId).child(currentUserId()).remove();
 
+    let y = database.ref('users')
+        .child(currentUserId())
+        .child('starred')
+        .child(reportId)
+        .remove();
+
+    return Promise.all([x, y]);
 }
 
 export function isStarred(reportId) {
     return stars
         .child(reportId)
-        .child(auth.currentUser.uid)
+        .child(currentUserId())
         .once('value')
-        .then(x => x && x.active === true);
+        .then(x => !!x.val());
 }
 
+export function getMyStars(reportId) {
+    if (!currentUserId())
+        return Promise.resolve(null);
+
+    return database.ref('users')
+        .child(currentUserId())
+        .child('starred')
+        .once('value')
+        .then(x => {
+            let data = x.val() || {};
+            return Object.keys(data)
+                .map(k => data[k]);
+        });
+}
