@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "exit 0",
     "start": "webpack-dev-server --config config/webpack.dev.js --open",
     "build": "webpack --config config/webpack.prod.js"
   },
@@ -26,6 +27,7 @@
     "css-loader": "^0.26.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
+    "firebase-tools": "^3.4.0",
     "html-webpack-plugin": "^2.28.0",
     "json-loader": "^0.5.4",
     "node-sass": "^4.5.0",
