@@ -13,10 +13,16 @@ import {
     Submenu,
     Icon,
     Repeater,
-    Switch
+    Switch,
+    NumberField,
+    Slider,
+    LookupField,
+    LabeledContainer
 } from 'cx/widgets';
 import {LabelsTopLayout} from 'cx/ui';
 import {AnimatedHeight} from 'app/components';
+
+import Controller from './HeaderController';
 
 export default <cx>
 
@@ -32,23 +38,104 @@ export default <cx>
                 <Button
                     mod="hollow" icon="mode_edit" style="margin-left: auto"
                     onClick={(e, {store}) => {
-                        let {title, description} = store.get('report');
+                        let {title, description, defaults} = store.get('report');
                         store.set('header', {
                             title, description, edit: true
-                        })
+                        });
+                        store.set('defaults', defaults);
                     }}
                 />
             </FlexRow>
             <p text:bind="report.description" visible:bind="report.description"/>
         </div>
 
-        <div visible:bind="header.edit">
+        <div visible:bind="header.edit" controller={Controller}>
+
+            <Heading level={2}>Report</Heading>
+
             <ValidationGroup
                 layout={{type: LabelsTopLayout, vertical: true, mod: 'stretch'}}
                 valid:bind="header.valid"
             >
                 <TextField value:bind="header.title" label="Title" style="width: 100%" required/>
                 <TextArea value:bind="header.description" label="Description" style="width: 100%"/>
+
+                <Heading>Section Defaults</Heading>
+
+                    <LookupField
+                        label="Topic"
+                        value:bind="defaults.topic.id"
+                        text:bind="defaults.topic.text"
+                        optionTextField="value"
+                        onQuery="queryTopics"
+                        style="width:100%"
+                        fetchAll
+                        cacheAll
+                    />
+
+                    <LookupField
+                        label="Indicator"
+                        value:bind="defaults.indicator.id"
+                        text:bind="defaults.indicator.name"
+                        optionTextField="name"
+                        onQuery="queryTopicIndicators"
+                        style="width:100%"
+                        fetchAll
+                    />
+
+                    <LookupField
+                        label="Countries"
+                        multiple
+                        records:bind="defaults.countries"
+                        optionTextField="name"
+                        onQuery="queryCountries"
+                        style="width:100%"
+                        fetchAll
+                        cacheAll
+                    />
+
+                    <LabeledContainer label="Period">
+                        <FlexRow>
+
+                            <NumberField
+                                value:bind="defaults.fromYear"
+                                style="width:60px"
+                                inputStyle="text-align:center"
+                                format="s"
+                                increment={1}
+                                minValue={1960}
+                                maxValue={2020}
+                            />
+
+                            <Slider
+                                style="flex:1; width: auto; max-width: 250px"
+                                range
+                                from={{
+                                    bind: 'defaults.fromYear',
+                                    defaultValue: 2000
+                                }}
+                                to={{
+                                    bind: 'defaults.toYear',
+                                    defaultValue: 2015
+                                }}
+                                minValue={1960}
+                                maxValue={2020}
+                                step={1}
+                            />
+
+                            <NumberField
+                                value:bind="defaults.toYear"
+                                style="width:60px"
+                                inputStyle="text-align:center"
+                                format="s"
+                                increment={1}
+                                minValue={2000}
+                                maxValue={2020}
+                            />
+                        </FlexRow>
+                    </LabeledContainer>
+
+                <br/>
                 <div ws>
                     <Button
                         mod="primary"
@@ -56,10 +143,13 @@ export default <cx>
                         disabled:expr="!{header.valid}"
                         onClick={(e, {store}) => {
                             let {title, description} = store.get('header');
+                            let defaults = store.get('defaults');
                             store.delete('header');
+                            store.delete('defaults');
                             store.update('report', rep => Object.assign({}, rep, {
                                 title,
-                                description
+                                description,
+                                defaults: clean(defaults)
                             }));
                         }}
                     >
@@ -68,6 +158,7 @@ export default <cx>
                     <Button
                         onClick={(e, {store}) => {
                             store.delete('header');
+                            store.delete('defaults');
                         }}
                     >
                         Cancel
@@ -77,3 +168,11 @@ export default <cx>
         </div>
     </AnimatedHeight>
 </cx>
+
+function clean(data) {
+    let result = {};
+    for (var key in data)
+        if (typeof data[key] != 'undefined')
+            result[key] = data[key];
+    return result;
+}

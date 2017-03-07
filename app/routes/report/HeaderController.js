@@ -1,18 +1,7 @@
 import { Controller } from 'cx/ui';
 import {queryTopics, queryTopicIndicators, queryCountries } from 'api/data';
-import { detectFormat } from 'app/util';
 
 export default class extends Controller {
-    init() {
-        super.init();
-
-        this.addTrigger('name', ['indicator.name'], name => {
-            this.store.set('title', name);
-        });
-
-        this.addComputable('format', ['indicator.name'], detectFormat);
-    }
-
     queryTopics(q) {
         return queryTopics(q);
     }

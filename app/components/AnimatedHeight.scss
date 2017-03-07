@@ -1,4 +1,11 @@
 .cxb-animatedheight {
   transition: height 0.3s;
   overflow: hidden;
+
+  & > div {
+    border-width: 1px 0;
+    margin: -1px 0;
+    border-style: solid;
+    border-color: transparent;
+  }
 }

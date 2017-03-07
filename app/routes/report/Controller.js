@@ -84,8 +84,16 @@ export default class extends Controller {
     }
 
     addLineGraph(e) {
+
+        let defaults = this.store.get('$page.report.defaults') || {};
+
         this.addSection(e, {
-            type: 'line-chart'
+            type: 'line-chart',
+            topic: defaults.topic,
+            indicator: defaults.indicator,
+            fromYear: defaults.fromYear,
+            toYear: defaults.toYear,
+            countries: defaults.countries
         });
     }
 
@@ -113,9 +121,12 @@ export default class extends Controller {
 
         let data = {
             title: 'New Section',
-            ...section,
             id: uid()
         };
+
+        for (var key in section)
+            if (typeof section[key] != 'undefined')
+                data[key] = section[key];
 
         this.store.update('$page.report.sections', sections => [...sections, data]);
 

@@ -1,11 +1,51 @@
-import { HtmlElement } from 'cx/widgets';
+import {HtmlElement, Repeater} from 'cx/widgets';
+import {Svg} from 'cx/svg';
+import {Chart, Gridlines, LineGraph, NumericAxis, Legend} from 'cx/charts';
+
+
+import Controller from './Controller';
 
 export default config => {
     return (
         <cx>
-            <div>
-                {config.title}
-            </div>
+            <Legend.Scope>
+                <Svg
+                    style="width:100%;height:40vh"
+                    controller={Controller}
+                >
+                    <Chart
+                        margin="10 15 30 50"
+                        axes={{
+                            x: {
+                                type: NumericAxis,
+                                format: 's',
+                                snapToTicks: 0,
+                                min: config.fromYear,
+                                max: config.toYear
+                            },
+                            y: {
+                                type: NumericAxis,
+                                vertical: true,
+                                format: config.format
+                            }
+                        }}
+                    >
+                        <Gridlines/>
+                        <Repeater records:bind="$sectionData.countries" keyField="id">
+                            <LineGraph
+                                data:bind="$record.values"
+                                colorMap="countries"
+                                yField="value"
+                                xField="year"
+                                active:bind="$record.active"
+                                name:bind="$record.name"
+                                lineStyle="stroke-width: 3px"
+                            />
+                        </Repeater>
+                    </Chart>
+                </Svg>
+                <Legend />
+            </Legend.Scope>
         </cx>
     )
 }

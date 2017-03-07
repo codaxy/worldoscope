@@ -23,7 +23,12 @@ export function wbFetch(url, params) {
     });
 
     let options = {};
-    return fetch('http://api.worldbank.org/v2/' + url + '?' + qs, options)
+
+    let urlBase = window.location.protocol == 'https:'
+        ? 'https://cors.now.sh/http://api.worldbank.org/v2/'
+        : 'http://api.worldbank.org/v2/';
+
+    return fetch(urlBase + url + '?' + qs, options)
         .then(x => x.json());
 }
 

@@ -14,6 +14,7 @@ import {
     Repeater,
     Switch
 } from 'cx/widgets';
+import {ColorMap} from 'cx/charts';
 import {LabelsTopLayout} from 'cx/ui';
 
 import Controller from './Controller';
@@ -46,6 +47,8 @@ export default <cx>
         <div class="page" visible:expr="!{$page.status}">
             <Rescope bind="$page" visible:expr="{report} != null">
                 <Header />
+
+                <ColorMap />
 
                 <Repeater records:bind="report.sections" recordAlias="$section">
                     <Section />

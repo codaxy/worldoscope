@@ -2,19 +2,20 @@ import { Format } from 'cx/ui';
 
 Format.register('short', v => {
     let suffix = '';
-    if (v >= 1e12) {
+    let a = Math.abs(v);
+    if (a >= 1e12) {
         v /= 1e12;
         suffix = 'T';
     }
-    else if (v >= 1e9) {
+    else if (a >= 1e9) {
         v /= 1e9;
         suffix = 'B';
     }
-    else if (v >= 1e6) {
+    else if (a >= 1e6) {
         v /= 1e6;
         suffix = 'M';
     }
-    else if (v >= 1e3) {
+    else if (a >= 1e3) {
         v /= 1e3;
         suffix = 'K';
     }
@@ -25,19 +26,21 @@ Format.register('short', v => {
 
 Format.register('shortcurrency', v => {
     let suffix = '';
-    if (v >= 1e12) {
+    let a = Math.abs(v);
+
+    if (a >= 1e12) {
         v /= 1e12;
         suffix = 'T';
     }
-    else if (v >= 1e9) {
+    else if (a >= 1e9) {
         v /= 1e9;
         suffix = 'B';
     }
-    else if (v >= 1e6) {
+    else if (a >= 1e6) {
         v /= 1e6;
         suffix = 'M';
     }
-    else if (v >= 1e3) {
+    else if (a >= 1e3) {
         v /= 1e3;
         suffix = 'K';
     }

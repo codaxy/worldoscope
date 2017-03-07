@@ -1,4 +1,4 @@
-import {VDOM} from 'cx/ui';
+import {VDOM, ResizeManager} from 'cx/ui';
 
 export class AnimatedHeight extends VDOM.Component
 {
@@ -21,6 +21,7 @@ export class AnimatedHeight extends VDOM.Component
 
     componentDidMount() {
         this.componentDidUpdate();
+        this.unsubscribe = ResizeManager.subscribe(::this.componentDidUpdate)
     }
 
     componentDidUpdate() {
@@ -30,5 +31,9 @@ export class AnimatedHeight extends VDOM.Component
                 height: Math.round(this.el.offsetHeight)
             });
         }
+    }
+
+    componentWillUnmount() {
+        this.unsubscribe();
     }
 }

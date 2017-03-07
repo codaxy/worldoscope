@@ -6,7 +6,7 @@ export default <cx>
     <Rescope bind="$page">
         <h1 putInto="header">My Reports</h1>
         <div controller={Controller}>
-            <FlexRow wrap spacing="large">
+            <FlexRow wrap spacing="large" pad>
                 <Repeater records:bind="reports">
                     <Link class="report-card" href:tpl="~/{$record.key}">
                         <FlexRow align="center" hspacing>
