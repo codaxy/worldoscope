@@ -38,14 +38,13 @@ export default <cx>
             <p>
                 Starred reports:
             </p>
-            <i
-                style="color:gray"
-                visible:expr="!{user.uid}"
-            >
-                You can star reports only if you sign in.
-            </i>
+            <p visible:expr="!{user.uid}">
+                <i style="color:gray">
+                    You can star reports once you sign in.
+                </i>
+            </p>
             <Repeater records:bind="$page.stars" visible:expr="!!{user.uid}">
-                <Link href:tpl="~/{$record.id}" baseClass="button" mod="hollow" text:bind="$record.title" /><br/>
+                <Link href:tpl="~/{$record.id}" baseClass="button" mod="hollow" text:bind="$record.title"/><br/>
             </Repeater>
         </div>
     </div>

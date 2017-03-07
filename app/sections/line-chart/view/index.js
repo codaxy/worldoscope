@@ -1,11 +1,14 @@
 import {HtmlElement, Repeater} from 'cx/widgets';
 import {Svg} from 'cx/svg';
 import {Chart, Gridlines, LineGraph, NumericAxis, Legend} from 'cx/charts';
+import { detectFormat } from 'app/util';
 
 
 import Controller from './Controller';
 
 export default config => {
+    let format = config.indicator ? detectFormat(config.indicator.name) : null;
+
     return (
         <cx>
             <Legend.Scope>
@@ -26,7 +29,7 @@ export default config => {
                             y: {
                                 type: NumericAxis,
                                 vertical: true,
-                                format: config.format
+                                format: format
                             }
                         }}
                     >

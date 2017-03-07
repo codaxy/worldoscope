@@ -84,7 +84,6 @@ export default class extends Controller {
     }
 
     addLineGraph(e) {
-
         let defaults = this.store.get('$page.report.defaults') || {};
 
         this.addSection(e, {
@@ -104,8 +103,12 @@ export default class extends Controller {
     }
 
     addBarGraph(e) {
+        let defaults = this.store.get('$page.report.defaults') || {};
+
         this.addSection(e, {
-            type: 'bar-chart'
+            type: 'bar-chart',
+            topic: defaults.topic,
+            indicator: defaults.indicator,
         });
     }
 

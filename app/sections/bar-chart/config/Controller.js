@@ -1,10 +1,10 @@
 import { Controller } from 'cx/ui';
-import {queryTopics, queryTopicIndicators, queryCountries } from 'api/data';
+import {queryTopics, queryTopicIndicators} from 'api/data';
 
 export default class extends Controller {
     onInit() {
-        this.addTrigger('name', ['indicator.name'], name => {
-            this.store.set('title', name);
+        this.addTrigger('name', ['indicator.name', 'year', 'top'], (name, year, top) => {
+            this.store.set('title', `Top ${top} - ${name} - ${year}`);
         });
     }
 
@@ -17,9 +17,5 @@ export default class extends Controller {
         if (!topicId)
             return [];
         return queryTopicIndicators(topicId, q);
-    }
-
-    queryCountries(q) {
-        return queryCountries(q);
     }
 }

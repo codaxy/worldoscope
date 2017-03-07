@@ -7,7 +7,7 @@ export default class extends Controller {
     }
 
     queryTopicIndicators(q) {
-        let topicId = this.store.get('topic.id');
+        let topicId = this.store.get('defaults.topic.id');
         if (!topicId)
             return [];
         return queryTopicIndicators(topicId, q);
