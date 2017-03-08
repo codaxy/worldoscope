@@ -9,11 +9,11 @@ export default <cx>
             <h2>Welcome</h2>
             <p ws>
                 This app allows you to create beautiful reports
-                based on a set of predefined section templates and
-                a vast historical data-set provided by The World Bank.
-                Explore thousands of indicators, observe trends in the period of the last
-                50 years, compare your country with the neighbourhood and
-                share your findings simply by sharing the url.
+                based on a set of predefined section templates and data from
+                a vast historical database provided by The World Bank.
+                Explore thousands of indicators, observe trends in the last
+                50 years or compare your country with the neighbourhood.
+                Share your own findings and nominate the best reports for the gallery by giving a star.
             </p>
 
             <p>
@@ -21,7 +21,7 @@ export default <cx>
             </p>
 
             <Link href="~/samples" baseClass="button" mod="hollow">
-                See some of the sample reports
+                See sample reports
             </Link>
             <br/>
             <Link href="~/new" baseClass="button" mod="hollow">

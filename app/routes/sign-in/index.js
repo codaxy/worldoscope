@@ -3,7 +3,7 @@ import {VDOM} from 'cx/ui';
 
 import Controller from './Controller';
 
-import { auth } from 'api';
+import {auth} from 'api';
 import firebase from 'firebase/app';
 
 class AuthContainer extends VDOM.Component {
@@ -53,7 +53,19 @@ class AuthContainer extends VDOM.Component {
 
 export default <cx>
     <div controller={Controller}>
-        <AuthContainer/>
+        <h1 putInto="header"></h1>
+        <div class="page">
+            <div class="prose">
+                <h2>Sign In</h2>
+                <p>
+                    By signing in you'll get the ability to save your reports and star reports made by other people.
+                </p>
+                <p>
+                    Please choose one of available sign-in options:
+                </p>
+                <AuthContainer/>
+            </div>
+        </div>
     </div>
 </cx>
 

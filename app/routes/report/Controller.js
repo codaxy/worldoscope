@@ -116,8 +116,13 @@ export default class extends Controller {
     }
 
     addColumnGraph(e) {
+        let defaults = this.store.get('$page.report.defaults') || {};
+
         this.addSection(e, {
-            type: 'column-chart'
+            type: 'column-chart',
+            topic: defaults.topic,
+            year: defaults.toYear,
+            countries: defaults.countries
         });
     }
 

@@ -4,11 +4,13 @@ import {LabelsTopLayout} from 'cx/ui';
 
 import Controller from './Controller';
 
+import {pin} from '../../pin';
+
 export default <cx>
     <div controller={Controller}>
         <p ws>
-            Bar graph presents values of the selected indicator across multiple countries.
-            This is useful to compare many countries at once.
+            Column graph presents multiple related indicators for a handful of selected countries.
+            This is useful to compare countries on multiple things at once.
         </p>
         <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>
             <LookupField
@@ -24,19 +26,30 @@ export default <cx>
             />
 
             <LookupField
-                label="Indicator"
-                value:bind="indicator.id"
-                text:bind="indicator.name"
+                label="Indicators"
+                records:bind="indicators"
                 optionTextField="name"
                 onQuery="queryTopicIndicators"
                 style="width:100%"
                 fetchAll
+                multiple
                 required
+            />
+
+            <LookupField
+                label={pin('Countries')}
+                disabled:bind="pins.countries"
+                multiple
+                records:bind="countries"
+                optionTextField="name"
+                onQuery="queryCountries"
+                style="width:100%"
+                fetchAll
+                cacheAll
             />
         </div>
 
         <FlexRow wrap target="tablet">
-
             <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}} style="flex:1; max-width: 300px">
                 <LabeledContainer label="Year">
                     <FlexRow>
@@ -64,35 +77,6 @@ export default <cx>
                     </FlexRow>
                 </LabeledContainer>
             </div>
-
-            <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}} style="flex:1; max-width: 300px">
-                <LabeledContainer label="Top">
-                    <FlexRow>
-                        <Slider
-                            value={{
-                                bind: 'top',
-                                defaultValue: 15
-                            }}
-                            minValue={5}
-                            maxValue={50}
-                            step={1}
-                            style="flex: 1; width: auto; max-width: 200px"
-                        />
-
-                        <NumberField
-                            value:bind="top"
-                            style="width:60px"
-                            inputStyle="text-align:center"
-                            format="s"
-                            increment={1}
-                            minValue={5}
-                            maxValue={50}
-                            required
-                        />
-                    </FlexRow>
-                </LabeledContainer>
-            </div>
-
         </FlexRow>
 
         <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>

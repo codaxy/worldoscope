@@ -5,7 +5,7 @@ export class AnimatedHeight extends VDOM.Component
     constructor(props) {
         super(props);
         this.state = {
-            height: 0
+            height: 1
         }
     }
 
