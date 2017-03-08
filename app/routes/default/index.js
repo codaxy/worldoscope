@@ -3,16 +3,17 @@ import {HtmlElement, Link, Icon, Repeater} from 'cx/widgets';
 import Controller from './Controller';
 
 export default <cx>
-    <h1 putInto="header">World Bank Data Explorer</h1>
+    <h1 putInto="header">World Bank Data Reports</h1>
     <div class="page" controller={Controller}>
         <div class="prose">
             <h2>Welcome</h2>
             <p ws>
-                The World Bank provides historical data
-                for almost all countries across thousands of indicators.
                 This app allows you to create beautiful reports
-                based on this vast data-set and predefined section templates.
-                Compare your country with the neighbourhood and share the report with the world.
+                based on a set of predefined section templates and
+                a vast historical data-set provided by The World Bank.
+                Explore thousands of indicators, observe trends in the period of the last
+                50 years, compare your country with the neighbourhood and
+                share your findings simply by sharing the url.
             </p>
 
             <p>

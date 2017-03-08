@@ -16,8 +16,7 @@ export default <cx>
 
         <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>
             <LookupField
-                label={pin("Topic")}
-                disabled:bind="pins.topic"
+                label="Topic"
                 value:bind="topic.id"
                 text:bind="topic.text"
                 optionTextField="value"
