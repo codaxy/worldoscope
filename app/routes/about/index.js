@@ -8,7 +8,7 @@ export default <cx>
             <p ws>
                 This is a demo application for <a href="https://cxjs.io/">Cx.js</a>.
                 The application is built using Cx and open-source products such as React, Babel and Webpack.
-                Data for reports is fetched using the <a href="http://data.worldbank.org/">World Bank Data API</a>.
+                Data for reports is fetched from <a href="http://data.worldbank.org/">World Bank Data API</a>.
                 <a href="https://firebase.google.com/">Firebase</a> is used to store report definitions and also for authentication and hosting.
                 The source code is available at GitHub.
             </p>
