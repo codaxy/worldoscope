@@ -59,7 +59,6 @@ export default class extends Controller {
     setupAutoSave() {
         this.addTrigger('autoSave', ['$page.report'], report => {
             if (report.autoSave) {
-                console.log('autosave');
                 this.saveReport();
             }
         });

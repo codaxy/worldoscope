@@ -40,7 +40,6 @@ export default class extends Controller {
             Promise.all(promises)
                 .then(() => {
                     this.store.set('$sectionData.indicators', data);
-                    console.log(data);
                     this.store.set('$sectionData.loading', false);
                 });
         }
