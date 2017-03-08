@@ -1,4 +1,5 @@
 import { Controller, History } from 'cx/ui';
+import { updateArray } from 'cx/data';
 
 import { loadReport, addReport, saveReport, auth, addStar, removeStar, isStarred } from 'api';
 
@@ -35,6 +36,24 @@ export default class extends Controller {
                 userId: auth.currentUser ? auth.currentUser.uid : null
             });
         }
+
+        this.addTrigger('trackPins', ['$page.report'], report => {
+            let defaults = report.defaults || {};
+            this.store.update('$page.report.sections', updateArray, section => {
+                let pins = {
+                    ...section.pins
+                };
+                pins.fromYear = pins.toYear = pins.period;
+                ['topic', 'countries', 'fromYear', 'toYear'].forEach(field => {
+                    if (pins[field] && section[field] != defaults[field])
+                        section = {
+                            ...section,
+                            [field]: defaults[field] || null //firebase rejects undefined values
+                        }
+                });
+                return section;
+            });
+        })
     }
 
     setupAutoSave() {

@@ -15,7 +15,27 @@ $cx-input-state-style-map: cx-deep-map-merge($cx-input-state-style-map, (
 .cxb-menuitem.cxs-medium-padding .cxb-icon {
   margin-right: 10px;
 }
+.cxb-button.cxm-small {
+  height: 24px;
+  vertical-align: bottom;
+  margin-bottom: 2px;
 
+  &.cxs-empty {
+    padding-left: 23px;
+  }
+
+  .cxe-button-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    margin-top: -8px;
+  }
+
+  &.cxs-pressed {
+    background: #b5d8ff;
+    border-radius: 2px;
+  }
+}
 
 @import "components/index";
 @import "layout/index";

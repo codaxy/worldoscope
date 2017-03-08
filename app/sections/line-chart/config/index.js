@@ -1,7 +1,10 @@
-import {HtmlElement, TextField, LookupField, NumberField, Slider, LabeledContainer, FlexRow} from 'cx/widgets';
+import {HtmlElement, TextField, LookupField, NumberField, Slider, LabeledContainer, FlexRow, Label, Icon, Button} from 'cx/widgets';
 import {LabelsTopLayout} from 'cx/ui';
 
 import Controller from './Controller';
+
+import {pin} from '../../pin';
+
 
 export default <cx>
     <div controller={Controller}>
@@ -13,7 +16,8 @@ export default <cx>
 
         <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>
             <LookupField
-                label="Topic"
+                label={pin("Topic")}
+                disabled:bind="pins.topic"
                 value:bind="topic.id"
                 text:bind="topic.text"
                 optionTextField="value"
@@ -40,7 +44,8 @@ export default <cx>
                 required />
 
             <LookupField
-                label="Countries"
+                label={pin('Countries')}
+                disabled:bind="pins.countries"
                 multiple
                 records:bind="countries"
                 optionTextField="name"
@@ -54,7 +59,7 @@ export default <cx>
 
 
         <div layout={{type: LabelsTopLayout, mod: 'stretch'}}>
-            <LabeledContainer label="Period">
+            <LabeledContainer label={pin('Period')}>
                 <FlexRow>
 
                     <NumberField
@@ -65,6 +70,7 @@ export default <cx>
                         increment={1}
                         minValue={1960}
                         maxValue={2020}
+                        disabled:bind="pins.period"
                     />
 
                     <Slider
@@ -81,6 +87,7 @@ export default <cx>
                         minValue={1960}
                         maxValue={2020}
                         step={1}
+                        disabled:bind="pins.period"
                     />
 
                     <NumberField
@@ -91,6 +98,7 @@ export default <cx>
                         increment={1}
                         minValue={2000}
                         maxValue={2020}
+                        disabled:bind="pins.period"
                     />
                 </FlexRow>
             </LabeledContainer>

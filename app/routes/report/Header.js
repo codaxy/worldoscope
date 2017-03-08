@@ -73,15 +73,15 @@ export default <cx>
                         cacheAll
                     />
 
-                    <LookupField
-                        label="Indicator"
-                        value:bind="defaults.indicator.id"
-                        text:bind="defaults.indicator.name"
-                        optionTextField="name"
-                        onQuery="queryTopicIndicators"
-                        style="width:100%"
-                        fetchAll
-                    />
+                    {/*<LookupField*/}
+                        {/*label="Indicator"*/}
+                        {/*value:bind="defaults.indicator.id"*/}
+                        {/*text:bind="defaults.indicator.name"*/}
+                        {/*optionTextField="name"*/}
+                        {/*onQuery="queryTopicIndicators"*/}
+                        {/*style="width:100%"*/}
+                        {/*fetchAll*/}
+                    {/*/>*/}
 
                     <LookupField
                         label="Countries"
