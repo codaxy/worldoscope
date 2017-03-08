@@ -6,7 +6,7 @@ import Controller from './Controller';
 import { detectFormat } from 'app/util';
 
 export default config => {
-    let format = Array.isArray(config.indicators) && config.indicators.length > 0 ? detectFormat(config.indicators[0].name) : null;
+    let format = Array.isArray(config.indicators) && config.indicators.length > 0 ? detectFormat(config.indicators[0].text) : null;
     let top = config.top || 30;
     return (
         <cx>
@@ -25,7 +25,7 @@ export default config => {
                     >
                         <Gridlines xAxis={false} />
 
-                        <Repeater records:bind="$sectionData.indicators" cached>
+                        <Repeater records:bind="$sectionData.indicators">
                             <Repeater records:bind="$record.values" recordAlias="$value">
                                 <Column
                                     x:bind="$value.indicator.value"
