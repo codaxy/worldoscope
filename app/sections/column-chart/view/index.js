@@ -3,7 +3,7 @@ import {Svg} from 'cx/svg';
 import {Chart, Gridlines, NumericAxis, CategoryAxis, Legend, ColorMap, Column} from 'cx/charts';
 
 import Controller from './Controller';
-import { detectFormat } from 'app/util';
+import {detectFormat} from 'app/util';
 
 export default config => {
     let format = Array.isArray(config.indicators) && config.indicators.length > 0 ? detectFormat(config.indicators[0].text) : null;
@@ -17,13 +17,22 @@ export default config => {
                     controller={Controller}
                 >
                     <Chart
-                        margin="10 15 250 50"
+                        margin="10 15 150 50"
                         axes={{
-                            x: { type: CategoryAxis, labelRotation: -45, labelDy: '0.4em', labelAnchor: "end" },
-                            y: { type: NumericAxis, vertical: true, format: format }
+                            x: {
+                                type: CategoryAxis,
+                                labelRotation: -45,
+                                labelDy: '0.4em',
+                                labelAnchor: "end",
+                                labelWrap: true,
+                                labelOffset: 20,
+                                labelLineCountDyFactor: -0.5,
+                                labelMaxLineLength: 30
+                            },
+                            y: {type: NumericAxis, vertical: true, format: format}
                         }}
                     >
-                        <Gridlines xAxis={false} />
+                        <Gridlines xAxis={false}/>
 
                         <Repeater records:bind="$sectionData.indicators">
                             <Repeater records:bind="$record.values" recordAlias="$value">
