@@ -1,0 +1,20 @@
+.cxb-worldmap {
+  path {
+    fill: lightgray;
+    fill-opacity: 0.8;
+    stroke: rgba(128, 128, 128, 0.5);
+    stroke-width: 1px;
+
+    transition: all 0.1s;
+
+    &:hover {
+      fill-opacity: 1;
+      stroke: black;
+      stroke-width: 1px;
+    }
+
+    &.inactive {
+      opacity: 0.3;
+    }
+  }
+}

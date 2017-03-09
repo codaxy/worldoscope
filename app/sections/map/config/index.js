@@ -7,8 +7,8 @@ import Controller from './Controller';
 export default <cx>
     <div controller={Controller}>
         <p ws>
-            Bar graph presents values of the selected indicator across multiple countries.
-            This is useful to compare many countries at once.
+            The countries are colored based on the indicator value. This is very useful
+            for a quick overview of how a selected indicator is spread in different parts of the world.
         </p>
         <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>
             <LookupField
@@ -59,34 +59,6 @@ export default <cx>
                             increment={1}
                             minValue={1960}
                             maxValue={2020}
-                            required
-                        />
-                    </FlexRow>
-                </LabeledContainer>
-            </div>
-
-            <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}} style="flex:1; max-width: 300px">
-                <LabeledContainer label="Top">
-                    <FlexRow>
-                        <Slider
-                            value={{
-                                bind: 'top',
-                                defaultValue: 15
-                            }}
-                            minValue={5}
-                            maxValue={50}
-                            step={1}
-                            style="flex: 1; width: auto; max-width: 200px"
-                        />
-
-                        <NumberField
-                            value:bind="top"
-                            style="width:60px"
-                            inputStyle="text-align:center"
-                            format="s"
-                            increment={1}
-                            minValue={5}
-                            maxValue={50}
                             required
                         />
                     </FlexRow>

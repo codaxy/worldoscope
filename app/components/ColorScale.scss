@@ -1,0 +1,23 @@
+.cxb-colorscale {}
+
+.cxe-colorscale-scale {
+  display: flex;
+  border: 1px solid lightgray;
+
+  div {
+    flex: auto;
+    height: 15px;
+  }
+}
+
+.cxe-colorscale-numbers {
+  display: flex;
+
+  div {
+    flex: auto;
+  }
+
+  div:last-child {
+    text-align: right;
+  }
+}

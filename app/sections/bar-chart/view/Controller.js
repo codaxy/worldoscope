@@ -10,6 +10,7 @@ export default class extends Controller {
     load() {
         let { top, year } = this.store.get('$section');
         let indicatorId = this.store.get('$section.indicator.id');
+        let regionId = this.store.get('$section.region.id');
 
         if (indicatorId && year) {
 
@@ -17,7 +18,10 @@ export default class extends Controller {
 
             let options = {
                 sort: true,
-                take: top || 30
+                take: top || 30,
+                filter: {
+                    region: regionId
+                }
             };
 
             let params = {

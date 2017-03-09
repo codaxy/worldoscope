@@ -1,5 +1,6 @@
 import {wbFetch} from './wbFetch';
 import _ from 'lodash';
+import { regions } from '../geo/regions';
 
 let regionCodes = {
     "WLD": true,
@@ -66,6 +67,10 @@ export async function queryCountries() {
     return countries;
 }
 
+export async function queryRegions() {
+    return regions;
+}
+
 let indicatorCache = {};
 
 export async function queryCountryIndicators(country, indicator, params, options) {
@@ -99,6 +104,18 @@ export async function queryCountryIndicators(country, indicator, params, options
     let x = indicatorCache[cacheKey];
 
     if (options) {
+        let {filter} = options;
+        if (filter) {
+            if (filter.region) {
+                let region = regions.find(a => a.id == filter.region);
+                let active = {};
+                region.countries.forEach(a => {
+                    active[a] = true
+                });
+                x = x.filter(a => active[a.country.id]);
+            }
+        }
+
         if (options.sort)
             x = _.orderBy(x, 'value', 'desc');
 

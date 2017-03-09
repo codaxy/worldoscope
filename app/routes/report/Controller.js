@@ -39,20 +39,21 @@ export default class extends Controller {
 
         this.addTrigger('trackPins', ['$page.report'], report => {
             let defaults = report.defaults || {};
-            this.store.update('$page.report.sections', updateArray, section => {
-                let pins = {
-                    ...section.pins
-                };
-                pins.fromYear = pins.toYear = pins.period;
-                ['topic', 'countries', 'fromYear', 'toYear'].forEach(field => {
-                    if (pins[field] && section[field] != defaults[field])
-                        section = {
-                            ...section,
-                            [field]: defaults[field] || null //firebase rejects undefined values
-                        }
+            if (report.sections)
+                this.store.update('$page.report.sections', updateArray, section => {
+                    let pins = {
+                        ...section.pins
+                    };
+                    pins.fromYear = pins.toYear = pins.period;
+                    ['topic', 'countries', 'fromYear', 'toYear'].forEach(field => {
+                        if (pins[field] && section[field] != defaults[field])
+                            section = {
+                                ...section,
+                                [field]: defaults[field] || null //firebase rejects undefined values
+                            }
+                    });
+                    return section;
                 });
-                return section;
-            });
         })
     }
 
@@ -96,8 +97,13 @@ export default class extends Controller {
     }
 
     addMap(e) {
+        let defaults = this.store.get('$page.report.defaults') || {};
+
         this.addSection(e, {
-            type: 'map'
+            type: 'map',
+            topic: defaults.topic,
+            year: defaults.toYear,
+            countries: defaults.countries
         });
     }
 
@@ -154,7 +160,7 @@ export default class extends Controller {
             if (typeof section[key] != 'undefined')
                 data[key] = section[key];
 
-        this.store.update('$page.report.sections', sections => [...sections, data]);
+        this.store.update('$page.report.sections', sections => [...(sections || []), data]);
 
         //open in edit mode
         this.store.update('$page.sections', sections => ({
