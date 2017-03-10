@@ -31,7 +31,7 @@ export default config => {
                 <ColorScale
                     best="#00B237"
                     worst="#B20300"
-                    zero="#FFFFFF"
+                    zero="#ecfb1a"
                     style="flex: 1; max-width: 300px"
                     format={format}
                 />

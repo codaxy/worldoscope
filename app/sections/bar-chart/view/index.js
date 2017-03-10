@@ -19,7 +19,7 @@ export default config => {
                         margin="10 20 30 130"
                         axes={{
                             x: { type: NumericAxis, snapToTicks: 0, format: format },
-                            y: { type: CategoryAxis, vertical: true, inverted: true }
+                            y: { type: CategoryAxis, vertical: true, inverted: true, labelWrap: true, labelMaxLineLength: 20 }
                         }}
                     >
                         <Gridlines yAxis={false} />

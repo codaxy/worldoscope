@@ -37,6 +37,11 @@ $cx-input-state-style-map: cx-deep-map-merge($cx-input-state-style-map, (
   }
 }
 
+.cxm-block {
+  width: auto;
+  display: block;
+}
+
 @import "components/index";
 @import "layout/index";
 @import "routes/index";
