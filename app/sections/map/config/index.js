@@ -1,4 +1,4 @@
-import {HtmlElement, TextField, TextArea, LookupField, Slider, NumberField, LabeledContainer, FlexRow} from 'cx/widgets';
+import {HtmlElement, TextField, TextArea, LookupField, Slider, NumberField, LabeledContainer, FlexRow, Radio, Heading} from 'cx/widgets';
 
 import {LabelsTopLayout} from 'cx/ui';
 
@@ -10,6 +10,8 @@ export default <cx>
             The countries are colored based on the indicator value. This is very useful
             for a quick overview of how a selected indicator is spread in different parts of the world.
         </p>
+
+
         <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>
             <LookupField
                 label="Topic"

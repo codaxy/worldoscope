@@ -103,6 +103,16 @@ export default class extends Controller {
             type: 'map',
             topic: defaults.topic,
             year: defaults.toYear,
+            region: defaults.region
+        });
+    }
+
+    addLegend(e) {
+        let defaults = this.store.get('$page.report.defaults') || {};
+
+        this.addSection(e, {
+            type: 'legend',
+            region: defaults.region,
             countries: defaults.countries
         });
     }
@@ -116,6 +126,7 @@ export default class extends Controller {
             indicator: defaults.indicator,
             fromYear: defaults.fromYear,
             toYear: defaults.toYear,
+            region: defaults.region,
             countries: defaults.countries
         });
     }
@@ -127,6 +138,7 @@ export default class extends Controller {
             type: 'column-chart',
             topic: defaults.topic,
             year: defaults.toYear,
+            region: defaults.region,
             countries: defaults.countries
         });
     }
@@ -137,13 +149,17 @@ export default class extends Controller {
         this.addSection(e, {
             type: 'bar-chart',
             topic: defaults.topic,
+            region: defaults.region,
             indicator: defaults.indicator,
         });
     }
 
     addTable(e) {
+        let defaults = this.store.get('$page.report.defaults') || {};
+
         this.addSection(e, {
-            type: 'table'
+            type: 'table',
+            region: defaults.region
         });
     }
 

@@ -59,6 +59,7 @@ export default <cx>
                         <Submenu>
                             <a href="#" ws><Icon name="add"/> Add Section</a>
                             <Menu putInto="dropdown">
+                                <a href="#" onClick="addLegend"><Icon name="map"/> Map Legend</a>
                                 <a href="#" onClick="addMap"><Icon name="map"/> Map</a>
                                 <a href="#" onClick="addLineGraph"><Icon name="show_chart"/> Line Graph</a>
                                 <a href="#" onClick="addBarGraph"><Icon name="format_align_left"/> Bar Graph</a>

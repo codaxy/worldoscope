@@ -30,10 +30,12 @@ export default <cx>
             <AnimatedHeight>
 
                 <div visible:expr="!{$sectionData.form}">
-                    <FlexRow align="center" vpad>
+                    <FlexRow align="center" style="margin-bottom: 10px">
                         <Heading text:bind="$section.title" level={3}/>
                         <Button
-                            mod="hollow" icon="mode_edit" style="margin-left: auto"
+                            mod="hollow"
+                            icon="mode_edit"
+                            style="margin-left: auto;"
                             onClick={(e, {store}) => {
                                 let config = store.get('$section');
                                 store.set('$sectionData.form', config);

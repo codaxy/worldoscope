@@ -1,0 +1,16 @@
+.boxoption {
+  padding: 10px;
+  flex: 1;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &:hover {
+    border-color: lightgray;
+  }
+
+  &.selected {
+    background: white;
+    border-color: gray;
+  }
+
+}

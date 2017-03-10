@@ -15,9 +15,21 @@ export class Map extends BoundedObject {
         })
     }
 
+    explore(context, instance) {
+        let {data} = instance;
+        if (Array.isArray(data.records) && this.nameField && this.colorMap && context.getColorMap) {
+            let colorMap = context.getColorMap(this.colorMap);
+            instance.colorMap = colorMap;
+            data.records.forEach(c => {
+                colorMap.acknowledge(c[this.nameField]);
+            });
+        }
+        super.explore(context, instance);
+    }
+
     prepare(context, instance) {
 
-        let {data} = instance;
+        let {data, colorMap} = instance;
 
         if (Array.isArray(data.records) && this.valueField && this.colorScale && context.getColorScale) {
             let colorScale = context.getColorScale(this.colorScale);
@@ -27,11 +39,20 @@ export class Map extends BoundedObject {
             });
         }
 
+        if (Array.isArray(data.records) && this.nameField && context.addLegendEntry) {
+            data.records.forEach(c => {
+                context.addLegendEntry(this.legend, {
+                    name: c[this.nameField],
+                    colorIndex: colorMap ? colorMap.map(c[this.nameField]) : null
+                });
+            });
+        }
+
         super.prepare(context, instance);
     }
 
     render(context, instance, key) {
-        let {data, colorScale} = instance;
+        let {data, colorScale, colorMap} = instance;
         let {bounds} = data;
 
         let info = {};
@@ -63,6 +84,7 @@ export class Map extends BoundedObject {
 
         let paths = countryList.map(c => {
             let d = info[c.id], style;
+            let colorIndex = null;
             if (d) {
                 if (this.colorField && d[this.colorField]) {
                     style = {
@@ -73,9 +95,15 @@ export class Map extends BoundedObject {
                     style = {
                         fill: colorScale.map(d[this.valueField])
                     }
+                } else if (colorMap) {
+                    colorIndex = colorMap.map(d[this.nameField]);
                 }
             }
-            let className = activeIds && !activeIds[c.id] ? 'inactive' : null;
+            let className = this.CSS.element(this.baseClass, 'country', {
+                inactive: activeIds && !activeIds[c.id],
+                [`color-${colorIndex}`]: colorIndex != null,
+                [`unstyled`]: colorIndex == null
+            });
             return (
                 <path
                     key={c.id}
@@ -109,9 +137,10 @@ export class Map extends BoundedObject {
     }
 }
 
-Map.prototype.baseClass = "worldmap";
+Map.prototype.baseClass = "map";
 Map.prototype.anchors = '0 1 1 0';
 Map.prototype.idField = 'id';
 Map.prototype.colorField = false;
 Map.prototype.colorScale = false;
 Map.prototype.valueField = false;
+Map.prototype.legend = 'legend';

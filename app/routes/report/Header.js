@@ -87,6 +87,7 @@ export default <cx>
                         label="Countries"
                         multiple
                         records:bind="defaults.countries"
+                        optionIdField="iso2Code"
                         optionTextField="name"
                         onQuery="queryCountries"
                         style="width:100%"

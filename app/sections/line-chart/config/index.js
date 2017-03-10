@@ -47,6 +47,7 @@ export default <cx>
                 disabled:bind="pins.countries"
                 multiple
                 records:bind="countries"
+                optionIdField="iso2Code"
                 optionTextField="name"
                 onQuery="queryCountries"
                 style="width:100%"
