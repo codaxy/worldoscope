@@ -10,7 +10,7 @@ export class AnimatedHeight extends VDOM.Component
     }
 
     render() {
-        return <div className={`cxb-animatedheight ${this.props.className}`} style={this.state}>
+        return <div className={`cxb-animatedheight ${this.props.className || ''}`} style={this.state}>
             <div ref={el => {
                 this.el = el
             }}>

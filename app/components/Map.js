@@ -112,9 +112,13 @@ export class Map extends BoundedObject {
                     style={style}
                     className={className}
                     onMouseMove={e=> {
-                        if (d)
-                            instance.data.tooltip.text = c.name + ' - ' + d[this.valueField];
-                        tooltipMouseMove(e, instance, null, this.el)
+                        tooltipMouseMove(e, instance, this.tooltip, {
+                            target: this.el,
+                            data: {
+                                $country: c,
+                                $record: d
+                            }
+                        })
                     }}
                 />
             );
@@ -126,7 +130,7 @@ export class Map extends BoundedObject {
                 ref={el => { this.el = el}}
                 className={data.classNames}
                 onMouseLeave={e => {
-                    tooltipMouseLeave(e, instance, null, this.el)
+                    tooltipMouseLeave(e, instance, this.tooltip, { target: this.el })
                 }}
                 style={{
                     transform: `scale(${scale}) translate(${dx}px, ${dy}px) `

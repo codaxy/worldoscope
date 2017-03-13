@@ -40,7 +40,14 @@ $cx-input-state-style-map: cx-deep-map-merge($cx-input-state-style-map, (
 .cxm-block {
   width: auto;
   display: block;
+
+  &.cxb-label {
+    padding-bottom: 0;
+    margin-top: 5px;
+  }
 }
+
+
 
 @import "components/index";
 @import "layout/index";

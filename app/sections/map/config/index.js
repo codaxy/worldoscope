@@ -12,30 +12,32 @@ export default <cx>
         </p>
 
 
-        <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>
-            <LookupField
-                label="Topic"
-                value:bind="topic.id"
-                text:bind="topic.text"
-                optionTextField="value"
-                onQuery="queryTopics"
-                style="width:100%"
-                fetchAll
-                cacheAll
-                required
-            />
+        {/*<div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>*/}
+            {/**/}
+        {/*</div>*/}
 
-            <LookupField
-                label="Indicator"
-                value:bind="indicator.id"
-                text:bind="indicator.name"
-                optionTextField="name"
-                onQuery="queryTopicIndicators"
-                style="width:100%"
-                fetchAll
-                required
-            />
-        </div>
+        <LookupField
+            label="Topic"
+            value:bind="topic.id"
+            text:bind="topic.text"
+            optionTextField="value"
+            onQuery="queryTopics"
+            mod="block"
+            fetchAll
+            cacheAll
+            required
+        />
+
+        <LookupField
+            label="Indicator"
+            value:bind="indicator.id"
+            text:bind="indicator.name"
+            optionTextField="name"
+            onQuery="queryTopicIndicators"
+            mod="block"
+            fetchAll
+            required
+        />
 
         <FlexRow wrap target="tablet">
 

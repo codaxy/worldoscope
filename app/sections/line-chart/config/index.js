@@ -14,14 +14,14 @@ export default <cx>
         </p>
 
 
-        <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>
+        {/*<div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>*/}
             <LookupField
                 label="Topic"
                 value:bind="topic.id"
                 text:bind="topic.text"
                 optionTextField="value"
                 onQuery="queryTopics"
-                style="width:100%"
+                mod="block"
                 fetchAll
                 cacheAll
                 required
@@ -34,7 +34,7 @@ export default <cx>
                 text:bind="indicator.name"
                 optionTextField="name"
                 onQuery="queryTopicIndicators"
-                style="width:100%"
+                mod="block"
                 fetchAll
                 required
             />
@@ -50,16 +50,16 @@ export default <cx>
                 optionIdField="iso2Code"
                 optionTextField="name"
                 onQuery="queryCountries"
-                style="width:100%"
+                mod="block"
                 fetchAll
                 cacheAll
             />
 
-        </div>
+        {/*</div>*/}
 
 
-        <div layout={{type: LabelsTopLayout, mod: 'stretch'}}>
-            <LabeledContainer label={pin('Period')}>
+        {/*<div layout={{type: LabelsTopLayout, mod: 'stretch'}}>*/}
+            <LabeledContainer label={pin('Period')} mod="block">
                 <FlexRow>
 
                     <NumberField
@@ -102,7 +102,7 @@ export default <cx>
                     />
                 </FlexRow>
             </LabeledContainer>
-        </div>
+        {/*</div>*/}
 
     </div>
 </cx>

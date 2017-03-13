@@ -3,7 +3,7 @@ import {Label, Button} from 'cx/widgets';
 export const pin = (text, field) => {
     field = field || text.toLowerCase();
     return <cx>
-        <Label ws>
+        <Label ws disabled={false}>
             {text}
             <Button
                 tooltip="Track and use the value defined at the report level."

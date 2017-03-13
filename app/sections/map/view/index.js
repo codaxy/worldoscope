@@ -20,8 +20,8 @@ export default config => {
                         colorScale="default"
                         region={config.region && config.region.id}
                         tooltip={{
-                            text: "Tooltip",
-                            title: {bind: '$section.indicator.name'},
+                            text: {tpl: `{$record.value:${format}}`},
+                            title: {bind: '$country.name'},
                             trackMouse: true
                         }}
                     />

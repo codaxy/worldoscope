@@ -16,6 +16,7 @@ module.exports = {
             api: paths.api(),
             //uncomment the line below to alias cx-react to cx-preact or some other React replacement library
             //'cx-react': 'cx-preact',
+            //'cx-core': paths.app('../../cx/packages/cx-core/')
         }
     },
 
