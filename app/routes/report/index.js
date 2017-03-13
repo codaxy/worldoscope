@@ -21,7 +21,7 @@ import Controller from './Controller';
 import Header from './Header';
 import Section from './Section';
 
-import {AnimatedHeight} from 'app/components';
+import {AnimatedHeight, HashRestore} from 'app/components';
 
 export default <cx>
 
@@ -49,6 +49,8 @@ export default <cx>
                 <Header />
 
                 <ColorMap />
+
+                <HashRestore />
 
                 <Repeater records:bind="report.sections" recordAlias="$section">
                     <Section />

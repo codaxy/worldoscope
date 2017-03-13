@@ -23,15 +23,19 @@ import sectionTypes from '../../sections';
 
 export default <cx>
     <Sandbox key:bind="$section.id" storage:bind="sections" recordAlias="$sectionData">
-        <div class={{
-            section: true,
-            edit: {bind: '$sectionData.form'}
-        }}>
+        <div id:bind="$section.id"
+            class={{
+                section: true,
+                edit: {bind: '$sectionData.form'}
+            }}
+        >
             <AnimatedHeight>
 
                 <div visible:expr="!{$sectionData.form}">
                     <FlexRow align="center" style="margin-bottom: 10px">
-                        <Heading text:bind="$section.title" level={3}/>
+                        <Heading level={3}>
+                            <a href:tpl="#{$section.id}" text:bind="$section.title"></a>
+                        </Heading>
                         <Button
                             mod="hollow"
                             icon="mode_edit"
