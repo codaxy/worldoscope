@@ -18,11 +18,15 @@
     },
     "stars": {
       "$rid": {
+        ".read": true,
         "$uid": {
-          ".read": "$uid == auth.uid",
           ".write": "$uid == auth.uid"
         }
       }
+    },
+    "gallery": {
+      ".read": true,
+      ".write": true
     }
   }
 }
