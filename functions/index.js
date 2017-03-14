@@ -22,28 +22,28 @@ exports.addToGallery = functions.database.ref("/reports/{reportId}").onWrite((ev
     let reportRef = event.data.ref;
     let reportId = event.params.reportId;
     let sampleRef = reportRef.parent.parent.child(`/gallery/${reportId}`);
+    let starsRef = reportRef.parent.parent.child(`/stars/${reportId}`);
 
     return reportRef.once('value', rep => {
         let report = rep.val();
-        if (report.public) {
-            if (!sampleRef.exists()) {
-                return functions.database
-                    .ref(`/stars/${reportId}`)
-                    .once("value", stars => sampleRef.set({
-                        id: reportId,
-                        title: report.title,
-                        description: report.description,
-                        starCount: stars ? stars.numChildren() : 0
-                    }));
-            }
-            else {
+
+        return sampleRef.once('value', sample => {
+            if (sample.exists()) {
+                if (!report.public)
+                    return sampleRef.remove();
+
                 return sampleRef.update({
                     "title": report.title,
                     "description": report.description
                 });
             }
-        }
-        else if (sampleRef.exists())
-            return sampleRef.remove();
+
+            return starsRef.once('value', stars => sampleRef.set({
+                id: reportId,
+                title: report.title,
+                description: report.description,
+                starCount: stars ? stars.numChildren() : 0
+            }));
+        });
     });
 });
