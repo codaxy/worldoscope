@@ -1,13 +1,15 @@
 import { Controller, History } from 'cx/ui';
 import { updateArray } from 'cx/data';
 
-import { loadReport, addReport, saveReport, currentUserId, addStar, removeStar, isStarred } from 'api';
+import { loadReport, addReport, saveReport, deleteReport, currentUserId, addStar, removeStar, isStarred } from 'api';
 
 import uid from 'uid';
 
 export default class extends Controller {
     onInit() {
         this.loadReport();
+
+        this.addComputable('$page.editable', ['user', '$page.report'], (user, report) => user && report && report.userId == user.uid);
     }
 
     loadReport() {
@@ -29,13 +31,19 @@ export default class extends Controller {
             }
         }
         else {
-            this.store.init('$page.report', {
+            let copy = this.store.get('clipboard.report');
+
+            this.store.set('$page.report', {
                 title: 'New Report',
                 sections: [],
-                public: true, //for now
+                public: false,
                 autoSave: true,
-                userId: currentUserId()
+                ...copy,
+                userId: currentUserId(),
+                id: null
             });
+
+            this.store.delete('clipboard.report');
 
             this.editHeader();
         }
@@ -58,6 +66,12 @@ export default class extends Controller {
                     return section;
                 });
         })
+    }
+
+    toggleLock() {
+        this.store.toggle('$page.report.public');
+        if (!this.store.get('$page.report.autoSave'))
+            this.saveReport();
     }
 
     editHeader() {
@@ -89,6 +103,22 @@ export default class extends Controller {
         else {
             saveReport(id, report);
         }
+    }
+
+    deleteReport() {
+        let id = this.store.get('$route.id');
+        if (id != 'new') {
+            deleteReport(id)
+                .then(() => {
+                    History.replaceState({}, null, `~/`);
+                });
+        }
+    }
+
+    copyReport() {
+        let rep = this.store.get('$page.report');
+        this.store.set('clipboard.report', rep);
+        History.pushState({}, null, `~/new`);
     }
 
     starReport() {

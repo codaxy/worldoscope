@@ -36,6 +36,7 @@ export default <cx>
             <FlexRow align="center" vpad>
                 <Heading text:bind="report.title" level={2}/>
                 <Button
+                    visible:bind="editable"
                     mod="hollow" icon="mode_edit" style="margin-left: auto"
                     onClick="editHeader"
                 />

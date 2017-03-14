@@ -40,6 +40,7 @@ export default <cx>
                             mod="hollow"
                             icon="mode_edit"
                             style="margin-left: auto;"
+                            visible:bind="editable"
                             onClick={(e, {store}) => {
                                 let config = store.get('$section');
                                 store.set('$sectionData.form', config);

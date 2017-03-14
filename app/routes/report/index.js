@@ -34,10 +34,21 @@ export default <cx>
                 icon="save"
                 style="margin-left: auto"
                 onClick="saveReport"
-                disabled:expr="{$page.report.autoSave}"
+                disabled:expr="{$page.report.autoSave} && {$page.report.id}"
+                visible:bind="$page.editable"
             />
+            <Button
+                mod="hollow"
+                icon:expr="{$page.report.public} ? 'lock_open' : 'lock'"
+                onClick="toggleLock"
+                visible:expr="{$page.editable} && {$page.report.id}"
+                tooltip:expr="{$page.report.public} ? 'This report is listed in the samples gallery.' : 'This report is not listed in the samples gallery.'"
+            />
+
             <Button mod="hollow" icon="star_border" onClick="starReport" visible:expr="{$page.starred} === false"/>
             <Button mod="hollow" icon="star" onClick="unstarReport" visible:expr="{$page.starred} === true"/>
+
+            <Button mod="hollow" icon="content_copy" onClick="copyReport" tooltip="Copy this report into a new one..." visible:expr="!!{$page.report.id}" />
         </PureContainer>
 
         <div visible:expr="{$page.status} == 'loading'" class="loading">
@@ -57,7 +68,18 @@ export default <cx>
                 </Repeater>
 
                 <FlexRow putInto="footer" class="footer" align="center">
-                    <Menu horizontal>
+                    <Button
+                        mod="hollow"
+                        icon="vertical_align_top"
+                        tooltip="Back to Top"
+                        onClick={() => {
+                            document.body.scrollTop = 0;
+                        }}
+                    />
+                    <Menu
+                        horizontal
+                        visible:bind="editable"
+                    >
                         <Submenu>
                             <a href="#" ws><Icon name="add"/> Add Section</a>
                             <Menu putInto="dropdown">
@@ -75,9 +97,19 @@ export default <cx>
                         value:bind="report.autoSave"
                         style="margin-left: auto"
                         disabled:expr="!{report.id}"
+                        visible:bind="editable"
                     >
                         Auto Save
                     </Switch>
+                    <Button
+                        mod="hollow"
+                        icon="delete"
+                        disabled:expr="!{report.id}"
+                        visible:bind="editable"
+                        tooltip="Delete this report"
+                        confirm="Are you sure that you want to delete this report?"
+                        onClick="deleteReport"
+                    />
                 </FlexRow>
             </Rescope>
         </div>

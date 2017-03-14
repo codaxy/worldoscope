@@ -5,43 +5,45 @@ const admin = require('firebase-admin');
 
 admin.initializeApp(functions.config().firebase);
 
-exports.starAdded = functions.database.ref("/stars/{reportId}/{userId}").onWrite((event) => {
-    var collectionRef = event.data.ref.parent;
-    var countRef = functions.database.ref("/gallery/{reportId}/starCount");
+exports.addStar = functions.database.ref("/stars/{reportId}/{userId}").onWrite((event) => {
+    let repStarsRef = event.data.ref.parent;
+    let reportId = event.params.reportId;
+    let countRef = repStarsRef.parent.parent.child(`gallery/${reportId}/starCount`);
 
-    if (!countRef.exists())
-        return null;
+    countRef.once('value', data => {
+        if (!data.exists())
+            return null;
 
-    return collectionRef.once('value', function (stars) {
-        return countRef.set(stars ? stars.numChildren() : 0);
+        return repStarsRef.once('value', stars => countRef.set(stars ? stars.numChildren() : 0));
     });
 });
 
-exports.addToGallery = functions.database.ref("/report/{reportId}").onWrite((event) => {
-    var reportRef = event.data.ref;
-    var galleryRef = functions.database.ref("/gallery/{reportId}");
+exports.addToGallery = functions.database.ref("/reports/{reportId}").onWrite((event) => {
+    let reportRef = event.data.ref;
+    let reportId = event.params.reportId;
+    let sampleRef = reportRef.parent.parent.child(`/gallery/${reportId}`);
 
-    return reportRef.once('value', function (report) {
+    return reportRef.once('value', rep => {
+        let report = rep.val();
         if (report.public) {
-            if (!galleryRef.exists()) {
-                return functions.database.ref("/stars/{reportId}")
-                    .once("value", function (stars) {
-                        return galleryRef.set({
-                            id: report.id,
-                            title: report.title,
-                            description: report.description,
-                            starCount: stars ? stars.numChildren() : 0
-                        });
-                    })
+            if (!sampleRef.exists()) {
+                return functions.database
+                    .ref(`/stars/${reportId}`)
+                    .once("value", stars => sampleRef.set({
+                        id: reportId,
+                        title: report.title,
+                        description: report.description,
+                        starCount: stars ? stars.numChildren() : 0
+                    }));
             }
             else {
-                return galleryRef.update({
+                return sampleRef.update({
                     "title": report.title,
                     "description": report.description
                 });
             }
         }
-        else if (galleryRef.exists())
-            return galleryRef.remove();
+        else if (sampleRef.exists())
+            return sampleRef.remove();
     });
 });

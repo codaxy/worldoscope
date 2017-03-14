@@ -23,6 +23,11 @@ export function saveReport(id, report) {
         .then(x => data);
 }
 
+export function deleteReport(id) {
+    return database.ref(`reports/${id}`)
+        .remove();
+}
+
 export function getPublicReports() {
     return reports
         .orderByChild('public').equalTo(true)
