@@ -18,6 +18,9 @@ dependencies:
 
   override:
     - yarn install
+    - cd functions
+    - yarn install
+    - cd ..
 
 deployment:
   production:
