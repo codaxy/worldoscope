@@ -33,15 +33,15 @@ exports.addToGallery = functions.database.ref("/reports/{reportId}").onWrite((ev
                     return sampleRef.remove();
 
                 return sampleRef.update({
-                    "title": report.title,
-                    "description": report.description
+                    "title": report.title || null,
+                    "description": report.description || null
                 });
             }
 
             return starsRef.once('value', stars => sampleRef.set({
                 id: reportId,
-                title: report.title,
-                description: report.description,
+                title: report.title || null,
+                description: report.description || null,
                 starCount: stars ? stars.numChildren() : 0
             }));
         });
