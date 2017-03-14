@@ -21,7 +21,7 @@ export default config => {
                         colorMap="countries"
                         region={config.region && config.region.id}
                         tooltip={{
-                            text:{ bind: "$item.name" },
+                            text:{ bind: "$country.name" },
                             trackMouse: true
                         }}
                     />

@@ -37,13 +37,7 @@ export default <cx>
                 <Heading text:bind="report.title" level={2}/>
                 <Button
                     mod="hollow" icon="mode_edit" style="margin-left: auto"
-                    onClick={(e, {store}) => {
-                        let {title, description, defaults} = store.get('report');
-                        store.set('header', {
-                            title, description, edit: true
-                        });
-                        store.set('defaults', defaults);
-                    }}
+                    onClick="editHeader"
                 />
             </FlexRow>
             <p text:bind="report.description" visible:bind="report.description"/>
@@ -51,7 +45,7 @@ export default <cx>
 
         <div visible:bind="header.edit" controller={Controller}>
 
-            <Heading level={2}>Report</Heading>
+            <Heading level={2}>Report Settings</Heading>
 
             <ValidationGroup
                 layout={{type: LabelsTopLayout, vertical: true, mod: 'stretch'}}

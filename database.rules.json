@@ -1,12 +1,28 @@
 {
   "rules": {
-    ".read": true,
-    ".write": true,
     "reports": {
+      ".read": true,
       ".indexOn": [
         "public",
         "userId"
-      ]
+      ],
+      "$uid": {
+        ".write": "data.child('id').val() == null || data.child('userId').val() === auth.uid"
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": "$uid == auth.uid",
+        ".write": "$uid == auth.uid"
+      }
+    },
+    "stars": {
+      "$rid": {
+        "$uid": {
+          ".read": "$uid == auth.uid",
+          ".write": "$uid == auth.uid"
+        }
+      }
     }
   }
 }

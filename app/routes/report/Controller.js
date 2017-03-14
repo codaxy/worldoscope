@@ -1,7 +1,7 @@
 import { Controller, History } from 'cx/ui';
 import { updateArray } from 'cx/data';
 
-import { loadReport, addReport, saveReport, auth, addStar, removeStar, isStarred } from 'api';
+import { loadReport, addReport, saveReport, currentUserId, addStar, removeStar, isStarred } from 'api';
 
 import uid from 'uid';
 
@@ -23,7 +23,7 @@ export default class extends Controller {
                     this.setupAutoSave();
                 });
 
-            if (auth.currentUser) {
+            if (currentUserId()) {
                 isStarred(id)
                     .then(value => this.store.set('$page.starred', value));
             }
@@ -33,8 +33,11 @@ export default class extends Controller {
                 title: 'New Report',
                 sections: [],
                 public: true, //for now
-                userId: auth.currentUser ? auth.currentUser.uid : null
+                autoSave: true,
+                userId: currentUserId()
             });
+
+            this.editHeader();
         }
 
         this.addTrigger('trackPins', ['$page.report'], report => {
@@ -55,6 +58,14 @@ export default class extends Controller {
                     return section;
                 });
         })
+    }
+
+    editHeader() {
+        let {title, description, defaults} = this.store.get('$page.report');
+        this.store.set('$page.header', {
+            title, description, edit: true
+        });
+        this.store.set('$page.defaults', defaults);
     }
 
     setupAutoSave() {
@@ -154,12 +165,25 @@ export default class extends Controller {
         });
     }
 
-    addTable(e) {
+    addTableTrend(e) {
         let defaults = this.store.get('$page.report.defaults') || {};
 
         this.addSection(e, {
-            type: 'table',
-            region: defaults.region
+            type: 'table-trend',
+            region: defaults.region,
+            indicator: defaults.indicator,
+            fromYear: defaults.fromYear,
+            toYear: defaults.toYear,
+        });
+    }
+
+    addTableIndicators(e) {
+        let defaults = this.store.get('$page.report.defaults') || {};
+
+        this.addSection(e, {
+            type: 'table-indicators',
+            region: defaults.region,
+            year: defaults.toYear,
         });
     }
 

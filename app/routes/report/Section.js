@@ -82,6 +82,7 @@ export default <cx>
                             Save
                         </Button>
                         <Button
+                            mod="hollow"
                             onClick={(e, {store}) => {
                                 store.delete('$sectionData.form');
                             }}
@@ -90,16 +91,15 @@ export default <cx>
                         </Button>
 
                         <Button
-                            mod="danger"
+                            mod="hollow"
+                            icon="delete"
                             style="margin-left: auto"
                             confirm="Are you sure that you want to delete this section?"
                             onClick={(e, {store}) => {
                                 let s = store.get('$section');
                                 store.update('report.sections', sections => sections.filter(x => x != s));
                             }}
-                        >
-                            Delete
-                        </Button>
+                        />
                     </FlexRow>
                 </div>
 
