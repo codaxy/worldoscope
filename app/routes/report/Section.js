@@ -15,7 +15,9 @@ import {
     Repeater,
     Switch,
     Sandbox,
-    ContentResolver
+    ContentResolver,
+    DragSource,
+    DragHandle
 } from 'cx/widgets';
 import {LabelsTopLayout} from 'cx/ui';
 import {AnimatedHeight} from 'app/components';
@@ -23,11 +25,16 @@ import sectionTypes from '../../sections';
 
 export default <cx>
     <Sandbox key:bind="$section.id" storage:bind="sections" recordAlias="$sectionData">
-        <div id:bind="$section.id"
+        <DragSource id:bind="$section.id"
             class={{
                 section: true,
                 edit: {bind: '$sectionData.form'}
             }}
+            data={{
+                index: {bind: "$index"},
+                type: 'section'
+            }}
+            hideOnDrag
         >
             <AnimatedHeight>
 
@@ -36,10 +43,12 @@ export default <cx>
                         <Heading level={3}>
                             <a href:tpl="#{$section.id}" text:bind="$section.title"></a>
                         </Heading>
+                        <DragHandle style="cursor:move; margin-left: auto;">
+                            <Icon name="drag_handle" />
+                        </DragHandle>
                         <Button
                             mod="hollow"
                             icon="mode_edit"
-                            style="margin-left: auto;"
                             visible:bind="editable"
                             onClick={(e, {store}) => {
                                 let config = store.get('$section');
@@ -105,6 +114,6 @@ export default <cx>
                 </div>
 
             </AnimatedHeight>
-        </div>
+        </DragSource>
     </Sandbox>
 </cx>

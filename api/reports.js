@@ -28,15 +28,14 @@ export function deleteReport(id) {
         .remove();
 }
 
-export function getPublicReports() {
-    return reports
-        .orderByChild('public').equalTo(true)
+export function getPublicReports(page = 1, pageSize = 100) {
+    return database.ref('gallery')
+        .orderByChild('starCount')
+        .limitToLast(pageSize)
         .once('value')
         .then(x => {
             let v = x.val() || {};
-            return Object.keys(v).map(k => Object.assign({}, v[k], {
-                key: k
-            }));
+            return _.orderBy(Object.keys(v).map(k => v[k]), "starCount", "desc");
         });
 }
 

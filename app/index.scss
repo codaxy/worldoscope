@@ -47,6 +47,11 @@ $cx-input-state-style-map: cx-deep-map-merge($cx-input-state-style-map, (
   }
 }
 
+.cxb-dropzone.cxs-over {
+  background: #e7f2e7;
+  border: none !important;
+}
+
 
 @import "components/index";
 @import "layout/index";

@@ -12,7 +12,8 @@ import {
     Submenu,
     Icon,
     Repeater,
-    Switch
+    Switch,
+    DropZone
 } from 'cx/widgets';
 import {ColorMap} from 'cx/charts';
 import {LabelsTopLayout} from 'cx/ui';
@@ -22,6 +23,25 @@ import Header from './Header';
 import Section from './Section';
 
 import {AnimatedHeight, HashRestore} from 'app/components';
+
+function moveElement(array, sourceIndex, targetIndex) {
+    if (targetIndex == sourceIndex)
+        return array;
+
+    let el = array[sourceIndex];
+    let res = [...array];
+    if (sourceIndex < targetIndex) {
+        for (let i = sourceIndex; i + 1 < targetIndex; i++)
+            res[i] = res[i + 1];
+        targetIndex--;
+    }
+    else {
+        for (let i = sourceIndex; i > targetIndex; i--)
+            res[i] = res[i - 1];
+    }
+    res[targetIndex] = el;
+    return res;
+}
 
 export default <cx>
 
@@ -63,8 +83,28 @@ export default <cx>
 
                 <HashRestore />
 
-                <Repeater records:bind="report.sections" recordAlias="$section">
+                <DropZone
+                    mod="block"
+                    onDropTest={e=>e.source.data.type == 'section'}
+                    onDrop={(e, {store}) => {
+                        store.update('report.sections', moveElement, e.source.data.index, 0);
+                    }}
+                    matchHeight
+                    matchMargin
+                    inflate={800}
+                />
+                <Repeater records:bind="report.sections" recordAlias="$section" idField="id">
                     <Section />
+                    <DropZone
+                        mod="block"
+                        onDropTest={e=>e.source.data.type == 'section'}
+                        onDrop={(e, {store}) => {
+                            store.update('report.sections', moveElement, e.source.data.index, store.get('$index') + 1);
+                        }}
+                        matchHeight
+                        matchMargin
+                        inflate={800}
+                    />
                 </Repeater>
 
                 <FlexRow putInto="footer" class="footer" align="center">

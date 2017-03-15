@@ -1,4 +1,4 @@
-import { HtmlElement, Rescope, Text, Repeater, FlexRow, Link, Icon, Heading } from 'cx/widgets';
+import {HtmlElement, Rescope, Text, Repeater, FlexRow, Link, Icon, Heading} from 'cx/widgets';
 
 import Controller from './Controller';
 
@@ -8,12 +8,15 @@ export default <cx>
         <div controller={Controller}>
             <FlexRow wrap spacing="large" pad>
                 <Repeater records:bind="reports">
-                    <Link class="report-card" href:tpl="~/{$record.key}">
-                        <FlexRow align="center" hspacing>
-                            <Icon name="insert_chart" />
-                            <Heading text:bind="$record.title" level={4}/>
+                    <Link class="report-card" href:tpl="~/{$record.id}">
+                        <FlexRow align="center">
+                            <Heading text:bind="$record.title" level={4} style="flex:1"/>
+
+                            <Icon name="star"/>
+                            <span text:bind="$record.starCount"/>
+
                         </FlexRow>
-                        <p text:bind="$record.description" visible:bind="$record.description" />
+                        <p text:bind="$record.description" visible:bind="$record.description"/>
                     </Link>
                 </Repeater>
             </FlexRow>
