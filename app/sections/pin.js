@@ -6,14 +6,14 @@ export const pin = (text, field) => {
         <Label ws disabled={false}>
             {text}
             <Button
-                tooltip="Track and use the value defined at the report level."
+                tooltip="Use default value from Report Settings."
                 icon="find_replace"
                 mod={["hollow", "small"]}
                 pressed:bind={`pins.${field}`}
                 onClick={(e, {store}) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    store.toggle(`pins.${field}`)
+                    store.toggle(`pins.${field}`);
                 }}
             />
         </Label>

@@ -86,6 +86,8 @@ export default <cx>
         <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>
             <TextField value:bind="title" label="Title" style="width: 100%"
                 required />
+
+            <TextArea value:bind="note" label="Note" style="width: 100%" />
         </div>
     </div>
 </cx>

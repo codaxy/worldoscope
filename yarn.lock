@@ -407,9 +407,9 @@ babel-helpers@^6.23.0:
     babel-runtime "^6.22.0"
     babel-template "^6.23.0"
 
-babel-loader@^6.4.0:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-6.4.0.tgz#e98c239662a22533b9e7a49594ef216d7635ea28"
+babel-loader@^6.4.1:
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-6.4.1.tgz#0b34112d5b0748a8dcdbf51acf6f9bd42d50b8ca"
   dependencies:
     find-cache-dir "^0.1.1"
     loader-utils "^0.2.16"
@@ -1544,9 +1544,9 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
-cx-core@^17.3.10:
-  version "17.3.10"
-  resolved "https://registry.yarnpkg.com/cx-core/-/cx-core-17.3.10.tgz#204ba4dbcc7795d053b1b9f89f8d52cbb262b0c3"
+cx-core@^17.3.12:
+  version "17.3.12"
+  resolved "https://registry.yarnpkg.com/cx-core/-/cx-core-17.3.12.tgz#71243e5f2ddab20f43d4f1897c690c6d39a0248d"
   dependencies:
     intl-io "^0.2.3"
     route-parser "^0.0.5"
@@ -2114,17 +2114,7 @@ firebase@2.x.x:
   dependencies:
     faye-websocket ">=0.6.0"
 
-firebase@^3.3.0:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.7.1.tgz#8e10d18d79bde61c2379b31dffb73a9094aa9873"
-  dependencies:
-    dom-storage "2.0.2"
-    faye-websocket "0.9.3"
-    jsonwebtoken "7.1.9"
-    rsvp "3.2.1"
-    xmlhttprequest "1.8.0"
-
-firebase@^3.7.2:
+firebase@^3.3.0, firebase@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.7.2.tgz#fab14f7e31de007dd373f9295a81f6fba04d3c98"
   dependencies:
@@ -4758,9 +4748,9 @@ strip-json-comments@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-1.0.4.tgz#1e15fbcac97d3ee99bf2d73b4c656b082bbafb91"
 
-style-loader@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.14.0.tgz#e44fe69ef891513bb22fdd10c3167aaa99711164"
+style-loader@^0.14.1:
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.14.1.tgz#27b9b6c9822adf8c4748e02a1efae229405d79a5"
   dependencies:
     loader-utils "^1.0.2"
 
@@ -5183,9 +5173,9 @@ webpack-dev-server@^2.4.2:
     webpack-dev-middleware "^1.9.0"
     yargs "^6.0.0"
 
-webpack-merge@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-4.0.0.tgz#4347ebeb9e71aaa413baef66be74d4eb2656b66a"
+webpack-merge@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-4.1.0.tgz#6ad72223b3e0b837e531e4597c199f909361511e"
   dependencies:
     lodash "^4.17.4"
 

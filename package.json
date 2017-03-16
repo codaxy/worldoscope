@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "cx-core": "^17.3.10",
+    "cx-core": "^17.3.12",
     "cx-react": "^16.12.0",
     "firebase": "^3.7.2",
     "firebaseui": "^1.0.0",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.0",
+    "babel-loader": "^6.4.1",
     "babel-plugin-syntax-jsx": "^6.8.0",
     "babel-preset-cx-env": "^17.3.0",
     "css-loader": "^0.27.3",
@@ -32,9 +32,9 @@
     "json-loader": "^0.5.4",
     "node-sass": "^4.5.0",
     "sass-loader": "^6.0.3",
-    "style-loader": "^0.14.0",
+    "style-loader": "^0.14.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.2",
-    "webpack-merge": "^4.0.0"
+    "webpack-merge": "^4.1.0"
   }
 }

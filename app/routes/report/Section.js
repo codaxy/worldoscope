@@ -35,16 +35,21 @@ export default <cx>
                 type: 'section'
             }}
             hideOnDrag
+            handled
         >
-            <AnimatedHeight>
-
+            <AnimatedHeight loaded:expr="!{$sectionData.loading}">
                 <div visible:expr="!{$sectionData.form}">
                     <FlexRow align="center" style="margin-bottom: 10px">
                         <Heading level={3}>
                             <a href:tpl="#{$section.id}" text:bind="$section.title"></a>
                         </Heading>
-                        <DragHandle style="cursor:move; margin-left: auto;">
-                            <Icon name="drag_handle" />
+                        <DragHandle
+                            style="cursor:move; margin-left: auto;"
+                            visible:bind="editable"
+                        >
+                            <div tooltip="Drag & drop to reorder sections">
+                                <Icon name="drag_handle" />
+                            </div>
                         </DragHandle>
                         <Button
                             mod="hollow"

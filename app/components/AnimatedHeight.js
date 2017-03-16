@@ -1,11 +1,35 @@
-import {VDOM, ResizeManager} from 'cx/ui';
+import {VDOM, PureContainer, ResizeManager} from 'cx/ui';
 
-export class AnimatedHeight extends VDOM.Component
+export class AnimatedHeight extends PureContainer {
+
+    declareData() {
+        super.declareData(...arguments, {
+            loaded: undefined
+        })
+    }
+
+    render(context, instance, key) {
+        let {data} = instance;
+
+        return <AnimatedHeightComponent
+            key={key}
+            loaded={data.loaded}
+            className={data.classNames}
+        >
+            {this.renderChildren(context, instance)}
+        </AnimatedHeightComponent>
+    }
+}
+
+AnimatedHeight.prototype.styled = true;
+
+export class AnimatedHeightComponent extends VDOM.Component
 {
     constructor(props) {
         super(props);
+
         this.state = {
-            height: 1
+            height: props.loaded ? null : 1
         }
     }
 

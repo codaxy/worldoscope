@@ -39,6 +39,8 @@ export default <cx>
                 fetchAll
                 cacheAll
             />
+
+            <TextArea value:bind="note" label="Note" style="width: 100%" />
         </div>
 
     </div>

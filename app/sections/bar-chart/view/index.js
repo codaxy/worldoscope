@@ -16,10 +16,10 @@ export default config => {
                     controller={Controller}
                 >
                     <Chart
-                        margin="10 20 30 130"
+                        margin="10 20 30 100"
                         axes={{
                             x: { type: NumericAxis, snapToTicks: 0, format: format },
-                            y: { type: CategoryAxis, vertical: true, inverted: true, labelWrap: true, labelMaxLineLength: 20 }
+                            y: { type: CategoryAxis, vertical: true, inverted: true, labelWrap: true, labelMaxLineLength: 15 }
                         }}
                     >
                         <Gridlines yAxis={false} />
@@ -34,6 +34,7 @@ export default config => {
                 </Svg>
                 <Legend />
             </Legend.Scope>
+            <p text={config.note} visible={!!config.note} />
         </cx>
     )
 }

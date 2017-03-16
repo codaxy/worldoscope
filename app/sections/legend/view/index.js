@@ -29,5 +29,6 @@ export default config => {
             </Svg>
             <Legend />
         </Legend.Scope>
+        <p text={config.note} visible={!!config.note} />
     </cx>
 }

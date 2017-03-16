@@ -36,8 +36,8 @@ export default class extends Controller {
                         value: c.value
                     })));
 
-                this.store.set('$sectionData.loading', false);
-            });
+                    this.store.set('$sectionData.loading', false);
+                });
         }
     }
 }

@@ -1,4 +1,4 @@
-import {HtmlElement, TextField, LookupField, NumberField, Slider, LabeledContainer, FlexRow, Label, Icon, Button} from 'cx/widgets';
+import {HtmlElement, TextField, TextArea, LookupField, NumberField, Slider, LabeledContainer, FlexRow, Label, Icon, Button} from 'cx/widgets';
 import {LabelsTopLayout} from 'cx/ui';
 
 import Controller from './Controller';
@@ -102,6 +102,8 @@ export default <cx>
                     />
                 </FlexRow>
             </LabeledContainer>
+
+        <TextArea value:bind="note" label="Note" mod="block" />
         {/*</div>*/}
 
     </div>

@@ -7,7 +7,6 @@ import {detectFormat} from 'app/util';
 
 export default config => {
     let format = Array.isArray(config.indicators) && config.indicators.length > 0 ? detectFormat(config.indicators[0].text) : null;
-    let top = config.top || 30;
     return (
         <cx>
             <Legend.Scope>
@@ -50,6 +49,7 @@ export default config => {
                     </Chart>
                 </Svg>
             </Legend.Scope>
+            <p text={config.note} visible={!!config.note} />
         </cx>
     )
 }

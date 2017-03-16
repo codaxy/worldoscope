@@ -37,5 +37,6 @@ export default config => {
                 />
             </FlexRow>
         </ColorScaleScope>
+        <p text={config.note} visible={!!config.note} />
     </cx>
 }
