@@ -21,7 +21,7 @@ export default config => {
                         region={config.region && config.region.id}
                         tooltip={{
                             text: {tpl: `{$record.value:${format}}`},
-                            title: {bind: '$country.name'},
+                            title: {tpl: '{$country.name} ({$country.id})'},
                             trackMouse: true
                         }}
                     />

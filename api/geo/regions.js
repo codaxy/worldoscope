@@ -1,4 +1,18 @@
 export const regions = [{
+    id: 'africa',
+    name: 'Africa',
+    countries: [
+        'MA', 'DZ', 'TN', 'LY', 'EG', 'EH', 'MR',
+        'ML', 'NE', 'TD', 'SD', 'ER' ,'SN', 'GM',
+        'GW', 'GN', 'SL', 'LR', 'CI', 'BF', 'GH',
+        'TG', 'BJ', 'NG', 'CM', 'CF', 'SS', 'ET',
+        'SO', 'GQ', 'GA', 'CG', 'CD', 'UG', 'KE',
+        'AO', 'RW', 'BI', 'TZ', 'ZM', 'MW', 'MZ',
+        'NA', 'BW', 'ZW', 'ZA', 'LS', 'SZ', 'MG',
+        'KM', 'RE', 'ST', 'CV', 'IC', 'MU'
+    ],
+    bounds: "320 1250 800 890"
+}, {
     id: 'europe',
     name: 'Europe',
     countries: [
@@ -12,4 +26,4 @@ export const regions = [{
         'AZ', 'AM', 'LU', 'ME', "XK"
     ],
     bounds: "120 1220 360 850"
-}];
+}, ];

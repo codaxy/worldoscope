@@ -79,6 +79,17 @@ export default <cx>
                     {/*/>*/}
 
                     <LookupField
+                        label="Region"
+                        value:bind="defaults.region.id"
+                        text:bind="defaults.region.name"
+                        optionTextField="name"
+                        onQuery="queryRegions"
+                        style="width:100%"
+                        fetchAll
+                        cacheAll
+                    />
+
+                    <LookupField
                         label="Countries"
                         multiple
                         records:bind="defaults.countries"
@@ -87,7 +98,6 @@ export default <cx>
                         onQuery="queryCountries"
                         style="width:100%"
                         fetchAll
-                        cacheAll
                     />
 
                     <LabeledContainer label="Period">

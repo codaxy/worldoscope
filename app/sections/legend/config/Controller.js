@@ -21,7 +21,8 @@ export default class extends Controller {
         return queryTopicIndicators(topicId, q);
     }
 
-    queryCountries(q) {
-        return queryCountries(q);
+    queryCountries() {
+        let regionId = this.store.get('region.id');
+        return queryCountries(regionId);
     }
 }

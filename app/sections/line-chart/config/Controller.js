@@ -1,5 +1,5 @@
 import { Controller } from 'cx/ui';
-import {queryTopics, queryTopicIndicators, queryCountries } from 'api/data';
+import {queryTopics, queryTopicIndicators, queryCountries, queryRegions } from 'api/data';
 
 export default class extends Controller {
     onInit() {
@@ -19,7 +19,12 @@ export default class extends Controller {
         return queryTopicIndicators(topicId, q);
     }
 
-    queryCountries(q) {
-        return queryCountries(q);
+    queryRegions(q) {
+        return queryRegions(q);
+    }
+
+    queryCountries() {
+        let regionId = this.store.get('region.id');
+        return queryCountries(regionId);
     }
 }

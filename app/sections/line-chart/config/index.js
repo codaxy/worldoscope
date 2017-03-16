@@ -43,6 +43,18 @@ export default <cx>
                 required />
 
             <LookupField
+                label={pin('Region')}
+                disabled:bind="pins.region"
+                value:bind="region.id"
+                text:bind="region.name"
+                optionTextField="name"
+                onQuery="queryRegions"
+                style="width:100%"
+                fetchAll
+                cacheAll
+            />
+
+            <LookupField
                 label={pin('Countries')}
                 disabled:bind="pins.countries"
                 multiple
@@ -52,7 +64,6 @@ export default <cx>
                 onQuery="queryCountries"
                 mod="block"
                 fetchAll
-                cacheAll
             />
 
         {/*</div>*/}

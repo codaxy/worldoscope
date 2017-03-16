@@ -59,11 +59,17 @@ async function getCountryCodes() {
     return countryCodes;
 }
 
-export async function queryCountries() {
+export async function queryCountries(region) {
     if (!countries) {
         let result = await wbFetch(`countries`, {per_page: 1000});
         countries = result[1];
     }
+
+    if (region) {
+        let predicate = getCountryRegionPredicate(region);
+        return countries.filter(a => predicate(a.iso2Code));
+    }
+
     return countries;
 }
 
@@ -107,12 +113,8 @@ export async function queryCountryIndicators(country, indicator, params, options
         let {filter} = options;
         if (filter) {
             if (filter.region) {
-                let region = regions.find(a => a.id == filter.region);
-                let active = {};
-                region.countries.forEach(a => {
-                    active[a] = true
-                });
-                x = x.filter(a => active[a.country.id]);
+                let predicate = getCountryRegionPredicate(filter.region);
+                x = x.filter(a => predicate(a.country.id));
             }
         }
 
@@ -124,5 +126,16 @@ export async function queryCountryIndicators(country, indicator, params, options
     }
 
     return x;
+}
 
+function getCountryRegionPredicate(regionId) {
+    let region = regions.find(a => a.id == regionId);
+    if (!region)
+        return () => false;
+
+    let active = {};
+    region.countries.forEach(a => {
+        active[a] = true
+    });
+    return countryCode => active[countryCode];
 }

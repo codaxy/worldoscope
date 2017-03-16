@@ -56,7 +56,7 @@ export default class extends Controller {
                         ...section.pins
                     };
                     pins.fromYear = pins.toYear = pins.period;
-                    ['topic', 'countries', 'fromYear', 'toYear'].forEach(field => {
+                    ['topic', 'region', 'countries', 'fromYear', 'toYear'].forEach(field => {
                         if (pins[field] && section[field] != defaults[field])
                             section = {
                                 ...section,

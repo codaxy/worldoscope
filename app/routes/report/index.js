@@ -113,7 +113,7 @@ export default <cx>
                         icon="vertical_align_top"
                         tooltip="Back to Top"
                         onClick={() => {
-                            document.body.scrollTop = 0;
+                            (document.scrollingElement || document.documentElement).scrollTop = 0;
                         }}
                     />
                     <Menu

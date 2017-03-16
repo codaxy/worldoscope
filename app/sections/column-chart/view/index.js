@@ -43,6 +43,11 @@ export default config => {
                                     colorMap="countries"
                                     size={0.7}
                                     active:bind="$record.active"
+                                    tooltip={{
+                                        title: { tpl: `{$value.country.value}`},
+                                        text: { tpl: `{$value.value:${format}}`},
+                                        placement: 'up'
+                                    }}
                                 />
                             </Repeater>
                         </Repeater>

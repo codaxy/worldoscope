@@ -3,6 +3,7 @@ import {HtmlElement, TextField, TextArea, LookupField, Slider, NumberField, Labe
 import {LabelsTopLayout} from 'cx/ui';
 
 import Controller from './Controller';
+import {pin} from '../../pin';
 
 export default <cx>
     <div controller={Controller}>
@@ -71,7 +72,8 @@ export default <cx>
 
             <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}} style="flex:1; max-width: 300px">
                 <LookupField
-                    label="Region"
+                    label={pin('Region')}
+                    disabled:bind="pins.region"
                     value:bind="region.id"
                     text:bind="region.name"
                     optionTextField="name"

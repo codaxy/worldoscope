@@ -18,7 +18,8 @@ export default <cx>
                 required />
 
             <LookupField
-                label="Region"
+                label={pin('Region')}
+                disabled:bind="pins.region"
                 value:bind="region.id"
                 text:bind="region.name"
                 optionTextField="name"
