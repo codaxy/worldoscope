@@ -36,11 +36,16 @@ export default class extends Controller {
                         let r = results[c.id];
                         if (!r)
                             r = results[c.id] = {
-                                country: c.value
+                                country: c.value,
+                                trend: []
                             };
 
                         if (x.value !== null) {
                             r[String(x.date)] = Number(x.value);
+                            r.trend.push({
+                                x: Number(x.date),
+                                y: Number(x.value)
+                            })
                         }
                     });
 
