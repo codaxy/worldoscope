@@ -39,6 +39,19 @@ export default <cx>
         <FlexRow wrap target="tablet" hspacing>
 
             <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}} style="flex:1; max-width: 300px">
+                <LookupField
+                    label={pin('Region')}
+                    disabled:bind="pins.region"
+                    value:bind="region.id"
+                    text:bind="region.name"
+                    optionTextField="name"
+                    onQuery="queryRegions"
+                    style="width:100%"
+                    fetchAll
+                />
+            </div>
+
+            <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}} style="flex:1; max-width: 300px">
                 <LabeledContainer label={pin('Period')}>
                     <FlexRow>
 
@@ -82,19 +95,6 @@ export default <cx>
                         />
                     </FlexRow>
                 </LabeledContainer>
-            </div>
-
-            <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}} style="flex:1; max-width: 300px">
-                <LookupField
-                    label={pin('Region')}
-                    disabled:bind="pins.region"
-                    value:bind="region.id"
-                    text:bind="region.name"
-                    optionTextField="name"
-                    onQuery="queryRegions"
-                    style="width:100%"
-                    fetchAll
-                />
             </div>
 
         </FlexRow>

@@ -172,6 +172,18 @@ export default class extends Controller {
         });
     }
 
+    addLineComparison(e) {
+        let defaults = this.store.get('$page.report.defaults') || {};
+
+        this.addSection(e, {
+            type: 'line-comparison',
+            topic: defaults.topic,
+            fromYear: defaults.fromYear,
+            toYear: defaults.toYear,
+            region: defaults.region
+        });
+    }
+
     addColumnGraph(e) {
         let defaults = this.store.get('$page.report.defaults') || {};
 
@@ -211,7 +223,7 @@ export default class extends Controller {
         let defaults = this.store.get('$page.report.defaults') || {};
 
         this.addSection(e, {
-            type: 'table-indicators',
+            type: 'table-comparison',
             region: defaults.region,
             year: defaults.toYear,
         });
