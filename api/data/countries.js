@@ -91,7 +91,7 @@ export async function queryCountryIndicators(country, indicator, params, options
 
         let [cc, result] = await Promise.all([
             getCountryCodes(),
-            wbFetch(`countries/${country}/indicators/${indicator}`, {per_page: 1000, ...params})
+            wbFetch(`countries/${country}/indicators/${indicator}`, {per_page: 10000, ...params})
         ]);
 
         let data = result[1] || [];
@@ -128,7 +128,7 @@ export async function queryCountryIndicators(country, indicator, params, options
     return x;
 }
 
-function getCountryRegionPredicate(regionId) {
+export function getCountryRegionPredicate(regionId) {
     let region = regions.find(a => a.id == regionId);
     if (!region)
         return () => false;

@@ -128,8 +128,8 @@ export default <cx>
                                 <a href="#" onClick="addLineGraph"><Icon name="show_chart"/> Line Graph</a>
                                 <a href="#" onClick="addBarGraph"><Icon name="format_align_left"/> Bar Graph</a>
                                 <a href="#" onClick="addColumnGraph"><Icon name="insert_chart"/> Column Graph</a>
-                                <a href="#" onClick="addTable"><Icon name="grid_on"/> Table - Indicator Trend</a>
-                                <a href="#" onClick="addTableComparison"><Icon name="grid_on"/> Table - Multiple Indicators</a>
+                                <a href="#" onClick="addTableTrend"><Icon name="grid_on"/> Table - Indicator Trend</a>
+                                <a href="#" onClick="addTableIndicators"><Icon name="grid_on"/> Table - Multiple Indicators</a>
                             </Menu>
                         </Submenu>
                     </Menu>
