@@ -1,5 +1,6 @@
 import { database, currentUserId } from './db';
 import uid from 'uid';
+import _ from 'lodash';
 
 let reports = database.ref('reports');
 

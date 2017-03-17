@@ -1,6 +1,6 @@
 import {HtmlElement, Repeater} from 'cx/widgets';
 import {Svg} from 'cx/svg';
-import {Chart, Gridlines, LineGraph, NumericAxis, Legend} from 'cx/charts';
+import {Chart, Gridlines, LineGraph, NumericAxis, Legend, Marker} from 'cx/charts';
 import { detectFormat } from 'app/util';
 
 
@@ -44,6 +44,21 @@ export default config => {
                                 name:bind="$record.name"
                                 lineStyle="stroke-width: 3px"
                             />
+                            {/*<Repeater records:bind="$record.values" recordAlias="$point" visible={false}>*/}
+                                {/*<Marker*/}
+                                    {/*x:bind="$point.year"*/}
+                                    {/*y:bind="$point.value"*/}
+                                    {/*colorMap="countries"*/}
+                                    {/*active:bind="$record.active"*/}
+                                    {/*name:bind="$record.name"*/}
+                                    {/*size={10}*/}
+                                    {/*style="fill: transparent; stroke-width: 0"*/}
+                                    {/*tooltip={{*/}
+                                        {/*title: {tpl: '{$record.name}'},*/}
+                                        {/*text: {tpl: `{$point.year}: {$point.value:${format}}`}*/}
+                                    {/*}}*/}
+                                {/*/>*/}
+                            {/*</Repeater>*/}
                         </Repeater>
                     </Chart>
                 </Svg>
