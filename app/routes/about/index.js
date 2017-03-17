@@ -53,8 +53,8 @@ export default <cx>
             </p>
 
             <p ws>
-                <a href="https://codaxy.com/">Website</a> -
-                <a href="https://codaxy.com/#contact">Contact</a> -
+                <a href="https://www.codaxy.com/">Website</a> -
+                <a href="https://www.codaxy.com/#contact">Contact</a> -
                 <a href="https://twitter.com/codaxy">Twitter</a> -
                 <a href="https://blog.codaxy.com">Blog</a> -
                 <a href="https://store.codaxy.com">Store</a>
