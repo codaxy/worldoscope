@@ -1,4 +1,4 @@
-import {HtmlElement} from 'cx/widgets';
+import {HtmlElement, DocumentTitle} from 'cx/widgets';
 import {VDOM} from 'cx/ui';
 
 import Controller from './Controller';
@@ -52,6 +52,7 @@ class AuthContainer extends VDOM.Component {
 }
 
 export default <cx>
+    <DocumentTitle value="Sign In" />
     <div controller={Controller}>
         <h1 putInto="header"></h1>
         <div class="page">

@@ -9,6 +9,7 @@
   color: inherit;
   transition: box-shadow 0.3s;
   flex: 1;
+  position: relative;
 
   &:hover {
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.5);
@@ -16,5 +17,14 @@
 
   p {
     margin: 5px 0 0;
+  }
+
+  &.hidden {
+    visibility: hidden;
+  }
+
+  &:active {
+    top: 1px;
+    box-shadow: none;
   }
 }

@@ -1,3 +1,27 @@
 .green-item {
   color: #18d035;
 }
+
+.link-button {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none !important;
+  color: #1E88E5;
+  padding: 10px 20px 7px;
+  border-radius: 3px;
+  position: relative;
+
+  &:hover {
+    background: rgba(128, 128, 128, 0.1);
+    box-shadow: 1px 1px 1px rgba(128, 128, 128, 0.3);
+  }
+
+  &:active {
+    top: 1px;
+    box-shadow: none;
+  }
+}
+
+.cxe-flexbox-flexbox.cxs-align-start {
+  align-items: flex-start;
+}

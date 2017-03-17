@@ -1,8 +1,9 @@
-import { HtmlElement, Rescope, Text, Repeater, FlexRow, Link, Icon, Heading } from 'cx/widgets';
+import { HtmlElement, Rescope, Text, Repeater, FlexRow, Link, Icon, Heading, DocumentTitle } from 'cx/widgets';
 
 import Controller from './Controller';
 
 export default <cx>
+    <DocumentTitle value="My Reports" />
     <Rescope bind="$page">
         <h1 putInto="header">My Reports</h1>
         <div controller={Controller}>
@@ -16,6 +17,8 @@ export default <cx>
                         <p text:bind="$record.description" visible:bind="$record.description" />
                     </Link>
                 </Repeater>
+                <a className="report-card hidden" />
+                <a className="report-card hidden" />
             </FlexRow>
         </div>
     </Rescope>

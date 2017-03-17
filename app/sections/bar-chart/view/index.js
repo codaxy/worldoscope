@@ -28,6 +28,10 @@ export default config => {
                             yField="country"
                             colorIndex={5}
                             data:bind="$sectionData.values"
+                            tooltip={{
+                                title: { bind: '$record.country' },
+                                text: { tpl: `{$record.value:${format}}` }
+                            }}
                         />
 
                     </Chart>

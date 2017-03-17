@@ -13,7 +13,8 @@ import {
     Icon,
     Repeater,
     Switch,
-    DropZone
+    DropZone,
+    DocumentTitle
 } from 'cx/widgets';
 import {ColorMap} from 'cx/charts';
 import {LabelsTopLayout} from 'cx/ui';
@@ -46,6 +47,7 @@ function moveElement(array, sourceIndex, targetIndex) {
 export default <cx>
 
     <div controller={Controller}>
+        <DocumentTitle value:bind="$page.report.title" />
 
         <PureContainer putInto="header">
             <h1 />

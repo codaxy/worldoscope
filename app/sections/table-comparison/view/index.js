@@ -15,7 +15,7 @@ export default config => {
         config.indicators.forEach(ind => {
             let format = detectFormat(ind.text);
             columns.push({
-                field: `${ind.id.replace(/\./g, '_')}`,
+                field: `_${ind.id.replace(/\./g, '_')}`,
                 header: `${ind.text}`,
                 align: 'right',
                 sortable: true,

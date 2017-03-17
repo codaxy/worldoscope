@@ -1,52 +1,48 @@
-import {HtmlElement, Link, Icon, Repeater} from 'cx/widgets';
+import {HtmlElement, Link, Icon, Repeater, DocumentTitle, FlexCol, FlexRow, Heading} from 'cx/widgets';
 
 import Controller from './Controller';
 
 export default <cx>
+    <DocumentTitle value="Home"/>
     <h1 putInto="header">World Bank Data Reports</h1>
     <div class="page" controller={Controller}>
         <div class="prose">
             <h2>Welcome</h2>
             <p ws>
-                This app allows you to create beautiful reports
-                based on a set of predefined section templates and data from
-                a vast historical database provided by The World Bank.
-                Explore thousands of indicators, observe trends in the last
-                50 years or compare your country with the neighbourhood.
-                Share your own findings and nominate the best reports for the gallery by giving a star.
+                This application allows you to create beautiful reports
+                by combining The World Bank database with a set of predefined section templates.
+                Use this application to explore thousands of indicators,
+                observe trends, find the best countries in some field
+                or to compare your own country with the rest of the world.
+                Share your own findings and don't forget to give a star to the best reports.
             </p>
 
-            <p>
-                What would you like to do?
-            </p>
-
-            <Link href="~/samples" baseClass="button" mod="hollow">
-                See sample reports
-            </Link>
-            <br/>
-            <Link href="~/new" baseClass="button" mod="hollow">
-                Create a new report
-            </Link>
-            <br/>
-            <Link href="~/my-reports" baseClass="button" mod="hollow">
-                Manage my reports
-            </Link>
-            <br/>
-            <Link href="~/about" baseClass="button" mod="hollow">
-                Read more about the app
-            </Link>
-
-            <p>
-                Starred reports:
-            </p>
-            <p visible:expr="!{user.uid}">
-                <i style="color:gray">
-                    You can star reports once you sign in.
-                </i>
-            </p>
-            <Repeater records:bind="$page.stars" visible:expr="!!{user.uid}">
-                <Link href:tpl="~/{$record.id}" baseClass="button" mod="hollow" text:bind="$record.title"/><br/>
-            </Repeater>
+            <FlexCol align="start">
+                <Link href="~/samples" class="link-button">
+                    See sample reports
+                </Link>
+                <Link href="~/new" class="link-button">
+                    Create a new report
+                </Link>
+                <Link href="~/my-reports" class="link-button">
+                    Manage my reports
+                </Link>
+                <Link href="~/about" class="link-button">
+                    Read more about the app
+                </Link>
+            </FlexCol>
         </div>
     </div>
+    <FlexRow spacing wrap vpad>
+        <Repeater records:bind="$page.stars" visible:expr="!!{user.uid}">
+            <Link class="report-card" href:tpl="~/{$record.id}">
+                <FlexRow align="center" hspacing>
+                    <Icon name="star" />
+                    <Heading text:bind="$record.title" level={4}/>
+                </FlexRow>
+            </Link>
+        </Repeater>
+        <a className="report-card hidden" />
+        <a className="report-card hidden" />
+    </FlexRow>
 </cx>

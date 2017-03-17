@@ -41,7 +41,7 @@ export default class extends Controller {
                                 };
 
                             if (x.value !== null)
-                                r[ind.id.replace(/\./g, '_')] = Number(x.value);
+                                r['_' + ind.id.replace(/\./g, '_')] = Number(x.value);
                         });
                     })
             });

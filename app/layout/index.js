@@ -1,4 +1,4 @@
-import { HtmlElement, FlexRow, Button, Icon, Link, Menu, Submenu } from 'cx/widgets';
+import { HtmlElement, FlexRow, Button, Icon, Link, Menu, Submenu, DocumentTitle } from 'cx/widgets';
 import { ContentPlaceholder } from 'cx/ui';
 import './icons';
 import { auth } from 'api';
@@ -31,5 +31,6 @@ export default <cx>
       </FlexRow>
       <ContentPlaceholder />
       <ContentPlaceholder name="footer" />
+      <DocumentTitle value=" - World Bank Data Reports" />
    </div>
 </cx>
