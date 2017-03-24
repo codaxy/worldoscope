@@ -24,7 +24,7 @@ module.exports = {
         loaders: [{
             test: /\.js$/,
             //add here any ES6 based library
-            include: /(app|api|cx-core)/,
+            include: /(app|api|cx)/,
             loader: 'babel-loader',
             query: babelCfg
         }]
