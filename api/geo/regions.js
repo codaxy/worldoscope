@@ -103,7 +103,7 @@ const regions = [{
         "IS", "IE", "IM", "JE", "LV", "LT", "LU", "NL",
         "NO", "PL", "SJ", "SE", "GB"
     ],
-    bounds: "470 750 950 400"
+    bounds: "120 1125 263 850"
 }, {
     id: 'eastern-europe',
     name: 'Eastern Europe',
@@ -111,7 +111,7 @@ const regions = [{
         "BY", "BG", "CZ", "HU", "MD", "PL", "RO",
         "SK", "UA"
     ],
-    bounds: "470 750 950 400"
+    bounds: "165 1185 270 1040"
 }, {
     id: 'oceania',
     name: 'Oceania',
