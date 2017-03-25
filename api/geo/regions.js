@@ -1,4 +1,4 @@
-export const regions = [{
+const regions = [{
     id: 'africa',
     name: 'Africa',
     countries: [
@@ -36,7 +36,7 @@ export const regions = [{
         "PA", "PR", "KN", "LC", "PM", "VC", "SX",
         "TT", "TC", "US", "VI"
     ],
-    bounds: "100 800 550 120"
+    bounds: "50 735 540 175"
 }, {
     id: 'south-america',
     name: 'South America',
@@ -45,7 +45,7 @@ export const regions = [{
         "EC", "FK", "GF", "GY", "PY", "PE",
         "SR", "UY", "VE"
     ],
-    bounds: "470 750 950 400"
+    bounds: "480 800 950 500"
 }, {
     id: 'asia',
     name: 'Asia',
@@ -58,7 +58,7 @@ export const regions = [{
         "SY", "TW", "TJ", "TH", "TR", "TM", "AE", "UZ", "VN",
         "WE", "YE"
     ],
-    bounds: "470 750 950 400"
+    bounds: "0 1790 675 1070"
 }, {
     id: 'euroasia',
     name: 'Euroasia',
@@ -75,26 +75,26 @@ export const regions = [{
         "CH","SY","TW","TJ","TH","TR","TM","UA","AE","GB",
         "UZ","VA","VN","WE","YE"
     ],
-    bounds: "470 750 950 400"
+    bounds: "0 1790 675 850"
 }, {
     id: 'southern-europe',
     name: 'Southern Europe',
     countries: [
         "AL", "AD", "BA", "BG", "HR", "CY", "FR",
         "GI", "GR", "IT", "MK", "MT", "MC", "ME", "PT",
-        "RO", "SM", "RS", "SI", "ES"
+        "RO", "SM", "RS", "SI", "ES", "XK"
     ],
-    bounds: "470 750 950 400"
+    bounds: "230 1170 325 930"
 }, {
     id: 'western-europe',
     name: 'Western Europe',
     countries: [
         "AD", "AT", "BE", "DK", "FO", "FR", "DE",
-        "GI", "GR", "GG", "IS", "IE", "IM", "IT", "JE",
+        "GI", "GG", "IS", "IE", "IM", "IT", "JE",
         "LI", "LU", "MT", "MC", "NL", "NO", "PT", "SM",
         "ES", "SJ", "SE", "CH", "GB", "VA"
     ],
-    bounds: "470 750 950 400"
+    bounds: "120 1080 325 870"
 }, {
     id: 'northern-europe',
     name: 'Northern Europe',
@@ -121,7 +121,17 @@ export const regions = [{
         "MP", "PW", "PG", "PN", "WS", "SB", "TK", 
         "TO", "TV", "VU", "WF"
     ],
-    bounds: "470 750 950 400"
+    bounds: "560 2000 945 1550"
 } ];
+
+// sort regions in ascending order
+regions.sort((r1, r2) => { 
+    if(r1.id > r2.id) 
+        return 1; 
+    if(r1.id <= r2.id)
+        return -1;
+});
+
+export { regions };
 
 
