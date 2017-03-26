@@ -84,7 +84,7 @@ const regions = [{
         "GI", "GR", "IT", "MK", "MT", "MC", "ME", "PT",
         "RO", "SM", "RS", "SI", "ES", "XK"
     ],
-    bounds: "230 1170 325 930"
+    bounds: "256 1145 343 905"
 }, {
     id: 'western-europe',
     name: 'Western Europe',
@@ -94,7 +94,7 @@ const regions = [{
         "LI", "LU", "MT", "MC", "NL", "NO", "PT", "SM",
         "ES", "SJ", "SE", "CH", "GB", "VA"
     ],
-    bounds: "120 1080 325 870"
+    bounds: "130 1080 347 870"
 }, {
     id: 'northern-europe',
     name: 'Northern Europe',
@@ -103,7 +103,7 @@ const regions = [{
         "IS", "IE", "IM", "JE", "LV", "LT", "LU", "NL",
         "NO", "PL", "SJ", "SE", "GB"
     ],
-    bounds: "120 1125 263 850"
+    bounds: "131 1125 274 850"
 }, {
     id: 'eastern-europe',
     name: 'Eastern Europe',
@@ -111,7 +111,7 @@ const regions = [{
         "BY", "BG", "CZ", "HU", "MD", "PL", "RO",
         "SK", "UA"
     ],
-    bounds: "165 1185 270 1040"
+    bounds: "214 1214 314 1000"
 }, {
     id: 'oceania',
     name: 'Oceania',
