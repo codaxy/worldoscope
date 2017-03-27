@@ -134,6 +134,8 @@ export class Map extends BoundedObject {
                 }}
                 onClick={e => {
                     //console.log(e.target.dataset.id);
+                    if(!window.countries)
+                        window.countries=[];
                     let countries = window.countries;
                     let id = e.target.dataset.id;
                     if (!countries.includes(id)){

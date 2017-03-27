@@ -2,41 +2,29 @@ const regions = [{
     id: 'africa',
     name: 'Africa',
     countries: [
-        'MA', 'DZ', 'TN', 'LY', 'EG', 'EH', 'MR',
-        'ML', 'NE', 'TD', 'SD', 'ER' ,'SN', 'GM',
-        'GW', 'GN', 'SL', 'LR', 'CI', 'BF', 'GH',
-        'TG', 'BJ', 'NG', 'CM', 'CF', 'SS', 'ET',
-        'SO', 'GQ', 'GA', 'CG', 'CD', 'UG', 'KE',
-        'AO', 'RW', 'BI', 'TZ', 'ZM', 'MW', 'MZ',
-        'NA', 'BW', 'ZW', 'ZA', 'LS', 'SZ', 'MG',
-        'KM', 'RE', 'ST', 'CV', 'IC', 'MU'
+        "DZ", "AO", "BJ", "BW", "BF", "BI", "CM",
+        "CV", "CF", "TD", "KM", "CD", "DJ", "EG", 
+        "GQ", "ER", "ET", "GA", "GM", "GH", "GN", 
+        "GW", "CI", "KE", "LS", "LR", "LY", "MG", 
+        "MW", "ML", "MR", "MU", "YT", "MA", "MZ", 
+        "NA", "NE", "NG", "CG", "RE", "RW", "SH", 
+        "ST", "SN", "SC", "SL", "SO", "ZA", "SS", 
+        "SD", "SZ", "TZ", "TG", "TN", "UG", "EH", 
+        "ZM", "ZW"
     ],
-    bounds: "320 1250 800 890"
-}, {
-    id: 'europe',
-    name: 'Europe',
-    countries: [
-        'BA', 'HR', 'RS', 'DE', 'ES', 'FR',
-        'IT', 'SI', 'CH', 'AT', 'NO',
-        'BG', 'GR', 'TR', 'BY', 'BE', 'DK',
-        'SE', 'FI', 'EE', 'GB', 'GE', 'IS',
-        'PL', 'PT', 'FO', 'NL', 'IE', 'AL',
-        'MK', 'MC', 'RU', 'LT', 'LV', 'UA',
-        'CZ', 'SK', 'HU', 'RO', 'MD', 'GE',
-        'AZ', 'AM', 'LU', 'ME', "XK", 'DJ'
-    ],
-    bounds: "120 1220 360 850"
+    bounds: "328 1299 800 831"
 }, {
     id: 'north-america',
     name: 'North America',
-    countries: ["AI", "AG", "AW", "BS", "BB", "BZ",
-        "BM", "VG", "CA", "KY", "CR", "CU", "CW",
-        "DM", "DO", "SV", "GL", "GD", "GP", "GT",
-        "HT", "HN", "JM", "MQ", "MX", "MS", "NI",
-        "PA", "PR", "KN", "LC", "PM", "VC", "SX",
-        "TT", "TC", "US", "VI"
+    countries: [
+        "AI", "AG", "AW", "BS", "BB", "BZ", "BM", 
+        "VG", "CA", "KY", "CR", "CU", "CW", "DM", 
+        "DO", "SV", "GL", "GD", "GP", "GT", "HT", 
+        "HN", "JM", "MQ", "MX", "MS", "NI", "PA", 
+        "PR", "KN", "LC", "PM", "VC", "SX", "TT", 
+        "TC", "US", "VI"
     ],
-    bounds: "50 735 540 175"
+    bounds: "65 729 535 194"
 }, {
     id: 'south-america',
     name: 'South America',
@@ -45,7 +33,7 @@ const regions = [{
         "EC", "FK", "GF", "GY", "PY", "PE",
         "SR", "UY", "VE"
     ],
-    bounds: "480 800 950 500"
+    bounds: "485 791 930 505"
 }, {
     id: 'asia',
     name: 'Asia',
@@ -58,7 +46,38 @@ const regions = [{
         "SY", "TW", "TJ", "TH", "TR", "TM", "AE", "UZ", "VN",
         "WE", "YE"
     ],
-    bounds: "0 1790 675 1070"
+    bounds: "78 1775 643 1065"
+}, {
+    id: 'southeast-asia',
+    name: 'Southeast Asia',
+    countries: [
+        "MM", "LA", "TH", "KH", "MY", "PH", "VN", "ID", "SG",
+        "BN", "TL"
+    ],
+    bounds: "388 1778 646 1480"
+}, {
+    id: 'south-asia',
+    name: 'South Asia',
+    countries: [
+        "BD", "BT", "IN", "MV", "NP", "PK", "LK"
+    ],
+    bounds: "330 1507 540 1302"
+}, {
+    id: 'southwest-asia',
+    name: 'Southwest Asia',
+    countries: [
+        "AF", "AM", "AZ", "BH", "CY", "EG", "GZ", "GE", "IR", 
+        "IQ", "IL", "JO", "KW", "LB", "OM", "PK", "QA", "SA", 
+        "SY", "TR", "AE", "WE", "YE", "PS"
+    ],
+    bounds: "294 1389 494 1109"
+}, {
+    id: 'east-asia',
+    name: 'East Asia',
+    countries: [
+        "CN", "HK", "JP", "MO", "MN", "KP", "KR", "TW"
+    ],
+    bounds: "232 1722 458 1358"
 }, {
     id: 'euroasia',
     name: 'Euroasia',
@@ -75,7 +94,21 @@ const regions = [{
         "CH","SY","TW","TJ","TH","TR","TM","UA","AE","GB",
         "UZ","VA","VN","WE","YE"
     ],
-    bounds: "0 1790 675 850"
+    bounds: "75 1767 571 867"
+}, {
+    id: 'europe',
+    name: 'Europe',
+    countries: [
+        "AL", "AD", "AT", "BY", "BE", "BA", "BG",
+        "HR", "CY", "CZ", "DK", "EE", "FO", "FI", 
+        "FR", "DE", "GI", "GR", "GG", "HU", "IS", 
+        "IE", "IM", "IT", "JE", "LV", "LI", "LT", 
+        "LU", "MK", "MT", "MD", "MC", "ME", "NL", 
+        "NO", "PL", "PT", "RO", "SM", "RS", "SK", 
+        "SI", "ES", "SJ", "SE", "CH", "UA", "GB", 
+        "VA", "XK", "TR", "RU"
+    ],
+    bounds: "125 1240 358 870"
 }, {
     id: 'southern-europe',
     name: 'Southern Europe',
@@ -84,7 +117,7 @@ const regions = [{
         "GI", "GR", "IT", "MK", "MT", "MC", "ME", "PT",
         "RO", "SM", "RS", "SI", "ES", "XK"
     ],
-    bounds: "256 1145 343 905"
+    bounds: "247 1129 352 924"
 }, {
     id: 'western-europe',
     name: 'Western Europe',
@@ -111,7 +144,7 @@ const regions = [{
         "BY", "BG", "CZ", "HU", "MD", "PL", "RO",
         "SK", "UA"
     ],
-    bounds: "214 1214 314 1000"
+    bounds: "216 1177 312 1034"
 }, {
     id: 'oceania',
     name: 'Oceania',
@@ -121,7 +154,7 @@ const regions = [{
         "MP", "PW", "PG", "PN", "WS", "SB", "TK", 
         "TO", "TV", "VU", "WF"
     ],
-    bounds: "560 2000 945 1550"
+    bounds: "581 1981 875 1581"
 } ];
 
 // sort regions in ascending order
