@@ -132,17 +132,6 @@ export class Map extends BoundedObject {
                 onMouseLeave={e => {
                     tooltipMouseLeave(e, instance, this.tooltip, { target: this.el })
                 }}
-                onClick={e => {
-                    //console.log(e.target.dataset.id);
-                    if(!window.countries)
-                        window.countries=[];
-                    let countries = window.countries;
-                    let id = e.target.dataset.id;
-                    if (!countries.includes(id)){
-                        countries.push(id);
-                    }
-                    console.log(countries);
-                }}
                 style={{
                     transform: `scale(${scale}) translate(${dx}px, ${dy}px) `
                 }}>
