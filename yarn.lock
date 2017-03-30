@@ -1545,9 +1545,9 @@ cx-react@^17.4.0:
     react "^15.4.2"
     react-dom "^15.4.2"
 
-cx@^17.4.2:
-  version "17.4.3"
-  resolved "https://registry.yarnpkg.com/cx/-/cx-17.4.3.tgz#fd38d8aad9584fe1c0ad04f8ac870ff1f75192f7"
+cx@^17.4.4:
+  version "17.4.4"
+  resolved "https://registry.yarnpkg.com/cx/-/cx-17.4.4.tgz#d03939c921e12a559c5fe8ab6526bed4c9204044"
   dependencies:
     intl-io "^0.2.3"
     route-parser "^0.0.5"
@@ -2115,17 +2115,7 @@ firebase@2.x.x:
   dependencies:
     faye-websocket ">=0.6.0"
 
-firebase@^3.3.0:
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.7.3.tgz#5f143638a84874095a7faf411589e059ac419ccc"
-  dependencies:
-    dom-storage "2.0.2"
-    faye-websocket "0.9.3"
-    jsonwebtoken "7.1.9"
-    rsvp "3.2.1"
-    xmlhttprequest "1.8.0"
-
-firebase@^3.7.4:
+firebase@^3.3.0, firebase@^3.7.4:
   version "3.7.4"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.7.4.tgz#629fd7f84f8ed74f1da815fd792bfa03cd5e2b5c"
   dependencies:
