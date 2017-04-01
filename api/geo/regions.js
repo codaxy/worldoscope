@@ -39,7 +39,7 @@ const regions = [{
     name: 'Asia',
     countries: [
         "AF", "AM", "AZ", "BH", "BD", "BT", "BN", "KH", 
-        "CN", "CX", "CC", "TL", "EG", "GZ", "GE", "HK", "IN", 
+        "CN", "CX", "CC", "TL", "GZ", "GE", "HK", "IN",
         "ID", "IR", "IQ", "IL", "JP", "JO", "KZ", "KW", "KG", 
         "LA", "LB", "MO", "MY", "MV", "MN", "MM", "NP", "KP",
         "OM", "PK", "PH", "QA", "RU", "SA", "SG", "KR", "LK",

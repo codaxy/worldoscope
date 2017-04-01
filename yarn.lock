@@ -1545,6 +1545,10 @@ cx-react@^17.4.0:
     react "^15.4.2"
     react-dom "^15.4.2"
 
+cx-theme-material@^17.4.1:
+  version "17.4.1"
+  resolved "https://registry.yarnpkg.com/cx-theme-material/-/cx-theme-material-17.4.1.tgz#fa4098b501d22df90b73d3b32bef9fe07ec57f59"
+
 cx@^17.4.4:
   version "17.4.4"
   resolved "https://registry.yarnpkg.com/cx/-/cx-17.4.4.tgz#d03939c921e12a559c5fe8ab6526bed4c9204044"

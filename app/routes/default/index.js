@@ -11,10 +11,9 @@ export default <cx>
             <p ws>
                 This application allows you to create beautiful reports
                 by combining The World Bank database with a set of predefined section templates.
-                Use this application to explore thousands of indicators,
-                observe trends, find the best countries in some field
-                or to compare your own country with the rest of the world.
-                Share your own findings and don't forget to give a star to the best reports.
+                Use the application to explore thousands of indicators,
+                observe trends, find the best countries or compare your own country with the rest of the world.
+                Don't forget to share your own findings and star the best reports.
             </p>
 
             <FlexCol align="start">

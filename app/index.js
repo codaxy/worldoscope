@@ -5,6 +5,7 @@ import {auth} from 'api';
 
 //css
 import "./index.scss";
+import "cx-theme-material";
 
 //store
 const store = new Store();

@@ -46,6 +46,7 @@ export default <cx>
                         <DragHandle
                             style="cursor:move; margin-left: auto;"
                             visible:bind="editable"
+                            class="ambient-color"
                         >
                             <div tooltip="Drag & drop to reorder sections">
                                 <Icon name="drag_handle" />
@@ -53,6 +54,7 @@ export default <cx>
                         </DragHandle>
                         <Button
                             mod="hollow"
+                            class="ambient-color"
                             icon="mode_edit"
                             visible:bind="editable"
                             onClick={(e, {store}) => {

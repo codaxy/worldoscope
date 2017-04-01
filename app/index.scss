@@ -1,8 +1,9 @@
 $cx-default-icon-size: 24px;
 $cx-default-box-line-height: 24px;
 $cx-default-button-font-size: 15px;
+$cx-default-label-color: #a2a2a2;
 
-@import "~cx/src/variables";
+@import "~cx-theme-material/src/variables";
 
 $cx-input-state-style-map: cx-deep-map-merge($cx-input-state-style-map, (
   default: (
@@ -10,7 +11,7 @@ $cx-input-state-style-map: cx-deep-map-merge($cx-input-state-style-map, (
   )
 ));
 
-@import "~cx/src/index";
+@import "~cx-theme-material/src/index";
 
 .cxb-menuitem.cxs-medium-padding .cxb-icon {
   margin-right: 10px;

@@ -7,17 +7,16 @@ export default <cx>
         <div class="prose">
             <h2>The App</h2>
             <p ws>
-                This is a Cx.js demo application. Cx provides the application
-                framework, widgets and charts. Report data is fetched directly from The World Bank Data API.
-                The application is built on top of modern technology such as React, Babel and Webpack.
-                Firebase is used to store report definitions, authentication and hosting.
+                This is one of the CxJS demo applications and it illustrates usage of the
+                framework, widgets and charts.
+                Data needed for reports is fetched directly from The World Bank Data API.
+                The application is built on top of modern web technologies such as React, Babel and Webpack.
+                Google Firebase is used to store report definitions, authentication and hosting.
                 Circle CI is used for continuous deployment.
-                The source code of the application is freely available.
             </p>
 
             <p ws>
-                <a href="https://cxjs.io/">Source Code</a> -
-                <a href="https://cxjs.io/">Cx.js</a> -
+                <a href="https://cxjs.io/">CxJS</a> -
                 <a href="http://data.worldbank.org/">The World Bank Data API</a> -
                 <a href="https://facebook.github.io/react/">React</a> -
                 <a href="https://babeljs.io/">Babel</a> -
@@ -26,13 +25,14 @@ export default <cx>
                 <a href="https://circleci.com/">Circle CI</a>
             </p>
 
-            <h2>Cx.js</h2>
+            <h2>CxJS</h2>
             <p ws>
-                Cx.js is a commercial UI framework designed to
+                CxJS is a commercial UI framework designed to
                 streamline development of complex user interfaces.
                 Out of the box, Cx includes form elements, form validation, advanced grid control,
-                navigational elements, tooltips, overlays, charts, routing, layout support, themes,
-                drag & drop support, culture dependent formatting and more.
+                navigation elements, tooltips, overlays, charts, routing, layout support, themes,
+                drag & drop support, culture dependent formatting and more. If you're building an application
+                that needs some of these features, you should definitely check out Cx.
             </p>
 
             <p ws>

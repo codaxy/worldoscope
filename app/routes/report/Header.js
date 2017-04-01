@@ -37,7 +37,9 @@ export default <cx>
                 <Heading text:bind="report.title" level={2}/>
                 <Button
                     visible:bind="editable"
-                    mod="hollow" icon="mode_edit" style="margin-left: auto"
+                    mod="hollow" icon="mode_edit"
+                    style="margin-left: auto"
+                    class="ambient-color"
                     onClick="editHeader"
                 />
             </FlexRow>
