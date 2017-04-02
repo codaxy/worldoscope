@@ -80,8 +80,9 @@ export default class extends Controller {
     }
 
     setupAutoSave() {
-        this.addTrigger('autoSave', ['$page.report'], () => {
-            this.saveReport();
+        this.addTrigger('autoSave', ['$page.report'], (report) => {
+            if (currentUserId() == report.userId)
+                this.saveReport();
         });
     }
 

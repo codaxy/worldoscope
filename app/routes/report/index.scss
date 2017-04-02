@@ -1,6 +1,6 @@
 .section {
   padding: 1rem 2.5rem;
-  transition: all 0.2s;
+  transition: background 0.3s;
   margin: 0;
   position: relative;
 
@@ -20,13 +20,15 @@
 
 .section.edit {
   background: #fdfdfd;
-  padding: 2rem 2.5rem;
-  margin: -5px -5px;
+  //padding: 2rem 2.5rem;
+  //margin: 0px -5px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   border-bottom: none;
   z-index: 1;
   border-radius: 1px;
+  //border-color: $cx-theme-primary-color;
   border-left: 2px solid $cx-theme-primary-color;
+  margin-left: -2px;
 }
 
 .loading {
