@@ -56,8 +56,8 @@ export default <cx>
                 icon="save"
                 style="margin-left: auto"
                 onClick="saveReport"
-                disabled:expr="{$page.report.autoSave} && {$page.report.id}"
-                visible:bind="$page.editable"
+                visible:expr="{$page.editable} && !{$page.report.id}"
+                tooltip="Save the report"
             />
             <Button
                 mod="hollow"
@@ -136,14 +136,7 @@ export default <cx>
                             </Menu>
                         </Submenu>
                     </Menu>
-                    <Switch
-                        value:bind="report.autoSave"
-                        style="margin-left: auto"
-                        disabled:expr="!{report.id}"
-                        visible:bind="editable"
-                    >
-                        Auto Save
-                    </Switch>
+                    <div style="flex:1" />
                     <Button
                         mod="hollow"
                         icon="delete"

@@ -37,7 +37,6 @@ export default class extends Controller {
                 title: 'New Report',
                 sections: [],
                 public: false,
-                autoSave: true,
                 ...copy,
                 userId: currentUserId(),
                 id: null
@@ -70,8 +69,6 @@ export default class extends Controller {
 
     toggleLock() {
         this.store.toggle('$page.report.public');
-        if (!this.store.get('$page.report.autoSave'))
-            this.saveReport();
     }
 
     editHeader() {
@@ -83,10 +80,8 @@ export default class extends Controller {
     }
 
     setupAutoSave() {
-        this.addTrigger('autoSave', ['$page.report'], report => {
-            if (report.autoSave) {
-                this.saveReport();
-            }
+        this.addTrigger('autoSave', ['$page.report'], () => {
+            this.saveReport();
         });
     }
 
