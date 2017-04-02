@@ -2,14 +2,15 @@ $cx-default-icon-size: 24px;
 $cx-default-box-line-height: 24px;
 $cx-default-button-font-size: 15px;
 $cx-default-label-color: #a2a2a2;
+$cx-default-box-font-size: 15px;
 
 @import "~cx-theme-material/src/variables";
 
-$cx-input-state-style-map: cx-deep-map-merge($cx-input-state-style-map, (
-  default: (
-    font-size: 15px
-  )
-));
+//$cx-input-state-style-map: cx-deep-map-merge($cx-input-state-style-map, (
+//  default: (
+//    font-size: 15px
+//  )
+//));
 
 @import "~cx-theme-material/src/index";
 
@@ -19,7 +20,6 @@ $cx-input-state-style-map: cx-deep-map-merge($cx-input-state-style-map, (
 .cxb-button.cxm-small {
   height: 24px;
   vertical-align: bottom;
-  margin-bottom: 2px;
 
   &.cxs-empty {
     padding-left: 23px;
@@ -30,6 +30,7 @@ $cx-input-state-style-map: cx-deep-map-merge($cx-input-state-style-map, (
     height: 16px;
     font-size: 16px;
     margin-top: -8px;
+    left: 8px;
   }
 
   &.cxs-pressed {

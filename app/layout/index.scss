@@ -47,6 +47,10 @@ body {
     z-index: -1;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   }
+
+  span > i.material-icons {
+    color: white !important;
+  }
 }
 
 .footer {

@@ -19,13 +19,14 @@
 }
 
 .section.edit {
-  background: #fcfcfc;
+  background: #fdfdfd;
   padding: 2rem 2.5rem;
   margin: -5px -5px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   border-bottom: none;
   z-index: 1;
   border-radius: 1px;
+  border-left: 2px solid $cx-theme-primary-color;
 }
 
 .loading {

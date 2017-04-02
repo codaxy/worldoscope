@@ -3,11 +3,18 @@ const webpack = require('webpack'),
     merge = require('webpack-merge'),
     path = require('path'),
     babelCfg = require("./babel.config"),
+    gtm = require('./gtm'),
     paths = {
         app: p => path.join(__dirname, '../app/', p || ''),
         api: p => path.join(__dirname, '../api/', p || ''),
         dist : p => path.join(__dirname, '../dist/', p || ''),
     };
+
+let gtmh = '';
+
+if (process.env.GTM_ID) {
+    gtmh = gtm.head(process.env.GTM_ID)
+}
 
 module.exports = {
     resolve: {
@@ -45,7 +52,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: paths.app('index.html'),
-            hash: true
+            hash: true,
+            gtmh: gtmh
         })
     ]
 };

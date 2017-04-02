@@ -7,10 +7,10 @@ export default <cx>
         <div class="prose">
             <h2>The App</h2>
             <p ws>
-                This is one of the CxJS demo applications and it illustrates usage of the
-                framework, widgets and charts.
-                Data needed for reports is fetched directly from The World Bank Data API.
-                The application is built on top of modern web technologies such as React, Babel and Webpack.
+                This is a CxJS demo application and it illustrates usage of the
+                framework, its widgets and charts.
+                Data needed for reports is fetched directly from The World Bank API endpoint.
+                Besides CxJS, the application is built on top of modern web technologies such as React, Babel and Webpack.
                 Google Firebase is used to store report definitions, authentication and hosting.
                 Circle CI is used for continuous deployment.
             </p>
@@ -33,22 +33,22 @@ export default <cx>
                 navigation elements, tooltips, overlays, charts, routing, layout support, themes,
                 drag & drop support, culture dependent formatting and more. If you're building an application
                 that needs some of these features, you should definitely check out Cx.
+                It's free for non-commercial purposes.
             </p>
 
             <p ws>
                 <a href="https://cxjs.io/">Website</a> -
                 <a href="https://cxjs.io/examples">Examples</a> -
-                <a href="https://cxjs.io/fiddle">Fiddle</a> -
                 <a href="https://cxjs.io/themes">Themes</a> -
                 <a href="https://cxjs.io/docs">Documentation</a>
             </p>
 
             <h2>Codaxy</h2>
             <p ws>
-                We're a small software company specialized in developing modern business application front-ends.
+                We're a small software company specialized in development of modern business application front-ends.
                 You may know us if you're already familiar with Cx or if you have used one of
                 <a href="https://store.codaxy.com/Themes">our themes for Sencha Ext JS</a>.
-                We provide software development services, so feel free to contact us
+                We provide software development services, feel free to contact us
                 if you have an interesting project.
             </p>
 

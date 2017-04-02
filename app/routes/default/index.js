@@ -36,7 +36,7 @@ export default <cx>
         <Repeater records:bind="$page.stars" visible:expr="!!{user.uid}">
             <Link class="report-card" href:tpl="~/{$record.id}">
                 <FlexRow align="center" hspacing>
-                    <Icon name="star" />
+                    <Icon name="star" style="color:lightblue" />
                     <Heading text:bind="$record.title" level={4}/>
                 </FlexRow>
             </Link>
