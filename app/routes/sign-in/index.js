@@ -3,8 +3,9 @@ import {VDOM} from 'cx/ui';
 
 import Controller from './Controller';
 
-import {auth} from 'api';
-import firebase from 'firebase/app';
+import {getFirebase} from 'api';
+
+let ui;
 
 class AuthContainer extends VDOM.Component {
     render() {
@@ -12,8 +13,8 @@ class AuthContainer extends VDOM.Component {
     }
 
     componentDidMount() {
-        System.import('firebaseui')
-            .then(firebaseui => {
+        System.import('api/firebase')
+            .then(({firebaseui, firebase}) => {
                 // FirebaseUI config.
                 var uiConfig = {
                     // Url to redirect to after a successful sign-in.
@@ -43,7 +44,9 @@ class AuthContainer extends VDOM.Component {
                     'tosUrl': 'https://www.google.com'
                 };
                 // Initialize the FirebaseUI Widget using Firebase.
-                var ui = new firebaseui.auth.AuthUI(auth);
+                if (!ui)
+                    ui = new firebaseui.auth.AuthUI(firebase.auth());
+
                 // The start method will wait until the DOM is loaded to include the FirebaseUI sign-in widget
                 // within the element corresponding to the selector specified.
                 ui.start('#firebaseui-auth-container', uiConfig);

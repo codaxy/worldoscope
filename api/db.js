@@ -1,18 +1,14 @@
-import firebase from 'firebase/app';
-import 'firebase/database';
-import 'firebase/auth';
+let auth;
 
-var config = {
-    apiKey: "AIzaSyBfokaGrHnRpWotjiFjXORJ4_dUYKp57NQ",
-    authDomain: "wb-data-reports.firebaseapp.com",
-    databaseURL: "https://wb-data-reports.firebaseio.com",
-    storageBucket: "wb-data-reports.appspot.com",
-    messagingSenderId: "805356833120"
-};
+export const importFirebase = () => System.import('./firebase');
 
-firebase.initializeApp(config);
+export const getFirebase = () => importFirebase().then(firebase => firebase.firebase);
+export const getDatabase = () => importFirebase().then(firebase => firebase.database);
+export const getAuth = () => importFirebase().then(firebase => (auth = firebase.auth));
 
-export const database = firebase.database();
-export const auth = firebase.auth();
+export const currentUserId = () => auth && auth.currentUser ? auth.currentUser.uid : null;
 
-export const currentUserId = () => auth.currentUser ? auth.currentUser.uid : null;
+export function withDatabase(callback) {
+    return getDatabase()
+        .then(db => callback(db));
+}

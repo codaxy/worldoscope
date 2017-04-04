@@ -2,11 +2,12 @@ import {Route, PureContainer, HtmlElement, Sandbox} from 'cx/widgets';
 import {FirstVisibleChildLayout } from 'cx/ui';
 
 import AppLayout from '../layout';
+import {AsyncContent} from "app/components/AsyncContent"
 
 import Default from './default';
 import About from './about';
 import Samples from './samples';
-import Report from './report';
+//import Report from './report';
 import SignIn from './sign-in';
 import MyReports from './my-reports';
 
@@ -29,7 +30,7 @@ export default <cx>
             <MyReports/>
         </Route>
         <Route route="~/:id" url:bind="url">
-            <Report />
+            <AsyncContent onLoadContent={() => System.import("./report").then(x=>x.default)} />
         </Route>
         <div class="prose">
             Page not found.

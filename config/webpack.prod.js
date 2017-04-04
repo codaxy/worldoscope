@@ -1,7 +1,8 @@
 var webpack = require('webpack'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
     merge = require('webpack-merge'),
-    common = require('./webpack.config');
+    common = require('./webpack.config'),
+    BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;;
 
 var sass = new ExtractTextPlugin({
     filename: "app.css",
@@ -21,6 +22,7 @@ var specific = {
 
     plugins: [
         new webpack.optimize.UglifyJsPlugin(),
+        //new BundleAnalyzerPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
         }),

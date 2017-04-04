@@ -1,5 +1,5 @@
 import {wbFetch} from './wbFetch';
-import _ from 'lodash';
+import { sorter } from 'cx/data'
 import { regions } from '../geo/regions';
 
 let regionCodes = {
@@ -119,7 +119,7 @@ export async function queryCountryIndicators(country, indicator, params, options
         }
 
         if (options.sort)
-            x = _.orderBy(x, 'value', 'desc');
+            x = sorter([{ value: x=>x.value, direction: 'DESC' }])(x);
 
         if (options.take)
             x = x.slice(0, options.take);

@@ -1,7 +1,7 @@
 import {Store} from 'cx/data';
 import {Url, History, Widget, startAppLoop} from 'cx/ui';
 import {Timing, Debug} from 'cx/util';
-import {auth} from 'api';
+import {getAuth} from 'api';
 
 //css
 import "./index.scss";
@@ -40,14 +40,17 @@ Debug.enable('app-data');
 
 // Listen to change in auth state so it displays the correct UI for when
 // the user is signed in or not.
-auth.onAuthStateChanged(function (user) {
-    store.set('user', user && {
-            email: user.email,
-            displayName: user.displayName,
-            photoURL: user.photoURL,
-            uid: user.uid
+getAuth()
+    .then(auth => {
+        auth.onAuthStateChanged(function (user) {
+            store.set('user', user && {
+                    email: user.email,
+                    displayName: user.displayName,
+                    photoURL: user.photoURL,
+                    uid: user.uid
+                });
         });
-});
+    });
 
 //app loop
 import Routes from './routes';

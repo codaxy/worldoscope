@@ -1,7 +1,7 @@
 import { HtmlElement, FlexRow, Button, Icon, Link, Menu, Submenu, DocumentTitle } from 'cx/widgets';
 import { ContentPlaceholder } from 'cx/ui';
 import './icons';
-import { auth } from 'api';
+import { getAuth } from 'api';
 import Controller from './Controller';
 
 export default <cx>
@@ -35,7 +35,9 @@ export default <cx>
                          href="#"
                          onClick={e=> {
                              e.preventDefault();
-                             auth.signOut();
+                             getAuth().then(auth=> {
+                                 auth.signOut();
+                             })
                          }}
                      >Sign Out</a>
                   </Menu>
