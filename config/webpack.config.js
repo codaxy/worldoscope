@@ -4,16 +4,25 @@ const webpack = require('webpack'),
     path = require('path'),
     babelCfg = require("./babel.config"),
     gtm = require('./gtm'),
+    hs = require('./hs'),
     paths = {
         app: p => path.join(__dirname, '../app/', p || ''),
         api: p => path.join(__dirname, '../api/', p || ''),
         dist : p => path.join(__dirname, '../dist/', p || ''),
     };
 
-let gtmh = '';
+let scripts = {
+    gtmh: '',
+    hs: ''
+};
+
 
 if (process.env.GTM_ID) {
-    gtmh = gtm.head(process.env.GTM_ID)
+    scripts.gtmh = gtm.head(process.env.GTM_ID)
+}
+
+if (process.env.HS_ID) {
+    scripts.hs = hs.body(process.env.HS_ID)
 }
 
 module.exports = {
@@ -53,7 +62,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: paths.app('index.html'),
             hash: true,
-            gtmh: gtmh
+            scripts: scripts
         })
     ]
 };
