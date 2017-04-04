@@ -1,29 +1,36 @@
-import {HtmlElement, Link, DocumentTitle} from 'cx/widgets';
+import {HtmlElement, Link, DocumentTitle, FlexRow} from 'cx/widgets';
 
 export default <cx>
-    <DocumentTitle value="About" />
+    <DocumentTitle value="About"/>
     <h1 putInto="header">About</h1>
     <div class="page">
         <div class="prose">
             <h2>The App</h2>
-            <p ws>
-                This is a CxJS demo application and it illustrates usage of the
-                framework, its widgets and charts.
-                Data needed for reports is fetched directly from The World Bank API endpoint.
-                Besides CxJS, the application is built on top of modern web technologies such as React, Babel and Webpack.
-                Google Firebase is used to store report definitions, authentication and hosting.
-                Circle CI is used for continuous deployment.
-            </p>
 
-            <p ws>
-                <a href="https://cxjs.io/">CxJS</a> -
-                <a href="http://data.worldbank.org/">The World Bank Data API</a> -
-                <a href="https://facebook.github.io/react/">React</a> -
-                <a href="https://babeljs.io/">Babel</a> -
-                <a href="https://webpack.js.org//">webpack</a> -
-                <a href="https://firebase.google.com/">Firebase</a> -
-                <a href="https://circleci.com/">Circle CI</a>
-            </p>
+            <FlexRow hspacing="xlarge" align="start">
+                <div>
+                    <p ws>
+                        This is a CxJS demo application and it illustrates usage of the
+                        framework, its widgets and charts.
+                        Data needed for reports is fetched directly from The World Bank API endpoint.
+                        Besides CxJS, the application is built on top of modern web technologies such as React, Babel
+                        and Webpack.
+                        Google Firebase is used to store report definitions, authentication and hosting.
+                        Circle CI is used for continuous deployment.
+                    </p>
+
+                    <p ws>
+                        <a href="https://cxjs.io/">CxJS</a> -
+                        <a href="http://data.worldbank.org/">The World Bank Data API</a> -
+                        <a href="https://facebook.github.io/react/">React</a> -
+                        <a href="https://babeljs.io/">Babel</a> -
+                        <a href="https://webpack.js.org//">webpack</a> -
+                        <a href="https://firebase.google.com/">Firebase</a> -
+                        <a href="https://circleci.com/">Circle CI</a>
+                    </p>
+                </div>
+                <img src="~/assets/img/wbdr.png" visible={() => window.innerWidth >= 1000} style="width: 300px"/>
+            </FlexRow>
 
             <h2>CxJS</h2>
             <p ws>
@@ -44,6 +51,9 @@ export default <cx>
             </p>
 
             <h2>Codaxy</h2>
+
+            <FlexRow hspacing="xlarge" align="start">
+                <div>
             <p ws>
                 We're a small software company specialized in development of modern business application front-ends.
                 You may know us if you're already familiar with Cx or if you have used one of
@@ -59,6 +69,9 @@ export default <cx>
                 <a href="https://blog.codaxy.com">Blog</a> -
                 <a href="https://store.codaxy.com">Store</a>
             </p>
+                </div>
+                <img src="~/assets/img/codaxy-logo.svg" visible={() => window.innerWidth >= 1000} style="width: 300px"/>
+            </FlexRow>
 
 
         </div>

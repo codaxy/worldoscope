@@ -1,8 +1,10 @@
 var webpack = require('webpack'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
     merge = require('webpack-merge'),
+    path = require('path'),
     common = require('./webpack.config'),
-    BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;;
+    CopyWebpackPlugin = require('copy-webpack-plugin'),
+    BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var sass = new ExtractTextPlugin({
     filename: "app.css",
@@ -26,7 +28,11 @@ var specific = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
-        sass
+        sass,
+        new CopyWebpackPlugin([{
+          from: path.join(__dirname, '../assets'),
+            to: path.join(__dirname, '../dist/assets'),
+        }])
     ],
 
     output: {

@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "cx": "^17.4.6",
+    "cx": "^17.4.7",
     "cx-react": "^17.4.0",
     "cx-theme-material": "^17.4.1",
     "firebase": "^3.7.4",
@@ -26,6 +26,7 @@
     "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-syntax-jsx": "^6.8.0",
     "babel-preset-cx-env": "^17.4.1",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",

@@ -24,12 +24,13 @@ export default <cx>
                   </Menu>
                </Submenu>
             </Menu>
-            <Link href="~/sign-in" baseClass="button" mod="hollow" visible:expr="{user.uid} == null">
+            <Icon name="loading"  visible:expr="{user.loading}"/>
+            <Link href="~/sign-in" baseClass="button" mod="hollow" visible:expr="{user.uid} == null && !{user.loading}">
                Sign In
             </Link>
             <Menu horizontal visible:expr="{user.uid} != null" style="line-height: 0">
                <Submenu placement="down-left" style="line-height: 0">
-                  <img src:bind="user.photoURL" style="height: 40px;" />
+                  <img src:bind="user.photoURL" style="height: 40px;border-radius:20px" />
                   <Menu putInto="dropdown">
                      <a
                          href="#"

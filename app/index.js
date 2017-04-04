@@ -40,6 +40,7 @@ Debug.enable('app-data');
 
 // Listen to change in auth state so it displays the correct UI for when
 // the user is signed in or not.
+store.init('user', { loading: true });
 getAuth()
     .then(auth => {
         auth.onAuthStateChanged(function (user) {
