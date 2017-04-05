@@ -41,11 +41,19 @@ body {
     left: 0;
     right: 0;
     top: 0;
-    height: 11rem;
+    height: 10rem;
+    will-change: height;
+    transition: height 0.2s;
+    //background: #2196F3;
+    //background: #0D47A1;
     background: #2196F3;
     content: ' ';
     z-index: -1;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  &.home:before {
+    height: 22rem;
   }
 
   span > i.material-icons {
@@ -65,14 +73,14 @@ body {
   margin-bottom: 6px;
   color: black;
 
-  a {
-    color: #2673e5;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+  //a {
+  //  color: #2673e5;
+  //  text-decoration: none;
+  //
+  //  &:hover {
+  //    text-decoration: underline;
+  //  }
+  //}
 }
 
 h1 {
