@@ -43,7 +43,7 @@ export default <cx>
         </div>
         <div class="report-cards">
             <div visible:expr="{$page.tab} == 'popular'" layout={FirstVisibleChildLayout}>
-                <p ws visible:expr="{$page.stars.status}=='loading'">
+                <p ws visible:expr="{$page.samples.status}=='loading'">
                     <Icon name="loading"/> Loading...
                 </p>
                 <FlexRow spacing wrap vpad>
