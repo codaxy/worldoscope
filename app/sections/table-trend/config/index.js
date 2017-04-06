@@ -89,7 +89,7 @@ export default <cx>
                             inputStyle="text-align:center"
                             format="s"
                             increment={1}
-                            minValue={2000}
+                            minValue={1960}
                             maxValue={2020}
                             disabled:bind="pins.period"
                         />

@@ -1994,21 +1994,21 @@ fastparse@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.1.tgz#d1e2643b38a94d7583b479060e6c4affc94071f8"
 
-faye-websocket@0.9.3, faye-websocket@>=0.6.0:
+faye-websocket@0.9.3:
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.9.3.tgz#482a505b0df0ae626b969866d3bd740cdb962e83"
+  dependencies:
+    websocket-driver ">=0.5.1"
+
+faye-websocket@>=0.6.0, faye-websocket@~0.11.0:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.11.1.tgz#f0efe18c4f56e4f40afc7e06c719fd5ee6188f38"
   dependencies:
     websocket-driver ">=0.5.1"
 
 faye-websocket@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.10.0.tgz#4e492f8d04dfb6f89003507f6edbf2d501e7c6f4"
-  dependencies:
-    websocket-driver ">=0.5.1"
-
-faye-websocket@~0.11.0:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.11.1.tgz#f0efe18c4f56e4f40afc7e06c719fd5ee6188f38"
   dependencies:
     websocket-driver ">=0.5.1"
 
@@ -2098,9 +2098,9 @@ find-up@^1.0.0:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
 
-firebase-tools@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-3.5.0.tgz#2c934f1f0c9cf4d0b55c3f6e748b0efcabf2ca9e"
+firebase-tools@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-3.6.0.tgz#0f12d2024c7353d8f35d338072885ea7e3cafce0"
   dependencies:
     JSONStream "^1.2.1"
     archiver "^0.16.0"
@@ -2144,7 +2144,7 @@ firebase@2.x.x:
   dependencies:
     faye-websocket ">=0.6.0"
 
-firebase@^3.3.0, firebase@^3.7.4:
+firebase@^3.3.0:
   version "3.7.4"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.7.4.tgz#629fd7f84f8ed74f1da815fd792bfa03cd5e2b5c"
   dependencies:
@@ -2154,9 +2154,19 @@ firebase@^3.3.0, firebase@^3.7.4:
     rsvp "3.2.1"
     xmlhttprequest "1.8.0"
 
-firebaseui@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/firebaseui/-/firebaseui-1.0.0.tgz#b071e910ff2a5ace5035d640d550e65d60bff197"
+firebase@^3.7.5:
+  version "3.7.5"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.7.5.tgz#54190ddf6956662a43123ef060734acbd9663985"
+  dependencies:
+    dom-storage "2.0.2"
+    faye-websocket "0.9.3"
+    jsonwebtoken "7.1.9"
+    rsvp "3.2.1"
+    xmlhttprequest "1.8.0"
+
+firebaseui@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/firebaseui/-/firebaseui-1.0.1.tgz#ba7bd6432d6a08d1a591fa49dd31112bc69f0385"
   dependencies:
     firebase "^3.3.0"
 
