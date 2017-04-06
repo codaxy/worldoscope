@@ -1,16 +1,15 @@
 import {HtmlElement, Link, DocumentTitle, FlexRow} from 'cx/widgets';
 
-let hsid = process.env.HS_ID;
+let hsid = process.env.HS_ID || false;
 
 export default <cx>
     <DocumentTitle value="About"/>
     <h1 putInto="header">About</h1>
     <div class="page">
         <div class="prose">
-            <h2>The App</h2>
-
-            <FlexRow hspacing="xlarge" align="start">
+            <FlexRow hspacing="xlarge" align="center">
                 <div>
+                    <h2>The App</h2>
                     <p ws>
                         This is a CxJS demo application and it illustrates usage of the
                         framework, its widgets and charts.
@@ -31,7 +30,7 @@ export default <cx>
                         <a href="https://circleci.com/">Circle CI</a>
                     </p>
                 </div>
-                <img src="~/assets/img/wbdr.png" visible={() => window.innerWidth >= 1000} style="width: 300px"/>
+                <img src="~/assets/img/preview.png" visible={() => window.innerWidth >= 1000} style="width: 250px"/>
             </FlexRow>
 
             <h2>CxJS</h2>
@@ -52,27 +51,30 @@ export default <cx>
                 <a href="https://cxjs.io/docs">Documentation</a>
             </p>
 
-            <h2>Codaxy</h2>
 
-            <FlexRow hspacing="xlarge" align="start">
+
+            <FlexRow hspacing="xlarge" align="center">
                 <div>
-            <p ws>
-                We're a small software company specialized in development of modern business application front-ends.
-                You may know us if you're already familiar with Cx or if you have used one of
-                <a href="https://store.codaxy.com/Themes">our themes for Sencha Ext JS</a>.
-                We provide software development services, feel free to contact us
-                if you have an interesting project.
-            </p>
+                    <h2>Codaxy</h2>
+                    <p ws>
+                        We're a small software company specialized in development of modern business application
+                        front-ends.
+                        You may know us if you're already familiar with Cx or if you have used one of
+                        <a href="https://store.codaxy.com/Themes">our themes for Sencha Ext JS</a>.
+                        We provide software development services, feel free to contact us
+                        if you have an interesting project.
+                    </p>
 
-            <p ws>
-                <a href="https://www.codaxy.com/">Website</a> -
-                <a href="https://www.codaxy.com/#contact">Contact</a> -
-                <a href="https://twitter.com/codaxy">Twitter</a> -
-                <a href="https://blog.codaxy.com">Blog</a> -
-                <a href="https://store.codaxy.com">Store</a>
-            </p>
+                    <p ws>
+                        <a href="https://www.codaxy.com/">Website</a> -
+                        <a href="https://www.codaxy.com/#contact">Contact</a> -
+                        <a href="https://twitter.com/codaxy">Twitter</a> -
+                        <a href="https://blog.codaxy.com">Blog</a> -
+                        <a href="https://store.codaxy.com">Store</a>
+                    </p>
                 </div>
-                <img src="~/assets/img/codaxy-logo.svg" visible={() => window.innerWidth >= 1000} style="width: 300px"/>
+                <img src="~/assets/img/codaxy-logo.svg" visible={() => window.innerWidth >= 1000}
+                    style="width: 150px; margin: 0 50px"/>
             </FlexRow>
 
 

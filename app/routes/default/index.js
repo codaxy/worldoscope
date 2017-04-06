@@ -38,7 +38,7 @@ export default <cx>
                         <Tab mod="line-accent" value:bind="$page.tab" tab="saved">Saved</Tab>
                     </FlexRow>
                 </div>
-                <img src="~/assets/img/wbdr.png" visible={() => window.innerWidth >= 1000} style="width: 300px"/>
+                <img src="~/assets/img/wbdr.png" visible={() => window.innerWidth >= 1000} style="width: 300px; margin-top: -40px"/>
             </FlexRow>
         </div>
         <div class="report-cards">

@@ -26,7 +26,8 @@ var specific = {
         new webpack.optimize.UglifyJsPlugin(),
         //new BundleAnalyzerPlugin(),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production')
+            'process.env.NODE_ENV': JSON.stringify('production'),
+            'process.env.HS_ID': JSON.stringify(process.env.HS_ID || false),
         }),
         sass,
         new CopyWebpackPlugin([{

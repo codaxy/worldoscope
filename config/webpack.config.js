@@ -4,7 +4,6 @@ const webpack = require('webpack'),
     path = require('path'),
     babelCfg = require("./babel.config"),
     gtm = require('./gtm'),
-    hs = require('./hs'),
     paths = {
         app: p => path.join(__dirname, '../app/', p || ''),
         api: p => path.join(__dirname, '../api/', p || ''),
@@ -12,17 +11,11 @@ const webpack = require('webpack'),
     };
 
 let scripts = {
-    gtmh: '',
-    hs: ''
+    gtmh: ''
 };
-
 
 if (process.env.GTM_ID) {
     scripts.gtmh = gtm.head(process.env.GTM_ID)
-}
-
-if (process.env.HS_ID) {
-    scripts.hs = hs.body(process.env.HS_ID)
 }
 
 module.exports = {
