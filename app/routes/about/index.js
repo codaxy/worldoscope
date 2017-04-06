@@ -80,12 +80,11 @@ export default <cx>
 
         </div>
         <script
-            visible={hsid}
+            visible={!!hsid}
             type="text/javascript"
             id="hs-script-loader"
             async
             defer
-            src={`//js.hs-scripts.com/${hsid}.js`}>
-        </script>
+            src={`//js.hs-scripts.com/${hsid}.js`} />
     </div>
 </cx>
