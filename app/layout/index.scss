@@ -28,12 +28,22 @@ body {
   }
 }
 
+a {
+  text-decoration: none;
+}
+
 .header {
   padding: 1rem 0;
   color: white;
 
   h1 {
     flex: 1;
+    line-height: 1;
+
+    @media screen and (max-width: 400px){
+      font-size: 20px;
+
+    }
   }
 
   &:before {
@@ -44,8 +54,6 @@ body {
     height: 10rem;
     will-change: height;
     transition: height 0.2s;
-    //background: #2196F3;
-    //background: #0D47A1;
     background: #2196F3;
     content: ' ';
     z-index: -1;

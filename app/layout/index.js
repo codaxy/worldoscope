@@ -12,11 +12,11 @@ export default <cx>
                 "home": {expr: "{url}=='~/'"}
             }}
         >
-            <FlexRow class="max-width" hspacing align="center">
+            <FlexRow class="max-width" align="center">
                 <Link href="~/" baseClass="button" mod="hollow" visible:expr="{url}!='~/'">
                     <Icon name="arrow_back"/>
                 </Link>
-                <Icon name="timeline" visible:expr="{url}=='~/'"/>
+                <Icon name="timeline" visible:expr="{url}=='~/'" style="margin-right: 10px"/>
                 <ContentPlaceholder name="header"/>
                 <Menu horizontal style="display: flex;">
                     <Submenu placement="down-left">
@@ -30,7 +30,7 @@ export default <cx>
                     </Submenu>
                 </Menu>
                 <Icon name="loading" visible:expr="{user.loading}"/>
-                <Link href="~/sign-in" baseClass="button" mod="hollow"
+                <Link href="~/sign-in" baseClass="button" mod="hollow" style="padding-left: 10px; padding-right: 10px"
                     visible:expr="{user.uid} == null && !{user.loading}">
                     Sign In
                 </Link>
