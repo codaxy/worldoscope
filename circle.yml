@@ -25,4 +25,4 @@ deployment:
     branch: master
     commands:
       - yarn run build
-      - firebase deploy --non-interactive
+      - firebase deploy --non-interactive --except functions
