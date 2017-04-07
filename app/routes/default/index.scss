@@ -92,7 +92,15 @@
   }
 
   p {
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
     margin: 5px 0 0;
+    max-height: 2.5em;
+    line-height: 1.25;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
   }
 
   &.hidden {
