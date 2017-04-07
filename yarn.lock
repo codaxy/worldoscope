@@ -1555,12 +1555,9 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
-cx-react@^17.4.0:
-  version "17.4.0"
-  resolved "https://registry.yarnpkg.com/cx-react/-/cx-react-17.4.0.tgz#89d27759a441dcd6c65ee180d9fb934efbf95181"
-  dependencies:
-    react "^15.4.2"
-    react-dom "^15.4.2"
+cx-react@^17.4.1:
+  version "17.4.1"
+  resolved "https://registry.yarnpkg.com/cx-react/-/cx-react-17.4.1.tgz#124c7d8606a76b6cfdf0b6a8cf5998a92bc66d20"
 
 cx-theme-material@^17.4.1:
   version "17.4.1"
@@ -1994,15 +1991,9 @@ fastparse@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.1.tgz#d1e2643b38a94d7583b479060e6c4affc94071f8"
 
-faye-websocket@0.9.3:
+faye-websocket@0.9.3, faye-websocket@>=0.6.0:
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.9.3.tgz#482a505b0df0ae626b969866d3bd740cdb962e83"
-  dependencies:
-    websocket-driver ">=0.5.1"
-
-faye-websocket@>=0.6.0, faye-websocket@~0.11.0:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.11.1.tgz#f0efe18c4f56e4f40afc7e06c719fd5ee6188f38"
   dependencies:
     websocket-driver ">=0.5.1"
 
@@ -2012,9 +2003,15 @@ faye-websocket@^0.10.0:
   dependencies:
     websocket-driver ">=0.5.1"
 
-fbjs@^0.8.1, fbjs@^0.8.4:
-  version "0.8.11"
-  resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.11.tgz#340b590b8a2278a01ef7467c07a16da9b753db24"
+faye-websocket@~0.11.0:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.11.1.tgz#f0efe18c4f56e4f40afc7e06c719fd5ee6188f38"
+  dependencies:
+    websocket-driver ">=0.5.1"
+
+fbjs@^0.8.9:
+  version "0.8.12"
+  resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.12.tgz#10b5d92f76d45575fd63a217d4ea02bea2f8ed04"
   dependencies:
     core-js "^1.0.0"
     isomorphic-fetch "^2.1.1"
@@ -2144,17 +2141,7 @@ firebase@2.x.x:
   dependencies:
     faye-websocket ">=0.6.0"
 
-firebase@^3.3.0:
-  version "3.7.4"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.7.4.tgz#629fd7f84f8ed74f1da815fd792bfa03cd5e2b5c"
-  dependencies:
-    dom-storage "2.0.2"
-    faye-websocket "0.9.3"
-    jsonwebtoken "7.1.9"
-    rsvp "3.2.1"
-    xmlhttprequest "1.8.0"
-
-firebase@^3.7.5:
+firebase@^3.3.0, firebase@^3.7.5:
   version "3.7.5"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.7.5.tgz#54190ddf6956662a43123ef060734acbd9663985"
   dependencies:
@@ -4187,19 +4174,19 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^15.4.2:
-  version "15.4.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
+react-dom@next:
+  version "16.0.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.0.0-alpha.7.tgz#28c421402680b3409fae12320e64f7d64ae74483"
   dependencies:
-    fbjs "^0.8.1"
+    fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react@^15.4.2:
-  version "15.4.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
+react@next:
+  version "16.0.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.0.0-alpha.7.tgz#9d801087eeffe7adff5361072f8952b019f5a5e6"
   dependencies:
-    fbjs "^0.8.4"
+    fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
