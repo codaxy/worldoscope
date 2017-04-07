@@ -78,7 +78,10 @@ export default <cx>
         </div>
 
         <div class="page" visible:expr="!{$page.status}">
-            <Rescope bind="$page" visible:expr="{report} != null">
+            <p visible:expr="{$page.report.dummy}" style="padding: 2rem">
+                This report has been deleted. If you have starred it, please remove the star now.
+            </p>
+            <Rescope bind="$page" visible:expr="{report} != null && !{report.dummy}">
                 <Header />
 
                 <ColorMap />

@@ -20,7 +20,7 @@ export default class extends Controller {
 
             loadReport(id)
                 .then(def => {
-                    this.store.set('$page.report', def);
+                    this.store.set('$page.report', def || { dummy: true });
                     this.store.delete('$page.status');
                     this.setupAutoSave();
                 });
