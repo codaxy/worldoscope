@@ -1,4 +1,6 @@
-.cxb-colorscale {}
+.cxb-colorscale {
+  flex-shrink: 0;
+}
 
 .cxe-colorscale-scale {
   display: flex;

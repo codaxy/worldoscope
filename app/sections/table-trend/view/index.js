@@ -16,14 +16,18 @@ export default config => {
     },
   ];
 
-  for (let y = config.fromYear; y <= config.toYear; y++)
-    columns.push({
-      field: `${y}`,
-      header: `${y}`,
-      align: 'right',
-      sortable: true,
-      format: format,
-    });
+  let defaultSortField = null;
+
+  for (let y = config.fromYear; y <= config.toYear; y++) {
+		columns.push({
+			field: `${y}`,
+			header: `${y}`,
+			align: 'right',
+			sortable: true,
+			format: format,
+		});
+		defaultSortField = `${y}`;
+	}
 
   columns.push({
     header: 'Trend',
@@ -60,6 +64,8 @@ export default config => {
           scrollable
           mod="responsive"
           style="height: 50vh"
+					defaultSortField={defaultSortField}
+					defaultSortDirection="DESC"
         />
       </div>
       <p text={config.note} visible={!!config.note} />

@@ -40,13 +40,15 @@ export class ColorScale extends Widget {
   render(context, instance, key) {
     let {data, colorScale} = instance;
 
+    let count = 15;
+    let step = colorScale.size / count;
+
     let items = [],
-      stops = 10,
-      begin = colorScale.min < 0 ? -stops : 0,
-      end = colorScale.max > 0 ? stops : 0;
+      begin = Math.floor(colorScale.min / step),
+      end = Math.round(colorScale.max / step);
 
     for (let i = begin; i <= end; i++) {
-      let v = colorScale.size / stops * i;
+      let v = i * step;
       let c = colorScale.map(v);
       items.push(
         <div
@@ -67,7 +69,7 @@ export class ColorScale extends Widget {
         </div>
         <div className={CSS.element(baseClass, 'numbers')}>
           <div>
-            {Format.value(colorScale.min < 0 ? colorScale.min : 0, data.format)}
+            {Format.value(colorScale.min, data.format)}
           </div>
           <div>
             {Format.value(colorScale.max, data.format)}
@@ -112,13 +114,13 @@ class ColorScaleCalculator {
   }
 
   acknowledge(value) {
-    if (typeof value == 'number') {
-      if (typeof this.min == 'undefined' || value < this.min) {
+    if (typeof value === 'number') {
+      if (typeof this.min === 'undefined' || value < this.min) {
         this.min = value;
         this.dirty = true;
       }
 
-      if (typeof this.max == 'undefined' || value > this.max) {
+      if (typeof this.max === 'undefined' || value > this.max) {
         this.max = value;
         this.dirty = true;
       }
@@ -127,7 +129,7 @@ class ColorScaleCalculator {
 
   getHSLA(color) {
     color = parseColor(color) || {type: 'hsla', h: 0, s: 100, l: 50, a: 1};
-    if (color.type == 'rgba') {
+    if (color.type === 'rgba') {
       let [h, s, l] = rgbToHsl(color.r, color.g, color.b);
       color = {type: 'hsla', h, s, l, a: color.a};
     }
@@ -136,7 +138,7 @@ class ColorScaleCalculator {
 
   getRGBA(color) {
     color = parseColor(color) || {type: 'hsla', h: 0, s: 100, l: 50, a: 1};
-    if (color.type == 'hsla') {
+    if (color.type === 'hsla') {
       let [r, g, b] = hslToRgb(color.h, color.s, color.l);
       color = {type: 'rgba', r, g, b, a: color.a};
     }
@@ -150,7 +152,8 @@ class ColorScaleCalculator {
     this.worst = this.getRGBA(worst);
     this.zero = this.getRGBA(zero);
     this.dirty = false;
-    this.size = Math.max(Math.abs(this.max), Math.abs(this.min));
+    this.size = this.min > 0 ? this.max - this.min : Math.max(Math.abs(this.max), Math.abs(this.min));
+    this.offset = this.min > 0 ? this.min : 0;
     //console.log(this.size, this.max, this.min, this.zero, this.best);
   }
 
@@ -161,7 +164,7 @@ class ColorScaleCalculator {
 
     let zero = this.zero,
       end = value >= 0 ? this.best : this.worst,
-      factor = Math.abs(value) / this.size;
+      factor = Math.abs(value - this.offset) / this.size;
 
     // let h = zero.h + (end.h - zero.h) * factor,
     //     s = zero.s + (end.s - zero.s) * factor,

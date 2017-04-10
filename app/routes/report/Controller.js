@@ -239,26 +239,26 @@ export default class extends Controller {
   }
 
   addSection(e, section) {
-    e.preventDefault();
-    document.activeElement.blur();
+		e.preventDefault();
+		document.activeElement.blur();
 
-    let data = {
-      title: 'New Section',
-      id: uid(),
-    };
+		let data = {
+			title: 'New Section',
+			id: uid()
+		};
 
-    for (var key in section)
-      if (typeof section[key] != 'undefined') data[key] = section[key];
+		for (var key in section)
+			if (typeof section[key] != 'undefined') data[key] = section[key];
 
-    this.store.update('$page.report.sections', sections => [
-      ...(sections || []),
-      data,
-    ]);
+		this.store.update('$page.report.sections', sections => [
+			...(sections || []),
+			data,
+		]);
 
-    //open in edit mode
-    this.store.update('$page.sections', sections => ({
-      ...sections,
-      [data.id]: {form: data},
-    }));
-  }
+		//open in edit mode
+		this.store.update('$page.sections', sections => ({
+			...sections,
+			[data.id]: {form: data, isNew: true},
+		}));
+	}
 }

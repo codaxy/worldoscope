@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   load() {
-    let {top, year} = this.store.get('$section');
+    let {top, year, invert} = this.store.get('$section');
     let indicatorId = this.store.get('$section.indicator.id');
     let regionId = this.store.get('$section.region.id');
 
@@ -17,6 +17,7 @@ export default class extends Controller {
 
       let options = {
         sort: true,
+				ascending: invert,
         take: top || 30,
         filter: {
           region: regionId,

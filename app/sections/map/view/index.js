@@ -7,6 +7,24 @@ import Controller from './Controller';
 
 export default config => {
   let format = config.indicator ? detectFormat(config.indicator.name) : null;
+
+  let zero, best, worst;
+
+  switch (config.colorScheme) {
+		default:
+		case "default":
+			best = "#00B237";
+			worst = "#B20300";
+			zero = "#ecfb1a";
+			break;
+
+		case "inverted":
+			worst = "#00B237";
+			best = "#B20300";
+			zero = "#ecfb1a";
+			break;
+	}
+
   return (
     <cx>
       <ColorScaleScope>
@@ -27,9 +45,9 @@ export default config => {
         </Svg>
         <FlexRow justify="center">
           <ColorScale
-            best="#00B237"
-            worst="#B20300"
-            zero="#ecfb1a"
+            best={best}
+            worst={worst}
+            zero={zero}
             style="flex: 1; max-width: 300px"
             format={format}
           />

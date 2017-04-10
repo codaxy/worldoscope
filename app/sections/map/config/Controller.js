@@ -3,6 +3,8 @@ import {queryTopics, queryTopicIndicators, queryRegions} from 'api/data';
 
 export default class extends Controller {
   onInit() {
+  	this.store.init('colorScheme', 'default');
+
     this.addTrigger('name', ['indicator.name', 'year'], (name, year) => {
       this.store.set('title', `${name} - ${year}`);
     });

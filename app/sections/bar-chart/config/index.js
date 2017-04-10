@@ -7,6 +7,8 @@ import {
   NumberField,
   LabeledContainer,
   FlexRow,
+	Radio,
+	Switch
 } from 'cx/widgets';
 
 import Controller from './Controller';
@@ -46,6 +48,21 @@ export default (
       />
 
       <FlexRow wrap target="tablet">
+
+				<div style="flex:1; max-width: 300px">
+					<LookupField
+						label={pin('Region')}
+						disabled:bind="pins.region"
+						value:bind="region.id"
+						text:bind="region.name"
+						optionTextField="name"
+						onQuery="queryRegions"
+						style="width: 100%"
+						fetchAll
+						mod="block"
+					/>
+				</div>
+
         <div style="flex:1; max-width: 300px">
           <LabeledContainer label="Year" mod="block">
             <FlexRow>
@@ -72,20 +89,6 @@ export default (
               />
             </FlexRow>
           </LabeledContainer>
-        </div>
-
-        <div style="flex:1; max-width: 300px">
-          <LookupField
-            label={pin('Region')}
-            disabled:bind="pins.region"
-            value:bind="region.id"
-            text:bind="region.name"
-            optionTextField="name"
-            onQuery="queryRegions"
-            style="width: 100%"
-            fetchAll
-            mod="block"
-          />
         </div>
 
         <div style="flex:1; max-width: 300px">
@@ -116,6 +119,8 @@ export default (
           </LabeledContainer>
         </div>
       </FlexRow>
+
+			<Switch label="Order" mod="block" value:bind="invert">Invert (show low values first)</Switch>
 
       <TextField value:bind="title" label="Title" mod="block" required />
 

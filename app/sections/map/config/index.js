@@ -7,10 +7,19 @@ import {
   NumberField,
   LabeledContainer,
   FlexRow,
+	Switch
 } from 'cx/widgets';
 
 import Controller from './Controller';
 import {pin} from '../../pin';
+
+let colorSchemes = [{
+	id: 'default',
+	text: 'Default'
+}, {
+	id: 'inverted',
+	text: 'Inverted'
+}];
 
 export default (
   <cx>
@@ -86,6 +95,10 @@ export default (
             </FlexRow>
           </LabeledContainer>
         </div>
+				<div style="flex:1; max-width: 300px">
+					<LookupField
+						value:bind="colorScheme" mod="block" label="Color Scheme" style="width: 100%" options={colorSchemes} required />
+				</div>
       </FlexRow>
 
       <TextField
