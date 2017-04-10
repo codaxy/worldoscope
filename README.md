@@ -35,5 +35,5 @@ and [Webpack](https://webpack.js.org).
 
 ## License
 
-This application is a part of the CxJS framework. Please visit our website for more information
+This application is a part of [the CxJS framework](https://cxjs.io). Please visit our website for more information
 on [CxJS licensing](https://cxjs.io).
