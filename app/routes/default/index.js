@@ -133,6 +133,9 @@ export default (
           visible:expr="{$page.tab} == 'saved'"
           layout={FirstVisibleChildLayout}
         >
+					<p ws visible:expr="{$page.myReports.status}=='loading'">
+						<Icon name="loading" /> Loading...
+					</p>
           <FlexRow
             spacing
             wrap
