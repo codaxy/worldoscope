@@ -1,4 +1,5 @@
 import {HtmlElement, Link, DocumentTitle, FlexRow} from 'cx/widgets';
+import {Script} from 'app/components/Script';
 
 let hsid = process.env.HS_ID || false;
 
@@ -81,12 +82,9 @@ export default <cx>
 
 
         </div>
-        <script
+        <Script
             visible={!!hsid}
-            type="text/javascript"
             id="hs-script-loader"
-            async
-            defer
             src={`//js.hs-scripts.com/${hsid}.js`} />
     </div>
 </cx>
