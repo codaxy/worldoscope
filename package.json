@@ -17,8 +17,8 @@
     "cx-theme-material": "^17.4.1",
     "firebase": "^3.7.5",
     "firebaseui": "^1.0.1",
-    "react": "next",
-    "react-dom": "next",
+    "react": "^15.5.3",
+    "react-dom": "^15.5.3",
     "uid": "^0.0.2",
     "whatwg-fetch": "^2.0.3"
   },

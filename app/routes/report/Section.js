@@ -1,25 +1,17 @@
 import {
     HtmlElement,
     Rescope,
-    TextField,
-    PureContainer,
     Button,
-    Section,
     FlexRow,
-    TextArea,
     ValidationGroup,
     Heading,
-    Menu,
-    Submenu,
     Icon,
-    Repeater,
-    Switch,
     Sandbox,
     ContentResolver,
     DragSource,
     DragHandle
 } from 'cx/widgets';
-import {LabelsTopLayout} from 'cx/ui';
+
 import {AnimatedHeight} from 'app/components';
 import sectionTypes from '../../sections';
 

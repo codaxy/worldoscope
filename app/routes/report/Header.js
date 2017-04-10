@@ -19,7 +19,7 @@ import {
     LookupField,
     LabeledContainer
 } from 'cx/widgets';
-import {LabelsTopLayout} from 'cx/ui';
+
 import {AnimatedHeight} from 'app/components';
 
 import Controller from './HeaderController';
@@ -50,14 +50,11 @@ export default <cx>
 
             <Heading level={2}>Report Settings</Heading>
 
-            <ValidationGroup
-                layout={{type: LabelsTopLayout, vertical: true, mod: 'stretch'}}
-                valid:bind="header.valid"
-            >
-                <TextField value:bind="header.title" label="Title" style="width: 100%" required/>
-                <TextArea value:bind="header.description" label="Description" style="width: 100%"/>
+            <ValidationGroup valid:bind="header.valid">
+                <TextField value:bind="header.title" label="Title" style="width: 100%" required mod="block" />
+                <TextArea value:bind="header.description" label="Description" style="width: 100%" mod="block" />
 
-                <Heading>Section Defaults</Heading>
+                <Heading style="margin-top: 2rem">Section Defaults</Heading>
 
                     <LookupField
                         label="Topic"
@@ -68,6 +65,7 @@ export default <cx>
                         style="width:100%"
                         fetchAll
                         cacheAll
+                        mod="block"
                     />
 
                     {/*<LookupField*/}
@@ -89,6 +87,7 @@ export default <cx>
                         style="width:100%"
                         fetchAll
                         cacheAll
+                        mod="block"
                     />
 
                     <LookupField
@@ -100,9 +99,10 @@ export default <cx>
                         onQuery="queryCountries"
                         style="width:100%"
                         fetchAll
+                        mod="block"
                     />
 
-                    <LabeledContainer label="Period">
+                    <LabeledContainer label="Period" mod="block">
                         <FlexRow>
 
                             <NumberField
@@ -168,6 +168,7 @@ export default <cx>
                             store.delete('header');
                             store.delete('defaults');
                         }}
+                        mod="hollow"
                     >
                         Cancel
                     </Button>

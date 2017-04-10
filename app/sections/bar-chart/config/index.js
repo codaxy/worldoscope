@@ -1,6 +1,13 @@
-import {HtmlElement, TextField, TextArea, LookupField, Slider, NumberField, LabeledContainer, FlexRow} from 'cx/widgets';
-
-import {LabelsTopLayout} from 'cx/ui';
+import {
+    HtmlElement,
+    TextField,
+    TextArea,
+    LookupField,
+    Slider,
+    NumberField,
+    LabeledContainer,
+    FlexRow
+} from 'cx/widgets';
 
 import Controller from './Controller';
 import {pin} from '../../pin';
@@ -11,35 +18,35 @@ export default <cx>
             Bar graph presents values of the selected indicator across multiple countries.
             This is useful to compare many countries at once.
         </p>
-        <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>
-            <LookupField
-                label="Topic"
-                value:bind="topic.id"
-                text:bind="topic.text"
-                optionTextField="value"
-                onQuery="queryTopics"
-                style="width:100%"
-                fetchAll
-                cacheAll
-                required
-            />
 
-            <LookupField
-                label="Indicator"
-                value:bind="indicator.id"
-                text:bind="indicator.name"
-                optionTextField="name"
-                onQuery="queryTopicIndicators"
-                style="width:100%"
-                fetchAll
-                required
-            />
-        </div>
+        <LookupField
+            label="Topic"
+            value:bind="topic.id"
+            text:bind="topic.text"
+            optionTextField="value"
+            onQuery="queryTopics"
+            style="width:100%"
+            fetchAll
+            cacheAll
+            required
+            mod="block"
+        />
+
+        <LookupField
+            label="Indicator"
+            value:bind="indicator.id"
+            text:bind="indicator.name"
+            optionTextField="name"
+            onQuery="queryTopicIndicators"
+            style="width:100%"
+            fetchAll
+            required
+            mod="block"
+        />
 
         <FlexRow wrap target="tablet">
-
-            <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}} style="flex:1; max-width: 300px">
-                <LabeledContainer label="Year">
+            <div style="flex:1; max-width: 300px">
+                <LabeledContainer label="Year" mod="block">
                     <FlexRow>
                         <Slider
                             value={{
@@ -66,8 +73,22 @@ export default <cx>
                 </LabeledContainer>
             </div>
 
-            <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}} style="flex:1; max-width: 300px">
-                <LabeledContainer label="Top">
+            <div style="flex:1; max-width: 300px">
+                <LookupField
+                    label={pin('Region')}
+                    disabled:bind="pins.region"
+                    value:bind="region.id"
+                    text:bind="region.name"
+                    optionTextField="name"
+                    onQuery="queryRegions"
+                    style="width: 100%"
+                    fetchAll
+                    mod="block"
+                />
+            </div>
+
+            <div style="flex:1; max-width: 300px">
+                <LabeledContainer label="Top" mod="block">
                     <FlexRow>
                         <Slider
                             value={{
@@ -93,27 +114,13 @@ export default <cx>
                     </FlexRow>
                 </LabeledContainer>
             </div>
-
-            <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}} style="flex:1; max-width: 300px">
-                <LookupField
-                    label={pin('Region')}
-                    disabled:bind="pins.region"
-                    value:bind="region.id"
-                    text:bind="region.name"
-                    optionTextField="name"
-                    onQuery="queryRegions"
-                    style="width:100%"
-                    fetchAll
-                />
-            </div>
-
         </FlexRow>
 
-        <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>
-            <TextField value:bind="title" label="Title" mod="block"
-                required />
 
-            <TextArea value:bind="note" label="Note" style="width: 100%" />
-        </div>
+        <TextField value:bind="title" label="Title" mod="block"
+            required/>
+
+        <TextArea value:bind="note" label="Note" style="width: 100%"
+            mod="block"/>
     </div>
 </cx>

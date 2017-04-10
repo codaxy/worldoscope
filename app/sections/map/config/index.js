@@ -1,6 +1,13 @@
-import {HtmlElement, TextField, TextArea, LookupField, Slider, NumberField, LabeledContainer, FlexRow, Radio, Heading} from 'cx/widgets';
-
-import {LabelsTopLayout} from 'cx/ui';
+import {
+    HtmlElement,
+    TextField,
+    TextArea,
+    LookupField,
+    Slider,
+    NumberField,
+    LabeledContainer,
+    FlexRow
+} from 'cx/widgets';
 
 import Controller from './Controller';
 import {pin} from '../../pin';
@@ -11,11 +18,6 @@ export default <cx>
             The countries are colored based on the indicator value. This is very useful
             for a quick overview of how a selected indicator is spread in different parts of the world.
         </p>
-
-
-        {/*<div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>*/}
-            {/**/}
-        {/*</div>*/}
 
         <LookupField
             label="Topic"
@@ -40,10 +42,24 @@ export default <cx>
             required
         />
 
-        <FlexRow wrap target="tablet">
+        <FlexRow wrap target="tablet" hspacing>
 
-            <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}} style="flex:1; max-width: 300px">
-                <LabeledContainer label="Year">
+            <div style="flex:1; max-width: 300px">
+                <LookupField
+                    label={pin('Region')}
+                    disabled:bind="pins.region"
+                    value:bind="region.id"
+                    text:bind="region.name"
+                    optionTextField="name"
+                    onQuery="queryRegions"
+                    style="width:100%"
+                    fetchAll
+                    mod="block"
+                />
+            </div>
+
+            <div style="flex:1; max-width: 300px">
+                <LabeledContainer label="Year" mod="block">
                     <FlexRow>
                         <Slider
                             value={{
@@ -69,27 +85,12 @@ export default <cx>
                     </FlexRow>
                 </LabeledContainer>
             </div>
-
-            <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}} style="flex:1; max-width: 300px">
-                <LookupField
-                    label={pin('Region')}
-                    disabled:bind="pins.region"
-                    value:bind="region.id"
-                    text:bind="region.name"
-                    optionTextField="name"
-                    onQuery="queryRegions"
-                    style="width:100%"
-                    fetchAll
-                />
-            </div>
-
         </FlexRow>
 
-        <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>
-            <TextField value:bind="title" label="Title" style="width: 100%"
-                required />
+        <TextField value:bind="title" label="Title" style="width: 100%"
+            required mod="block"/>
 
-            <TextArea value:bind="note" label="Note" style="width: 100%" />
-        </div>
+        <TextArea value:bind="note" label="Note" style="width: 100%" mod="block"/>
+
     </div>
 </cx>

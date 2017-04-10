@@ -1,23 +1,17 @@
 import {
     HtmlElement,
     Rescope,
-    TextField,
     PureContainer,
     Button,
     FlexRow,
-    TextArea,
-    ValidationGroup,
-    Heading,
     Menu,
     Submenu,
     Icon,
     Repeater,
-    Switch,
     DropZone,
     DocumentTitle
 } from 'cx/widgets';
 import {ColorMap} from 'cx/charts';
-import {LabelsTopLayout} from 'cx/ui';
 
 import Controller from './Controller';
 import Header from './Header';

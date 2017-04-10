@@ -1,6 +1,4 @@
-import {HtmlElement, TextField, TextArea, LookupField, Slider, NumberField, LabeledContainer, FlexRow, Radio, Heading} from 'cx/widgets';
-
-import {LabelsTopLayout} from 'cx/ui';
+import {HtmlElement, TextField, TextArea, LookupField} from 'cx/widgets';
 
 import Controller from './Controller';
 
@@ -13,36 +11,35 @@ export default <cx>
             for a quick overview of how a selected indicator is spread in different parts of the world.
         </p>
 
-        <div layout={{type: LabelsTopLayout, mod: 'stretch', vertical: true}}>
-            <TextField value:bind="title" label="Title" style="width: 100%"
-                required />
+        <TextField value:bind="title" label="Title" style="width: 100%"
+            required mod="block"/>
 
-            <LookupField
-                label={pin('Region')}
-                disabled:bind="pins.region"
-                value:bind="region.id"
-                text:bind="region.name"
-                optionTextField="name"
-                onQuery="queryRegions"
-                style="width:100%"
-                fetchAll
-            />
+        <LookupField
+            label={pin('Region')}
+            disabled:bind="pins.region"
+            value:bind="region.id"
+            text:bind="region.name"
+            optionTextField="name"
+            onQuery="queryRegions"
+            style="width:100%"
+            fetchAll
+            mod="block"
+        />
 
-            <LookupField
-                label={pin('Countries')}
-                disabled:bind="pins.countries"
-                multiple
-                records:bind="countries"
-                optionIdField="iso2Code"
-                optionTextField="name"
-                onQuery="queryCountries"
-                style="width:100%"
-                fetchAll
-                cacheAll
-            />
+        <LookupField
+            label={pin('Countries')}
+            disabled:bind="pins.countries"
+            multiple
+            records:bind="countries"
+            optionIdField="iso2Code"
+            optionTextField="name"
+            onQuery="queryCountries"
+            style="width:100%"
+            fetchAll
+            cacheAll
+            mod="block"
+        />
 
-            <TextArea value:bind="note" label="Note" style="width: 100%" />
-        </div>
-
+        <TextArea value:bind="note" label="Note" style="width: 100%"/>
     </div>
 </cx>
