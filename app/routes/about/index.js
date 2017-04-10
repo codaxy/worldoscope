@@ -2,6 +2,8 @@ import {HtmlElement, Link, DocumentTitle, FlexRow} from 'cx/widgets';
 
 let hsid = process.env.HS_ID || false;
 
+console.log(hsid);
+
 export default <cx>
     <DocumentTitle value="About"/>
     <h1 putInto="header">About</h1>
