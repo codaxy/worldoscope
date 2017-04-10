@@ -25,6 +25,7 @@ If you're not using `yarn` yet, `npm` will do too.
 This is a [CxJS](https://cxjs.io) demo application and it illustrates the capabilites of the framework, its widgets, charts
 and Material Design based theme.
 Data needed for reports is fetched directly from [The World Bank API](http://data.worldbank.org/) endpoint.
+SVG maps are based on free samples provided by [simplemaps.com](http://simplemaps.com/resources/svg-maps).
 Besides CxJS, the application is built on top of modern web technologies such as
 [React](https://facebook.github.io/react/),
 [Babel](https://babeljs.io)
