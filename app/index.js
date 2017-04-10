@@ -4,27 +4,25 @@ import {Timing, Debug} from 'cx/util';
 import {getAuth} from 'api';
 
 //css
-import "./index.scss";
-import "cx-theme-material";
+import './index.scss';
+import 'cx-theme-material';
 
 //store
 const store = new Store();
 
 //webpack (HMR)
 if (module.hot) {
-    // accept itself
-    module.hot.accept();
+  // accept itself
+  module.hot.accept();
 
-    // remember data on dispose
-    module.hot.dispose(function (data) {
-        data.state = store.getData();
-        if (stop)
-            stop();
-    });
+  // remember data on dispose
+  module.hot.dispose(function(data) {
+    data.state = store.getData();
+    if (stop) stop();
+  });
 
-    //apply data on hot replace
-    if (module.hot.data)
-        store.load(module.hot.data.state);
+  //apply data on hot replace
+  if (module.hot.data) store.load(module.hot.data.state);
 }
 
 //routing
@@ -40,18 +38,20 @@ Debug.enable('app-data');
 
 // Listen to change in auth state so it displays the correct UI for when
 // the user is signed in or not.
-store.init('user', { loading: true });
-getAuth()
-    .then(auth => {
-        auth.onAuthStateChanged(function (user) {
-            store.set('user', user && {
-                    email: user.email,
-                    displayName: user.displayName,
-                    photoURL: user.photoURL,
-                    uid: user.uid
-                });
-        });
-    });
+store.init('user', {loading: true});
+getAuth().then(auth => {
+  auth.onAuthStateChanged(function(user) {
+    store.set(
+      'user',
+      user && {
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        uid: user.uid,
+      },
+    );
+  });
+});
 
 //app loop
 import Routes from './routes';

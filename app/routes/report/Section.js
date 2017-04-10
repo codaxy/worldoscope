@@ -1,118 +1,126 @@
 import {
-    HtmlElement,
-    Rescope,
-    Button,
-    FlexRow,
-    ValidationGroup,
-    Heading,
-    Icon,
-    Sandbox,
-    ContentResolver,
-    DragSource,
-    DragHandle
+  HtmlElement,
+  Rescope,
+  Button,
+  FlexRow,
+  ValidationGroup,
+  Heading,
+  Icon,
+  Sandbox,
+  ContentResolver,
+  DragSource,
+  DragHandle,
 } from 'cx/widgets';
 
 import {AnimatedHeight} from 'app/components';
 import sectionTypes from '../../sections';
 
-export default <cx>
-    <Sandbox key:bind="$section.id" storage:bind="sections" recordAlias="$sectionData">
-        <DragSource id:bind="$section.id"
-            class={{
-                section: true,
-                edit: {bind: '$sectionData.form'}
-            }}
-            data={{
-                index: {bind: "$index"},
-                type: 'section'
-            }}
-            hideOnDrag
-            handled
-        >
-            <AnimatedHeight loaded:expr="!{$sectionData.loading}">
-                <div visible:expr="!{$sectionData.form}">
-                    <FlexRow align="center" style="margin-bottom: 10px">
-                        <Heading level={3}>
-                            <a href:tpl="#{$section.id}" text:bind="$section.title"></a>
-                        </Heading>
-                        <DragHandle
-                            style="cursor:move; margin-left: auto;"
-                            visible:bind="editable"
-                            class="ambient-color"
-                        >
-                            <div tooltip="Drag & drop to reorder sections">
-                                <Icon name="drag_handle" />
-                            </div>
-                        </DragHandle>
-                        <Button
-                            mod="hollow"
-                            class="ambient-color"
-                            icon="mode_edit"
-                            visible:bind="editable"
-                            onClick={(e, {store}) => {
-                                let config = store.get('$section');
-                                store.set('$sectionData.form', config);
-                            }}
-                        />
-                    </FlexRow>
-                    <ContentResolver
-                        params:bind="$section"
-                        onResolve={section => {
-                            let sectionType = sectionTypes[section.type];
-                            return sectionType && sectionType.view(section);
-                        }}
-                    />
+export default (
+  <cx>
+    <Sandbox
+      key:bind="$section.id"
+      storage:bind="sections"
+      recordAlias="$sectionData"
+    >
+      <DragSource
+        id:bind="$section.id"
+        class={{
+          section: true,
+          edit: {bind: '$sectionData.form'},
+        }}
+        data={{
+          index: {bind: '$index'},
+          type: 'section',
+        }}
+        hideOnDrag
+        handled
+      >
+        <AnimatedHeight loaded:expr="!{$sectionData.loading}">
+          <div visible:expr="!{$sectionData.form}">
+            <FlexRow align="center" style="margin-bottom: 10px">
+              <Heading level={3}>
+                <a href:tpl="#{$section.id}" text:bind="$section.title" />
+              </Heading>
+              <DragHandle
+                style="cursor:move; margin-left: auto;"
+                visible:bind="editable"
+                class="ambient-color"
+              >
+                <div tooltip="Drag &amp; drop to reorder sections">
+                  <Icon name="drag_handle" />
                 </div>
+              </DragHandle>
+              <Button
+                mod="hollow"
+                class="ambient-color"
+                icon="mode_edit"
+                visible:bind="editable"
+                onClick={(e, {store}) => {
+                  let config = store.get('$section');
+                  store.set('$sectionData.form', config);
+                }}
+              />
+            </FlexRow>
+            <ContentResolver
+              params:bind="$section"
+              onResolve={section => {
+                let sectionType = sectionTypes[section.type];
+                return sectionType && sectionType.view(section);
+              }}
+            />
+          </div>
 
-                <div visible:bind="$sectionData.form">
-                    <ValidationGroup valid:bind="$sectionData.formValid">
-                        <Rescope bind="$sectionData.form">
-                            <ContentResolver
-                                params:bind="$root.$section"
-                                onResolve={section => {
-                                    let sectionType = sectionTypes[section.type];
-                                    return sectionType && sectionType.config;
-                                }}
-                            />
-                        </Rescope>
-                    </ValidationGroup>
-                    <br/>
-                    <FlexRow hspacing>
-                        <Button
-                            mod="primary"
-                            icon="done"
-                            disabled:expr="!{$sectionData.formValid}"
-                            onClick={(e, {store}) => {
-                                let form = store.get('$sectionData.form');
-                                store.delete('$sectionData.form');
-                                store.set('$section', form);
-                            }}
-                        >
-                            Save
-                        </Button>
-                        <Button
-                            mod="hollow"
-                            onClick={(e, {store}) => {
-                                store.delete('$sectionData.form');
-                            }}
-                        >
-                            Cancel
-                        </Button>
+          <div visible:bind="$sectionData.form">
+            <ValidationGroup valid:bind="$sectionData.formValid">
+              <Rescope bind="$sectionData.form">
+                <ContentResolver
+                  params:bind="$root.$section"
+                  onResolve={section => {
+                    let sectionType = sectionTypes[section.type];
+                    return sectionType && sectionType.config;
+                  }}
+                />
+              </Rescope>
+            </ValidationGroup>
+            <br />
+            <FlexRow hspacing>
+              <Button
+                mod="primary"
+                icon="done"
+                disabled:expr="!{$sectionData.formValid}"
+                onClick={(e, {store}) => {
+                  let form = store.get('$sectionData.form');
+                  store.delete('$sectionData.form');
+                  store.set('$section', form);
+                }}
+              >
+                Save
+              </Button>
+              <Button
+                mod="hollow"
+                onClick={(e, {store}) => {
+                  store.delete('$sectionData.form');
+                }}
+              >
+                Cancel
+              </Button>
 
-                        <Button
-                            mod="hollow"
-                            icon="delete"
-                            style="margin-left: auto"
-                            confirm="Are you sure that you want to delete this section?"
-                            onClick={(e, {store}) => {
-                                let s = store.get('$section');
-                                store.update('report.sections', sections => sections.filter(x => x != s));
-                            }}
-                        />
-                    </FlexRow>
-                </div>
+              <Button
+                mod="hollow"
+                icon="delete"
+                style="margin-left: auto"
+                confirm="Are you sure that you want to delete this section?"
+                onClick={(e, {store}) => {
+                  let s = store.get('$section');
+                  store.update('report.sections', sections =>
+                    sections.filter(x => x != s));
+                }}
+              />
+            </FlexRow>
+          </div>
 
-            </AnimatedHeight>
-        </DragSource>
+        </AnimatedHeight>
+      </DragSource>
     </Sandbox>
-</cx>
+  </cx>
+);

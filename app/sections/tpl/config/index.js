@@ -1,7 +1,9 @@
-import { HtmlElement } from 'cx/widgets';
+import {HtmlElement} from 'cx/widgets';
 
-export default <cx>
+export default (
+  <cx>
     <div>
-        Test Section
+      Test Section
     </div>
-</cx>
+  </cx>
+);

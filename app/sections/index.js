@@ -8,12 +8,12 @@ import ttrend from './table-trend';
 import tcomparison from './table-comparison';
 
 export default {
-    'line-chart': line,
-    'line-comparison': lineComparison,
-    'bar-chart': bar,
-    'column-chart': column,
-    map,
-    legend,
-    "table-trend": ttrend,
-    "table-comparison": tcomparison
-}
+  'line-chart': line,
+  'line-comparison': lineComparison,
+  'bar-chart': bar,
+  'column-chart': column,
+  map,
+  legend,
+  'table-trend': ttrend,
+  'table-comparison': tcomparison,
+};
