@@ -1,6 +1,6 @@
-# World Bank Data Reports
+# Worldoscope
 
-<img src="https://raw.githubusercontent.com/codaxy/world-bank-data-reports/master/assets/img/preview.png" alt="report" height="200px" />
+<img src="https://raw.githubusercontent.com/codaxy/worldoscope/master/assets/img/preview.png" alt="report" height="200px" />
 
 This application allows you to create beautiful reports
 by combining The World Bank database with a set of predefined section templates.
