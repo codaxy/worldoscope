@@ -13,8 +13,8 @@ export default (
           <div>
             <h2>The App</h2>
             <p ws>
-              This is a CxJS demo application and it illustrates usage of the
-              framework, its widgets and charts.
+              This is a CxJS demo application and it illustrates the capabilites of the framework, its widgets, charts
+							and Material Design based theme.
               Data needed for reports is fetched directly from The World Bank API endpoint.
               Besides CxJS, the application is built on top of modern web technologies such as React, Babel
               and Webpack.
@@ -27,7 +27,7 @@ export default (
               <a href="http://data.worldbank.org/">The World Bank Data API</a> -
               <a href="https://facebook.github.io/react/">React</a> -
               <a href="https://babeljs.io/">Babel</a> -
-              <a href="https://webpack.js.org//">webpack</a> -
+              <a href="https://webpack.js.org/">webpack</a> -
               <a href="https://firebase.google.com/">Firebase</a> -
               <a href="https://circleci.com/">Circle CI</a>
             </p>

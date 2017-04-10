@@ -1,4 +1,0 @@
-Non-obvious:
-- break category labels into two rows - use tspan
-- fix Column caching bug
-- implement report security
