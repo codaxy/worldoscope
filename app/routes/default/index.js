@@ -22,7 +22,7 @@ export default (
       <div class="welcome">
         <FlexRow hspacing="xlarge" align="center">
           <div>
-            <h2>Create slick reports of World Bank data using charts, heatmaps, and tables</h2>
+            <h2>Create slick reports out of The World Bank data using charts, heatmaps, and tables</h2>
             <p ws>
               Use the application to explore thousands of indicators,
               observe trends, find the best countries or compare your own country with the rest of the world.
