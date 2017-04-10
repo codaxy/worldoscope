@@ -220,6 +220,7 @@ export default class extends Controller {
 
     this.addSection(e, {
       type: 'table-trend',
+			topic: defaults.topic,
       region: defaults.region,
       indicator: defaults.indicator,
       fromYear: defaults.fromYear,

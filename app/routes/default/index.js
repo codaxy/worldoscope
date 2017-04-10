@@ -17,15 +17,13 @@ import Controller from './Controller';
 export default (
   <cx>
     <DocumentTitle value="Home" />
-    <h1 putInto="header">World Bank Data Reports</h1>
+    <h1 putInto="header">Worldoscope</h1>
     <div class="page2" controller={Controller}>
       <div class="welcome">
         <FlexRow hspacing="xlarge" align="center">
           <div>
-            <h2>Welcome</h2>
+            <h2>Create slick reports of World Bank data using charts, heatmaps, and tables</h2>
             <p ws>
-              This application allows you to create beautiful reports
-              by combining The World Bank database with a set of predefined section templates.
               Use the application to explore thousands of indicators,
               observe trends, find the best countries or compare your own country with the rest of the world.
               Don't forget to share your own findings and star the best reports.

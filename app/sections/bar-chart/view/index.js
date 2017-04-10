@@ -20,7 +20,7 @@ export default config => {
     <cx>
       <Legend.Scope>
         <Svg
-          style={`width:100%; height:${50 + top * 20}px`}
+          style={`width:100%; height:${50 + top * 23}px`}
           controller={Controller}
         >
           <Chart
