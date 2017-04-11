@@ -38,11 +38,16 @@ export default class extends Controller {
       });
 
       //if report is opened directly, user object might not be available immediately
-      this.addTrigger("star", ["user"], () => {
-				if (currentUserId()) {
-					isStarred(id).then(value => this.store.set('$page.starred', value));
-				}
-			}, true);
+      this.addTrigger(
+        'star',
+        ['user'],
+        () => {
+          if (currentUserId()) {
+            isStarred(id).then(value => this.store.set('$page.starred', value));
+          }
+        },
+        true,
+      );
     } else {
       let copy = this.store.get('clipboard.report');
 
@@ -223,7 +228,7 @@ export default class extends Controller {
 
     this.addSection(e, {
       type: 'table-trend',
-			topic: defaults.topic,
+      topic: defaults.topic,
       region: defaults.region,
       indicator: defaults.indicator,
       fromYear: defaults.fromYear,
@@ -242,26 +247,26 @@ export default class extends Controller {
   }
 
   addSection(e, section) {
-		e.preventDefault();
-		document.activeElement.blur();
+    e.preventDefault();
+    document.activeElement.blur();
 
-		let data = {
-			title: 'New Section',
-			id: uid()
-		};
+    let data = {
+      title: 'New Section',
+      id: uid(),
+    };
 
-		for (var key in section)
-			if (typeof section[key] != 'undefined') data[key] = section[key];
+    for (var key in section)
+      if (typeof section[key] != 'undefined') data[key] = section[key];
 
-		this.store.update('$page.report.sections', sections => [
-			...(sections || []),
-			data,
-		]);
+    this.store.update('$page.report.sections', sections => [
+      ...(sections || []),
+      data,
+    ]);
 
-		//open in edit mode
-		this.store.update('$page.sections', sections => ({
-			...sections,
-			[data.id]: {form: data, isNew: true},
-		}));
-	}
+    //open in edit mode
+    this.store.update('$page.sections', sections => ({
+      ...sections,
+      [data.id]: {form: data, isNew: true},
+    }));
+  }
 }

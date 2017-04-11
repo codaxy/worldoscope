@@ -5,9 +5,12 @@ export default class extends Controller {
   onInit() {
     this.addTrigger(
       'name',
-      ['indicator.name', 'year', 'top'],
-      (name, year, top) => {
-        this.store.set('title', `Top ${top} - ${name} - ${year}`);
+      ['indicator.name', 'year', 'top', 'invert'],
+      (name, year, top, invert) => {
+        this.store.set(
+          'title',
+          `${invert ? 'Bottom' : 'Top'} ${top} - ${name} - ${year}`,
+        );
       },
     );
   }

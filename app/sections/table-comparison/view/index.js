@@ -16,19 +16,18 @@ export default config => {
 
   if (Array.isArray(config.indicators))
     config.indicators.forEach(ind => {
-			let format = detectFormat(ind.text);
-			let field = `_${ind.id.replace(/\./g, '_')}`;
-			columns.push({
-				field: field,
-				header: `${ind.text}`,
-				align: 'right',
-				sortable: true,
-				format: format,
-			});
+      let format = detectFormat(ind.text);
+      let field = `_${ind.id.replace(/\./g, '_')}`;
+      columns.push({
+        field: field,
+        header: `${ind.text}`,
+        align: 'right',
+        sortable: true,
+        format: format,
+      });
 
-			if (!defaultSortField)
-				defaultSortField = field;
-		});
+      if (!defaultSortField) defaultSortField = field;
+    });
 
   return (
     <cx>
@@ -40,8 +39,8 @@ export default config => {
           scrollable
           mod="responsive"
           style="height: 50vh"
-					defaultSortField={defaultSortField}
-					defaultSortDirection="DESC"
+          defaultSortField={defaultSortField}
+          defaultSortDirection="DESC"
         />
       </div>
       <p text={config.note} visible={!!config.note} />

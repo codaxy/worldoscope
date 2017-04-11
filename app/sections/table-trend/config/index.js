@@ -73,6 +73,7 @@ export default (
                 minValue={1960}
                 maxValue={2020}
                 disabled:bind="pins.period"
+								reactOn="enter blur"
               />
 
               <Slider
@@ -101,6 +102,7 @@ export default (
                 minValue={1960}
                 maxValue={2020}
                 disabled:bind="pins.period"
+								reactOn="enter blur"
               />
             </FlexRow>
           </LabeledContainer>

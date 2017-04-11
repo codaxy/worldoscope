@@ -91,7 +91,7 @@ export default (
                 onClick={(e, {store}) => {
                   let form = store.get('$sectionData.form');
                   store.delete('$sectionData.form');
-									store.delete('$sectionData.isNew');
+                  store.delete('$sectionData.isNew');
                   store.set('$section', form);
                 }}
               >
@@ -100,15 +100,15 @@ export default (
               <Button
                 mod="hollow"
                 onClick={(e, {store}) => {
-									store.delete('$sectionData.form');
-									let isNew = store.get('$sectionData.isNew');
-									store.delete('$sectionData.isNew');
-									if (isNew) {
-										let s = store.get('$section');
-										store.update('report.sections', sections =>
-											sections.filter(x => x != s));
-									}
-								}}
+                  store.delete('$sectionData.form');
+                  let isNew = store.get('$sectionData.isNew');
+                  store.delete('$sectionData.isNew');
+                  if (isNew) {
+                    let s = store.get('$section');
+                    store.update('report.sections', sections =>
+                      sections.filter(x => x != s));
+                  }
+                }}
               >
                 Cancel
               </Button>

@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "cx": "^17.4.7",
+    "cx": "^17.4.8",
     "cx-react": "^17.4.1",
     "cx-theme-material": "^17.4.1",
     "firebase": "^3.7.5",
@@ -24,7 +24,7 @@
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
-    "babel-core": "^6.24.0",
+    "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
     "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-syntax-jsx": "^6.8.0",

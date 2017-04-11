@@ -17,7 +17,7 @@ export default class extends Controller {
 
       let options = {
         sort: true,
-				ascending: invert,
+        ascending: invert,
         take: top || 30,
         filter: {
           region: regionId,

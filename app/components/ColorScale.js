@@ -40,6 +40,9 @@ export class ColorScale extends Widget {
   render(context, instance, key) {
     let {data, colorScale} = instance;
 
+    if (colorScale.dirty)
+    	colorScale.measure();
+
     let count = 15;
     let step = colorScale.size / count;
 
@@ -152,19 +155,22 @@ class ColorScaleCalculator {
     this.worst = this.getRGBA(worst);
     this.zero = this.getRGBA(zero);
     this.dirty = false;
-    this.size = this.min > 0 ? this.max - this.min : Math.max(Math.abs(this.max), Math.abs(this.min));
+    this.size = this.min > 0
+      ? (this.max - this.min) / 2
+      : Math.max(Math.abs(this.max), Math.abs(this.min));
     this.offset = this.min > 0 ? this.min : 0;
+    this.middle = this.min > 0 ? (this.min + this.max) / 2 : 0;
     //console.log(this.size, this.max, this.min, this.zero, this.best);
   }
 
   map(value) {
-    if (typeof value != 'number') return null;
-
     if (this.dirty) this.measure();
 
+		if (typeof value !== 'number') return null;
+
     let zero = this.zero,
-      end = value >= 0 ? this.best : this.worst,
-      factor = Math.abs(value - this.offset) / this.size;
+      end = value >= this.middle ? this.best : this.worst,
+      factor = Math.abs(value - this.middle) / this.size;
 
     // let h = zero.h + (end.h - zero.h) * factor,
     //     s = zero.s + (end.s - zero.s) * factor,

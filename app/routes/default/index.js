@@ -8,7 +8,7 @@ import {
   FlexRow,
   Heading,
   Tab,
-  Button,
+  LinkButton,
 } from 'cx/widgets';
 import {FirstVisibleChildLayout} from 'cx/ui';
 
@@ -22,7 +22,9 @@ export default (
       <div class="welcome">
         <FlexRow hspacing="xlarge" align="center">
           <div>
-            <h2>Create slick reports out of The World Bank data using charts, heatmaps, and tables</h2>
+            <h2>
+              Create slick reports from World Bank data using charts, heatmaps, and tables
+            </h2>
             <p ws>
               Use the application to explore thousands of indicators,
               observe trends, find the best countries or compare your own country with the rest of the world.
@@ -33,18 +35,15 @@ export default (
               </Link>
             </p>
 
-            {/*<Button mod="primary" icon="add" class="new-report-button">New Report</Button>*/}
-
-            <Link
+            <LinkButton
               href="~/new"
               baseClass="button"
               mod="primary"
               class="new-report-button"
-              ws
+							icon="add"
             >
-              <Icon name="add" />
               New report
-            </Link>
+            </LinkButton>
 
             <h3>Browse Reports</h3>
 
@@ -56,7 +55,7 @@ export default (
                 Stars
               </Tab>
               <Tab mod="line-accent" value:bind="$page.tab" tab="saved">
-                Saved
+                My Reports
               </Tab>
             </FlexRow>
           </div>
@@ -81,7 +80,7 @@ export default (
                 <FlexRow align="center">
                   <Heading text:bind="$record.title" level={4} style="flex:1" />
                   <Icon name="star" />
-                  <span text:bind="$record.starCount" />
+                  <span text:bind="$record.starCount" style="color:gray" />
                 </FlexRow>
                 <p
                   text:bind="$record.description"
@@ -109,7 +108,7 @@ export default (
             <Repeater records:bind="$page.stars.data">
               <Link class="report-card" href:tpl="~/{$record.id}">
                 <FlexRow align="center" hspacing>
-                  <Icon name="star" style="color:lightblue" />
+                  <Icon name="star" />
                   <Heading text:bind="$record.title" level={4} />
                 </FlexRow>
               </Link>
@@ -131,9 +130,9 @@ export default (
           visible:expr="{$page.tab} == 'saved'"
           layout={FirstVisibleChildLayout}
         >
-					<p ws visible:expr="{$page.myReports.status}=='loading'">
-						<Icon name="loading" /> Loading...
-					</p>
+          <p ws visible:expr="{$page.myReports.status}=='loading'">
+            <Icon name="loading" /> Loading...
+          </p>
           <FlexRow
             spacing
             wrap

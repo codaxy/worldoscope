@@ -124,7 +124,10 @@ export async function queryCountryIndicators(
       }
     }
 
-    if (options.sort) x = sorter([{value: x => x.value, direction: options.ascending ? 'ASC' : 'DESC'}])(x);
+    if (options.sort)
+      x = sorter([
+        {value: x => x.value, direction: options.ascending ? 'ASC' : 'DESC'},
+      ])(x);
 
     if (options.take) x = x.slice(0, options.take);
   }

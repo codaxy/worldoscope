@@ -14,9 +14,9 @@ export default (
             <h2>The App</h2>
             <p ws>
               This is a CxJS demo application and it illustrates the capabilites of the framework, its widgets, charts
-							and Material Design based theme.
+              and Material Design based theme.
               Data needed for reports is fetched directly from The World Bank API endpoint.
-							SVG maps are based on free samples provided by simplemaps.com.
+              SVG maps are based on free samples provided by simplemaps.com.
               Besides CxJS, the application is built on top of modern web technologies such as React, Babel
               and Webpack.
               Google Firebase is used to store report definitions, authentication and hosting.
@@ -26,13 +26,13 @@ export default (
             <p ws>
               <a href="https://cxjs.io/">CxJS</a> -
               <a href="http://data.worldbank.org/">The World Bank Data API</a> -
-							<a href="http://simplemaps.com/resources/svg-maps">SVG Maps</a> -
+              <a href="http://simplemaps.com/resources/svg-maps">SVG Maps</a> -
               <a href="https://facebook.github.io/react/">React</a> -
               <a href="https://babeljs.io/">Babel</a> -
               <a href="https://webpack.js.org/">webpack</a> -
               <a href="https://firebase.google.com/">Firebase</a> -
               <a href="https://circleci.com/">Circle CI</a> -
-							<a href="https://material.io/">Material Design</a>
+              <a href="https://material.io/">Material Design</a>
             </p>
           </div>
           <img

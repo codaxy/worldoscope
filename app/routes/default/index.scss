@@ -72,7 +72,7 @@
 
 .report-cards {
   @media screen and (max-width: 800px) {
-    min-height: 70vh;
+    min-height: 90vh;
   }
 }
 
@@ -103,6 +103,16 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
+    color: #535353;
+  }
+
+  .cxb-icon {
+    color: $cx-theme-accent-color;
+  }
+
+  h4 {
+    color: #1154a0;
+    font-weight: 500;
   }
 
   &.hidden {

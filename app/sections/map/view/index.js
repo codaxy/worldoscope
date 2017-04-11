@@ -11,19 +11,19 @@ export default config => {
   let zero, best, worst;
 
   switch (config.colorScheme) {
-		default:
-		case "default":
-			best = "#00B237";
-			worst = "#B20300";
-			zero = "#ecfb1a";
-			break;
+    default:
+    case 'default':
+      best = '#00B237';
+      worst = '#B20300';
+      zero = '#ecfb1a';
+      break;
 
-		case "inverted":
-			worst = "#00B237";
-			best = "#B20300";
-			zero = "#ecfb1a";
-			break;
-	}
+    case 'inverted':
+      worst = '#00B237';
+      best = '#B20300';
+      zero = '#ecfb1a';
+      break;
+  }
 
   return (
     <cx>
