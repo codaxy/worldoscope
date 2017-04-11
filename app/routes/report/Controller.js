@@ -37,9 +37,12 @@ export default class extends Controller {
         this.setupAutoSave();
       });
 
-      if (currentUserId()) {
-        isStarred(id).then(value => this.store.set('$page.starred', value));
-      }
+      //if report is opened directly, user object might not be available immediately
+      this.addTrigger("star", ["user"], () => {
+				if (currentUserId()) {
+					isStarred(id).then(value => this.store.set('$page.starred', value));
+				}
+			}, true);
     } else {
       let copy = this.store.get('clipboard.report');
 
