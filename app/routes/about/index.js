@@ -11,7 +11,7 @@ export default (
       <div class="prose">
         <FlexRow hspacing="xlarge" align="center">
           <div>
-            <h2>The App</h2>
+            <h2>Worldoscope</h2>
             <p ws>
               This is a CxJS demo application and it illustrates the capabilites of the framework, its widgets, charts
               and Material Design based theme.
