@@ -16,14 +16,14 @@ import uid from 'uid';
 
 export default class extends Controller {
   onInit() {
-    this.loadReport();
+		this.loadReport();
 
-    this.addComputable(
-      '$page.editable',
-      ['user', '$page.report'],
-      (user, report) => user && report && report.userId == user.uid,
-    );
-  }
+		this.addComputable(
+			'$page.editable',
+			['user', '$page.report', '$route.id'],
+			(user, report, id) => id == 'new' || (user && report && report.userId == user.uid),
+		);
+	}
 
   loadReport() {
     let id = this.store.get('$route.id');
