@@ -7,7 +7,7 @@ by combining The World Bank database with a set of predefined section templates.
 Use the application to explore thousands of indicators,
 observe trends, find the best countries or compare your own country with the rest of the world.
 
-https://wbdr.cxjs.io
+https://worldoscope.cxjs.io
 
 ## Usage
 
