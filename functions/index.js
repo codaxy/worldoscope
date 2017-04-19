@@ -48,33 +48,31 @@ exports.addToGallery = functions.database.ref("/reports/{reportId}").onWrite((ev
     });
 });
 
-// exports.addToGallery2 = functions.database.ref("/reports/{reportId}/public").onWrite((event) => {
-//     let publicRef = event.data.ref;
-//     let reportRef = publicRef.parent;
-//     let reportId = event.params.reportId;
-//     let sampleRef = reportRef.parent.parent.child(`/gallery/${reportId}`);
-//     let starsRef = reportRef.parent.parent.child(`/stars/${reportId}`);
-//
-//     return reportRef.once('value', rep => {
-//         let report = rep.val();
-//
-//         return sampleRef.once('value', sample => {
-//             if (sample.exists()) {
-//                 if (!report.public)
-//                     return sampleRef.remove();
-//
-//                 return sampleRef.update({
-//                     "title": report.title || null,
-//                     "description": report.description || null
-//                 });
-//             }
-//
-//             return starsRef.once('value', stars => sampleRef.set({
-//                 id: reportId,
-//                 title: report.title || null,
-//                 description: report.description || null,
-//                 starCount: stars ? stars.numChildren() : 0
-//             }));
-//         });
-//     });
-// });
+
+//if reports exists update starCount
+//if report doesn't exists remove it from gallery
+
+exports.healthCheck = functions.database.ref("/healthCheck/{reportId}").onWrite((event) => {
+	let rootRef = event.data.ref.parent.parent;
+	let reportId = event.params.reportId;
+	let reportRef = rootRef.child(`/report/${reportId}`);
+	let sampleRef = rootRef.child(`/gallery/${reportId}`);
+	let starsRef = rootRef.child(`/stars/${reportId}`);
+
+	return reportRef.once('value').then(report => {
+		if (report.exists()) {
+			return starsRef.once('value').then(stars => sampleRef.set({
+				id: reportId,
+				title: report.title || null,
+				description: report.description || null,
+				starCount: stars ? stars.numChildren() : 0
+			}));
+		}
+		else {
+			return sampleRef.remove();
+		}
+	}).then(() => {
+		//remove itself
+		return event.data.ref.remove();
+	})
+});

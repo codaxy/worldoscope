@@ -54,3 +54,10 @@ export function getMyReports() {
           }));
       }));
 }
+
+export function runHealthCheckOnReport(id) {
+	return withDatabase(database =>
+		database
+			.ref(`healthCheck/${id}`)
+			.set(true));
+}

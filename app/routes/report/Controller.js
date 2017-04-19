@@ -1,5 +1,6 @@
 import {Controller, History} from 'cx/ui';
 import {updateArray} from 'cx/data';
+import {runHealthCheckOnReport} from 'api';
 
 import {
   loadReport,
@@ -32,6 +33,9 @@ export default class extends Controller {
         this.store.set('$page.status', 'loading');
 
       loadReport(id).then(def => {
+      	if (!def) {
+					runHealthCheckOnReport(id);
+				}
         this.store.set('$page.report', def || {dummy: true});
         this.store.delete('$page.status');
         this.setupAutoSave();

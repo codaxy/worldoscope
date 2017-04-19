@@ -7,6 +7,7 @@
         "userId"
       ],
       "$uid": {
+        ".read": true,
         ".write": "data.child('id').val() == null || data.child('userId').val() === auth.uid"
       }
     },
@@ -30,6 +31,10 @@
       ".indexOn": [
         "starCount"
       ]
+    },
+    "healthCheck": {
+      ".read": true,
+      ".write": true
     }
   }
 }
