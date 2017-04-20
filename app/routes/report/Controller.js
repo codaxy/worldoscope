@@ -1,6 +1,7 @@
-import { Controller, History } from "cx/ui";
-import { updateArray } from "cx/data";
-import { runHealthCheckOnReport } from "api";
+import {Controller, History} from "cx/ui";
+import {updateArray} from "cx/data";
+import {MsgBox} from "cx/widgets";
+import {runHealthCheckOnReport} from "api";
 
 import {
 	loadReport,
@@ -23,7 +24,7 @@ export default class extends Controller {
 			"$page.editable",
 			["user", "$page.report", "$route.id"],
 			(user, report, id) =>
-				id == "new" || (user && report && report.userId == user.uid)
+			id == "new" || (user && report && report.userId == user.uid)
 		);
 	}
 
@@ -37,7 +38,7 @@ export default class extends Controller {
 				if (!def) {
 					runHealthCheckOnReport(id);
 				}
-				this.store.set("$page.report", def || { dummy: true });
+				this.store.set("$page.report", def || {dummy: true});
 				this.store.delete("$page.status");
 				this.setupAutoSave();
 			});
@@ -103,7 +104,7 @@ export default class extends Controller {
 	}
 
 	editHeader() {
-		let { title, description, defaults } = this.store.get("$page.report");
+		let {title, description, defaults} = this.store.get("$page.report");
 		this.store.set("$page.header", {
 			title,
 			description,
@@ -273,7 +274,37 @@ export default class extends Controller {
 		//open in edit mode
 		this.store.update("$page.sections", sections => ({
 			...sections,
-			[data.id]: { form: data, isNew: true }
+			[data.id]: {form: data, isNew: true}
 		}));
+	}
+
+	duplicateSection(e, {store}) {
+		e.preventDefault();
+		document.activeElement.blur(); //close menu
+
+		let section = store.get('$section');
+		let index = store.get('$index');
+
+		this.store.update("$page.report.sections", sections => [
+			...sections.slice(0, index + 1),
+			{
+				...section,
+				id: uid()
+			},
+			...sections.slice(index + 1)
+		]);
+	}
+
+	deleteSection(e, {store}) {
+		e.preventDefault();
+		document.activeElement.blur(); //close menu
+
+		let section = store.get('$section');
+		MsgBox.yesNo("Are you sure that you want to delete this section?")
+			.then(btn => {
+				if (btn === 'yes') {
+					this.store.update("$page.report.sections", sections => sections.filter(s => s !== section));
+				}
+			});
 	}
 }

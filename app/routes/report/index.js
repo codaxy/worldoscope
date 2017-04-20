@@ -102,7 +102,7 @@ export default (
 
 					<DropZone
 						mod="block"
-						onDropTest={e => e.source.data.type == "section"}
+						onDropTest={e => e.source.data.type === "section"}
 						onDrop={(e, { store }) => {
 							store.update(
 								"report.sections",
@@ -118,12 +118,12 @@ export default (
 					<Repeater
 						records:bind="report.sections"
 						recordAlias="$section"
-						idField="id"
+						keyField="id"
 					>
 						<Section />
 						<DropZone
 							mod="block"
-							onDropTest={e => e.source.data.type == "section"}
+							onDropTest={e => e.source.data.type === "section"}
 							onDrop={(e, { store }) => {
 								store.update(
 									"report.sections",

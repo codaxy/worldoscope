@@ -9,7 +9,9 @@ import {
 	Sandbox,
 	ContentResolver,
 	DragSource,
-	DragHandle
+	DragHandle,
+	Menu,
+	Submenu
 } from "cx/widgets";
 
 import { AnimatedHeight } from "app/components";
@@ -45,24 +47,37 @@ export default (
 								/>
 							</Heading>
 							<DragHandle
-								style="cursor:move; margin-left: auto;"
+								style="cursor:move;"
 								visible:bind="editable"
-								class="ambient-color"
 							>
 								<div tooltip="Drag &amp; drop to reorder sections">
-									<Icon name="drag_handle" />
+									<Icon name="more_horiz" />
 								</div>
 							</DragHandle>
-							<Button
-								mod="hollow"
-								class="ambient-color"
-								icon="mode_edit"
+
+							<Menu
 								visible:bind="editable"
-								onClick={(e, { store }) => {
-									let config = store.get("$section");
-									store.set("$sectionData.form", config);
-								}}
-							/>
+								horizontal
+								class="ambient-color"
+								style="margin-left: auto;display:flex;align-items:center"
+							>
+								<Button
+									mod="hollow"
+									class="ambient-color"
+									icon="mode_edit"
+									onClick={(e, { store }) => {
+										let config = store.get("$section");
+										store.set("$sectionData.form", config);
+									}}
+								/>
+								<Submenu placement="down-left">
+									<a><Icon name="more_vert" /></a>
+									<Menu putInto="dropdown">
+										<a href="#" onClick="duplicateSection">Duplicate</a>
+										<a href="#" onClick="deleteSection">Delete</a>
+									</Menu>
+								</Submenu>
+							</Menu>
 						</FlexRow>
 						<ContentResolver
 							params:bind="$section"

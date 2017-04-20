@@ -16,6 +16,14 @@
   @media screen and (max-width: 400px) {
     padding: 1rem 1rem !important;
   }
+
+	.cxb-draghandle {
+		position: absolute;
+		top: 1px;
+		left: 50%;
+		margin-left: -10px;
+		color: lightgray;
+	}
 }
 
 .section.edit {

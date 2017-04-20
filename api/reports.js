@@ -26,8 +26,7 @@ export function deleteReport(id) {
 	return withDatabase(database =>
 		Promise.all([
 			database.ref(`reports/${id}`).remove(),
-			database.ref(`gallery/${id}`).remove(),
-			database.ref(`stars/${id}`).remove()
+			database.ref(`gallery/${id}`).remove()
 		])
 	);
 }
