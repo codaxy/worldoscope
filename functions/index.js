@@ -21,8 +21,8 @@ exports.addStar = functions.database.ref("/stars/{reportId}/{userId}").onWrite((
 exports.addToGallery = functions.database.ref("/reports/{reportId}").onWrite((event) => {
     let reportRef = event.data.ref;
     let reportId = event.params.reportId;
-    let sampleRef = reportRef.parent.parent.child(`/gallery/${reportId}`);
-    let starsRef = reportRef.parent.parent.child(`/stars/${reportId}`);
+    let sampleRef = reportRef.parent.parent.child(`gallery/${reportId}`);
+    let starsRef = reportRef.parent.parent.child(`stars/${reportId}`);
     let report = event.data.val();
 
     return sampleRef.once('value').then(sample => {
