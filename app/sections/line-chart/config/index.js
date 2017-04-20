@@ -21,6 +21,14 @@ export default (
 				Use line charts to display data for longer time periods or to compare two or more countries.
 			</p>
 
+			<TextField
+				value:bind="title"
+				label="Title"
+				style="width: 100%"
+				required
+				autoFocus
+			/>
+
 			<LookupField
 				label="Topic"
 				value:bind="topic.id"
@@ -31,7 +39,6 @@ export default (
 				fetchAll
 				cacheAll
 				required
-				autoFocus
 			/>
 
 			<LookupField
@@ -42,13 +49,6 @@ export default (
 				onQuery="queryTopicIndicators"
 				mod="block"
 				fetchAll
-				required
-			/>
-
-			<TextField
-				value:bind="title"
-				label="Title"
-				style="width: 100%"
 				required
 			/>
 

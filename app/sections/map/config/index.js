@@ -32,6 +32,15 @@ export default (
 				for a quick overview of how a selected indicator is spread in different parts of the world.
 			</p>
 
+			<TextField
+				value:bind="title"
+				label="Title"
+				style="width: 100%"
+				required
+				mod="block"
+				autoFocus
+			/>
+
 			<LookupField
 				label="Topic"
 				value:bind="topic.id"
@@ -109,14 +118,6 @@ export default (
 					/>
 				</div>
 			</FlexRow>
-
-			<TextField
-				value:bind="title"
-				label="Title"
-				style="width: 100%"
-				required
-				mod="block"
-			/>
 
 			<TextArea
 				value:bind="note"

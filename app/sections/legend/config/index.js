@@ -8,8 +8,7 @@ export default (
 	<cx>
 		<div controller={Controller}>
 			<p ws>
-				The countries are colored based on the indicator value. This is very useful
-				for a quick overview of how a selected indicator is spread in different parts of the world.
+				The legend shows geographical location of the selected countries.
 			</p>
 
 			<TextField
@@ -18,6 +17,7 @@ export default (
 				style="width: 100%"
 				required
 				mod="block"
+				autoFocus
 			/>
 
 			<LookupField

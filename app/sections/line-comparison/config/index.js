@@ -19,8 +19,17 @@ export default (
 			<p ws>
 				Line charts with multiple indicators present historical trends for a list of selected indicators and a
 				single country.
-				Use this chart type to compare two or more related indicators.
+				Use this chart type to compare trends of two or more related indicators.
 			</p>
+
+			<TextField
+				value:bind="title"
+				label="Title"
+				style="width: 100%"
+				mod="block"
+				required
+				autoFocus
+			/>
 
 			<LookupField
 				label="Topic"
@@ -32,7 +41,6 @@ export default (
 				fetchAll
 				cacheAll
 				required
-				autoFocus
 			/>
 
 			<LookupField
@@ -117,14 +125,6 @@ export default (
 					/>
 				</FlexRow>
 			</LabeledContainer>
-
-			<TextField
-				value:bind="title"
-				label="Title"
-				style="width: 100%"
-				mod="block"
-				required
-			/>
 
 			<TextArea value:bind="note" label="Note" mod="block" />
 

@@ -21,6 +21,15 @@ export default (
 				This is useful to compare countries on multiple things at once.
 			</p>
 
+			<TextField
+				value:bind="title"
+				label="Title"
+				style="width: 100%"
+				required
+				mod="block"
+				autoFocus
+			/>
+
 			<LookupField
 				label="Topic"
 				value:bind="topic.id"
@@ -89,14 +98,6 @@ export default (
 					</LabeledContainer>
 				</div>
 			</FlexRow>
-
-			<TextField
-				value:bind="title"
-				label="Title"
-				style="width: 100%"
-				required
-				mod="block"
-			/>
 
 			<TextArea
 				value:bind="note"

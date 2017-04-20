@@ -4,14 +4,6 @@ import { queryTopics, queryTopicIndicators, queryRegions } from "api/data";
 export default class extends Controller {
 	onInit() {
 		this.addTrigger(
-			"name",
-			["indicator.name", "region.name"],
-			(ind, region) => {
-				this.store.set("title", `${ind} - ${region || ""}`);
-			}
-		);
-
-		this.addTrigger(
 			"fromYear",
 			["fromYear"],
 			fy => {

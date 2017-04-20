@@ -168,7 +168,8 @@ export default class extends Controller {
 			type: "map",
 			topic: defaults.topic,
 			year: defaults.toYear,
-			region: defaults.region
+			region: defaults.region,
+			title: '{indicator} {region:prefix; in } - {year}'
 		});
 	}
 
@@ -178,7 +179,8 @@ export default class extends Controller {
 		this.addSection(e, {
 			type: "legend",
 			region: defaults.region,
-			countries: defaults.countries
+			countries: defaults.countries,
+			title: 'Legend'
 		});
 	}
 
@@ -192,7 +194,8 @@ export default class extends Controller {
 			fromYear: defaults.fromYear,
 			toYear: defaults.toYear,
 			region: defaults.region,
-			countries: defaults.countries
+			countries: defaults.countries,
+			title: "{indicator}"
 		});
 	}
 
@@ -204,7 +207,8 @@ export default class extends Controller {
 			topic: defaults.topic,
 			fromYear: defaults.fromYear,
 			toYear: defaults.toYear,
-			region: defaults.region
+			region: defaults.region,
+			title: "{topic} in {country}"
 		});
 	}
 
@@ -216,7 +220,8 @@ export default class extends Controller {
 			topic: defaults.topic,
 			year: defaults.toYear,
 			region: defaults.region,
-			countries: defaults.countries
+			countries: defaults.countries,
+			title: '{topic} in {countries} - {year}'
 		});
 	}
 
@@ -227,7 +232,8 @@ export default class extends Controller {
 			type: "bar-chart",
 			topic: defaults.topic,
 			region: defaults.region,
-			indicator: defaults.indicator
+			indicator: defaults.indicator,
+			title: 'Top {top} - {indicator} {region:prefix; in } - {year}'
 		});
 	}
 
@@ -240,7 +246,8 @@ export default class extends Controller {
 			region: defaults.region,
 			indicator: defaults.indicator,
 			fromYear: defaults.fromYear,
-			toYear: defaults.toYear
+			toYear: defaults.toYear,
+			title: '{indicator} {region:prefix; in }'
 		});
 	}
 
@@ -250,7 +257,8 @@ export default class extends Controller {
 		this.addSection(e, {
 			type: "table-comparison",
 			region: defaults.region,
-			year: defaults.toYear
+			year: defaults.toYear,
+			title: '{topic} {region:prefix; in } - {year}'
 		});
 	}
 

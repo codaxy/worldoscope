@@ -16,9 +16,11 @@ export default (
 	<cx>
 		<div controller={Controller}>
 			<p ws>
-				Bar graph presents values of the selected indicator across multiple countries.
-				This is useful to compare many countries at once.
+				Tables can present multiple indicators across multiple countries.
+				This is useful to compare many countries at once across multiple indicators.
 			</p>
+
+			<TextField value:bind="title" label="Title" mod="block" required autoFocus />
 
 			<LookupField
 				label="Topic"
@@ -87,8 +89,6 @@ export default (
 					</LabeledContainer>
 				</div>
 			</FlexRow>
-
-			<TextField value:bind="title" label="Title" mod="block" required />
 
 			<TextArea
 				value:bind="note"

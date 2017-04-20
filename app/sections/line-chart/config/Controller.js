@@ -8,9 +8,7 @@ import {
 
 export default class extends Controller {
 	onInit() {
-		this.addTrigger("name", ["indicator.name"], name => {
-			this.store.set("title", name);
-		});
+
 	}
 
 	queryTopics(q) {

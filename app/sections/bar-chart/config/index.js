@@ -22,6 +22,8 @@ export default (
 				This is useful to compare many countries at once.
 			</p>
 
+			<TextField value:bind="title" label="Title" mod="block" required autoFocus />
+
 			<LookupField
 				label="Topic"
 				value:bind="topic.id"
@@ -48,7 +50,6 @@ export default (
 			/>
 
 			<FlexRow wrap target="tablet">
-
 				<div style="flex:1; max-width: 300px">
 					<LookupField
 						label={pin("Region")}
@@ -123,8 +124,6 @@ export default (
 			<Switch label="Order" mod="block" value:bind="invert">
 				Invert (show low values first)
 			</Switch>
-
-			<TextField value:bind="title" label="Title" mod="block" required />
 
 			<TextArea
 				value:bind="note"

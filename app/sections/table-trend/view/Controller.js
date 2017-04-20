@@ -1,9 +1,24 @@
 import { Controller } from "cx/ui";
 import { queryCountryIndicators } from "api/data";
+import { StringTemplate } from "cx/data";
 
 export default class extends Controller {
 	onInit() {
 		this.load();
+
+		this.addComputable('$sectionData.title', ['$section'], s => {
+			try {
+				let format = StringTemplate.get(s.title);
+				return format({
+					topic: s.topic.text,
+					indicator: s.indicator.name,
+					region: s.region && s.region.name || null,
+					period: `${s.fromYear} - ${s.toYear}`
+				});
+			} catch(e) {
+				return s.title;
+			}
+		})
 	}
 
 	load() {

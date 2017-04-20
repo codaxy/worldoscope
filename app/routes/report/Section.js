@@ -43,7 +43,7 @@ export default (
 							<Heading level={3}>
 								<a
 									href:tpl="#{$section.id}"
-									text:bind="$section.title"
+									text:expr="{$sectionData.title} || {$section.title} || ''"
 								/>
 							</Heading>
 							<DragHandle

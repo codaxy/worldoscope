@@ -1,10 +1,26 @@
 import { Controller } from "cx/ui";
 import { queryCountryIndicators } from "api/data";
 import { detectFormat } from "app/util";
+import { StringTemplate } from "cx/data";
 
 export default class extends Controller {
 	onInit() {
 		this.load();
+
+		this.addComputable('$sectionData.title', ['$section'], s => {
+			try {
+				let format = StringTemplate.get(s.title);
+				return format({
+					topic: s.topic.text,
+					indicators: Array.isArray(s.indicators) && s.indicators.map(a=>a.text).join(', ') || null,
+					countries: Array.isArray(s.countries) && s.countries.map(a=>a.text).join(', ') || null,
+					region: s.region && s.region.name || null,
+					year: s.year
+				});
+			} catch(e) {
+				return s.title;
+			}
+		})
 	}
 
 	load() {
