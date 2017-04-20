@@ -23,7 +23,11 @@ export function saveReport(id, report) {
 }
 
 export function deleteReport(id) {
-	return withDatabase(database => database.ref(`reports/${id}`).remove());
+	return withDatabase(database => Promise.all([
+		database.ref(`reports/${id}`).remove(),
+		database.ref(`gallery/${id}`).remove(),
+		database.ref(`stars/${id}`).remove()
+	]));
 }
 
 export function getPublicReports(page = 1, pageSize = 100) {

@@ -70,7 +70,10 @@ exports.healthCheck = functions.database.ref("/healthCheck/{reportId}").onWrite(
 			}));
 		}
 		else {
-			return sampleRef.remove();
+			return Promise.all([
+				sampleRef.remove(),
+				starsRef.remove()
+			]);
 		}
 	}).then(() => {
 		//remove itself
