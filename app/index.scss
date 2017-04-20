@@ -6,7 +6,6 @@ $cx-default-box-font-size: 14px;
 $cx-theme-primary-color: #2196F3;
 $cx-default-grid-font-size: 13px;
 
-
 @import "~cx-theme-material/src/variables";
 
 //$cx-input-state-style-map: cx-deep-map-merge($cx-input-state-style-map, (
@@ -18,45 +17,45 @@ $cx-default-grid-font-size: 13px;
 @import "~cx-theme-material/src/index";
 
 .cxb-menuitem.cxs-medium-padding .cxb-icon {
-  margin-right: 10px;
+	margin-right: 10px;
 }
+
 .cxb-button.cxm-small {
-  height: 24px;
-  vertical-align: bottom;
+	height: 24px;
+	vertical-align: bottom;
 
-  &.cxs-empty {
-    padding-left: 23px;
-  }
+	&.cxs-empty {
+		padding-left: 23px;
+	}
 
-  .cxe-button-icon {
-    width: 16px;
-    height: 16px;
-    font-size: 16px;
-    margin-top: -8px;
-    left: 8px;
-  }
+	.cxe-button-icon {
+		width: 16px;
+		height: 16px;
+		font-size: 16px;
+		margin-top: -8px;
+		left: 8px;
+	}
 
-  &.cxs-pressed {
-    background: #b5d8ff;
-    border-radius: 2px;
-  }
+	&.cxs-pressed {
+		background: #b5d8ff;
+		border-radius: 2px;
+	}
 }
 
 .cxm-block {
-  width: auto;
-  display: block;
+	width: auto;
+	display: block;
 
-  &.cxb-label {
-    padding-bottom: 0;
-    margin-top: 5px;
-  }
+	&.cxb-label {
+		padding-bottom: 0;
+		margin-top: 5px;
+	}
 }
 
 .cxb-dropzone.cxs-over {
-  background: #e7f2e7;
-  border: none !important;
+	background: #e7f2e7;
+	border: none !important;
 }
-
 
 @import "components/index";
 @import "layout/index";
