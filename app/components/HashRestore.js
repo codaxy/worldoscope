@@ -1,20 +1,17 @@
-import {VDOM} from 'cx/ui';
+import { VDOM } from "cx/ui";
 
 export class HashRestore extends VDOM.Component {
-  render() {
-    return null;
-  }
+	render() {
+		return null;
+	}
 
-  componentDidMount() {
-    let hash = window.location.hash;
-    if (hash) {
-      setTimeout(
-        () => {
-          location.replace('#');
-          location.replace(hash);
-        },
-        300,
-      );
-    }
-  }
+	componentDidMount() {
+		let hash = window.location.hash;
+		if (hash) {
+			setTimeout(() => {
+				location.replace("#");
+				location.replace(hash);
+			}, 300);
+		}
+	}
 }

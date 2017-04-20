@@ -55,12 +55,13 @@ exports.addToGallery = functions.database.ref("/reports/{reportId}").onWrite((ev
 exports.healthCheck = functions.database.ref("/healthCheck/{reportId}").onWrite((event) => {
 	let rootRef = event.data.ref.parent.parent;
 	let reportId = event.params.reportId;
-	let reportRef = rootRef.child(`/report/${reportId}`);
-	let sampleRef = rootRef.child(`/gallery/${reportId}`);
-	let starsRef = rootRef.child(`/stars/${reportId}`);
+	let reportRef = rootRef.child(`report/${reportId}`);
+	let sampleRef = rootRef.child(`gallery/${reportId}`);
+	let starsRef = rootRef.child(`stars/${reportId}`);
 
-	return reportRef.once('value').then(report => {
-		if (report.exists()) {
+	return reportRef.once('value').then(rep => {
+		if (rep.exists()) {
+			let report = rep.val();
 			return starsRef.once('value').then(stars => sampleRef.set({
 				id: reportId,
 				title: report.title || null,

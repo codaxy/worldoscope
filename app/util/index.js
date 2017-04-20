@@ -1,2 +1,2 @@
-export * from './urlEncode';
-export * from './detectFormat';
+export * from "./urlEncode";
+export * from "./detectFormat";

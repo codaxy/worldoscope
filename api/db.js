@@ -1,17 +1,17 @@
 let auth;
 
-export const importFirebase = () => System.import('./firebase');
+export const importFirebase = () => System.import("./firebase");
 
 export const getFirebase = () =>
-  importFirebase().then(firebase => firebase.firebase);
+	importFirebase().then(firebase => firebase.firebase);
 export const getDatabase = () =>
-  importFirebase().then(firebase => firebase.database);
+	importFirebase().then(firebase => firebase.database);
 export const getAuth = () =>
-  importFirebase().then(firebase => auth = firebase.auth);
+	importFirebase().then(firebase => (auth = firebase.auth));
 
 export const currentUserId = () =>
-  auth && auth.currentUser ? auth.currentUser.uid : null;
+	(auth && auth.currentUser ? auth.currentUser.uid : null);
 
 export function withDatabase(callback) {
-  return getDatabase().then(db => callback(db));
+	return getDatabase().then(db => callback(db));
 }
