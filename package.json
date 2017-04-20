@@ -7,7 +7,8 @@
     "test": "exit 0",
     "start": "webpack-dev-server --config config/webpack.dev.js --open",
     "build": "webpack --config config/webpack.prod.js",
-    "format": "prettier \"+(app|api)/**/*.js\" --write --use-tabs --tab-width 3"
+    "format": "prettier \"+(app|api)/**/*.js\" --write --use-tabs --tab-width 3",
+    "precommit": "prettier \"+(app|api)/**/*.js\" --write --use-tabs --tab-width 3"
   },
   "author": "",
   "license": "ISC",
