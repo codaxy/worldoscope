@@ -63,7 +63,8 @@ export default config => {
 			<div controller={Controller}>
 				<Grid
 					records:bind="$sectionData.data"
-					idField="country"
+					keyField="country"
+					cached
 					columns={columns}
 					scrollable
 					mod="responsive"

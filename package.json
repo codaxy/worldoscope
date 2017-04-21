@@ -13,9 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "cx": "^17.4.11",
+    "cx": "^17.5.0",
     "cx-react": "^17.4.1",
-    "cx-theme-material": "^17.4.3",
+    "cx-theme-material": "^17.4.4",
     "firebase": "^3.8.0",
     "firebaseui": "^1.0.1",
     "react": "^15.5.4",
