@@ -77,7 +77,7 @@ export default (
 					mod="hollow"
 					icon="content_copy"
 					onClick="copyReport"
-					tooltip="Copy this report into a new one..."
+					tooltip="Make a copy of this report."
 					visible:expr="!!{$page.report.id}"
 				/>
 			</PureContainer>

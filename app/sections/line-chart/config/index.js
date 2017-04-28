@@ -17,7 +17,7 @@ export default (
 	<cx>
 		<div controller={Controller}>
 			<p ws>
-				Line charts present historical trends of a selected indicator for a handful set of selected countries.
+				Line charts present historical trends of a selected indicator for a set of selected countries.
 				Use line charts to display data for longer time periods or to compare two or more countries.
 			</p>
 

@@ -15,7 +15,7 @@ export default (
 						<p ws>
 							This is a CxJS demo application and it illustrates the capabilites of the framework, its widgets, charts
 							and Material Design based theme.
-							Data needed for reports is fetched from The World Bank API endpoint through and passed
+							Data needed for reports is fetched from The World Bank API endpoint and passed
 							through a simple https caching proxy.
 							SVG maps are based on free samples provided by simplemaps.com.
 							Besides CxJS, the application is built on top of modern web technologies such as React, Babel
@@ -59,7 +59,7 @@ export default (
 
 				<h2>CxJS</h2>
 				<p ws>
-					CxJS is a commercial UI framework designed to
+					CxJS is a commercial UI framework based on React, designed to
 					streamline development of complex user interfaces.
 					Out of the box, Cx includes form elements, form validation, advanced grid control,
 					navigation elements, tooltips, overlays, charts, routing, layout support, themes,
@@ -79,13 +79,12 @@ export default (
 					<div>
 						<h2>Codaxy</h2>
 						<p ws>
-							We're a small software company specialized in development of modern business application
+							We're a growing software company specialized in development of modern business application
 							front-ends.
 							You may know us if you're already familiar with Cx or if you have used one of
 							<a href="https://store.codaxy.com/Themes">
 								our themes for Sencha Ext JS
-							</a>
-							.
+							</a>.
 							We provide software development services, feel free to contact us
 							if you have an interesting project.
 						</p>

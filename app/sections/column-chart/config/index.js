@@ -17,8 +17,8 @@ export default (
 	<cx>
 		<div controller={Controller}>
 			<p ws>
-				Column graph presents multiple related indicators for a handful of selected countries.
-				This is useful to compare countries on multiple things at once.
+				Column graph presents multiple related indicators for a set of selected countries.
+				This is useful to visually compare countries across multiple indicators.
 			</p>
 
 			<TextField

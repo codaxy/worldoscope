@@ -29,7 +29,7 @@ export default (
 		<div controller={Controller}>
 			<p ws>
 				The countries are colored based on the indicator value. This is very useful
-				for a quick overview of how a selected indicator is spread in different parts of the world.
+				for a quick overview of how a selected indicator compares in different parts of the world.
 			</p>
 
 			<TextField

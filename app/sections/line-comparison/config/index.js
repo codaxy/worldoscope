@@ -17,7 +17,7 @@ export default (
 	<cx>
 		<div controller={Controller}>
 			<p ws>
-				Line charts with multiple indicators present historical trends for a list of selected indicators and a
+				Line charts with multiple indicators present historical trends for a list of selected indicators in a
 				single country.
 				Use this chart type to compare trends of two or more related indicators.
 			</p>
