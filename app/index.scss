@@ -16,6 +16,8 @@ $cx-default-grid-font-size: 13px;
 
 @import "~cx-theme-material/src/index";
 
+
+//material theme bug - remove after it's fixed
 .cxm-help-placement-material {
 	overflow: visible;
 }

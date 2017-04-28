@@ -92,7 +92,7 @@ export default (
 
 						<p ws>
 							<a href="https://www.codaxy.com/">Website</a> -
-							<a href="https://www.codaxy.com/#contact">
+							<a href="https://www.codaxy.com/">
 								Contact
 							</a>
 							{" "}
