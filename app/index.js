@@ -5,7 +5,9 @@ import { getAuth } from "api";
 
 //css
 import "./index.scss";
-import "cx-theme-material";
+import { enableMaterialHelpPlacement } from "cx-theme-material";
+
+enableMaterialHelpPlacement();
 
 //store
 const store = new Store();

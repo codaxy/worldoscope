@@ -16,6 +16,10 @@ $cx-default-grid-font-size: 13px;
 
 @import "~cx-theme-material/src/index";
 
+.cxm-help-placement-material {
+	overflow: visible;
+}
+
 .cxb-menuitem.cxs-medium-padding .cxb-icon {
 	margin-right: 10px;
 }
@@ -42,14 +46,15 @@ $cx-default-grid-font-size: 13px;
 	}
 }
 
+.cxb-label {
+	padding-bottom: 0;
+	margin-top: 10px;
+	border-width: 0;
+}
+
 .cxm-block {
 	width: auto;
 	display: block;
-
-	&.cxb-label {
-		padding-bottom: 0;
-		margin-top: 5px;
-	}
 }
 
 .cxb-dropzone.cxs-over {
