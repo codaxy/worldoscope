@@ -15,7 +15,8 @@ export default (
 						<p ws>
 							This is a CxJS demo application and it illustrates the capabilites of the framework, its widgets, charts
 							and Material Design based theme.
-							Data needed for reports is fetched directly from The World Bank API endpoint.
+							Data needed for reports is fetched from The World Bank API endpoint through and passed
+							through a simple https caching proxy.
 							SVG maps are based on free samples provided by simplemaps.com.
 							Besides CxJS, the application is built on top of modern web technologies such as React, Babel
 							and Webpack.
