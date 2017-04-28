@@ -24,7 +24,7 @@ export function wbFetch(url, params) {
 
 	let options = {};
 
-	let urlBase = true || window.location.protocol == "https:"
+	let urlBase = window.location.protocol == "https:"
 		? "https://cxjs.io/worldoscope-data-proxy/"
 		: "http://api.worldbank.org/v2/";
 

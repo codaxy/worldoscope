@@ -16,7 +16,7 @@ import Controller from "./Controller";
 
 export default (
 	<cx>
-		<DocumentTitle value="Home" />
+		<DocumentTitle value="" />
 		<h1 putInto="header">Worldoscope</h1>
 		<div class="page2" controller={Controller}>
 			<div class="welcome">

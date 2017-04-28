@@ -95,7 +95,7 @@ export default (
 				<ContentPlaceholder />
 				<ContentPlaceholder name="footer" />
 			</div>
-			<DocumentTitle value=" - World Bank Data Reports" />
+			<DocumentTitle value="Worldoscope" separator=" - " />
 		</div>
 	</cx>
 );
