@@ -26,7 +26,7 @@ exports.addToGallery = functions.database.ref("/reports/{reportId}").onWrite((ev
 	let report = event.data.val();
 
 	return sampleRef.once('value').then(sample => {
-		if (!report.public)
+		if (!report || !report.public)
 			return sampleRef.remove();
 
 		if (sample.exists()) {
