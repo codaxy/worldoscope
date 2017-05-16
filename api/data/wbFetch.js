@@ -28,5 +28,5 @@ export function wbFetch(url, params) {
 		? "https://api.cxjs.io/worldoscope/"
 		: "http://api.worldbank.org/v2/";
 
-	return fetch(urlBase + url + "?" + qs, options).then(x => x.json());
+	return fetch(urlBase + url + "/?" + qs, options).then(x => x.json());
 }
