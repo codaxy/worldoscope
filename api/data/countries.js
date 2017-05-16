@@ -94,7 +94,7 @@ export async function queryCountryIndicators(
 	if (!indicatorCache[cacheKey]) {
 		let [cc, result] = await Promise.all([
 			getCountryCodes(),
-			wbFetch(`countries/${country}/indicators/${indicator}`, {
+			wbFetch(`countries/${country}/indicators/${indicator}/`, {
 				per_page: 10000,
 				...params
 			})
