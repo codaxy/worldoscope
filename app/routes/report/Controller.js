@@ -70,7 +70,7 @@ export default class extends Controller {
 
 			this.store.delete("clipboard.report");
 
-			this.editHeader();
+			this.addMap();
 		}
 
 		this.addTrigger("trackPins", ["$page.report"], report => {
@@ -263,7 +263,9 @@ export default class extends Controller {
 	}
 
 	addSection(e, section) {
-		e.preventDefault();
+		if (e)
+			e.preventDefault();
+
 		document.activeElement.blur();
 
 		let data = {
