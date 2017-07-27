@@ -9,9 +9,14 @@ import {
 	Icon,
 	Repeater,
 	DropZone,
-	DocumentTitle
+	DocumentTitle,
+	enableTooltips,
+	enableMsgBoxAlerts
 } from "cx/widgets";
 import { ColorMap } from "cx/charts";
+
+enableTooltips();
+enableMsgBoxAlerts();
 
 import Controller from "./Controller";
 import Header from "./Header";
