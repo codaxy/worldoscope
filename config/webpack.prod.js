@@ -12,33 +12,34 @@ var sass = new ExtractTextPlugin({
 });
 
 var specific = {
-    module: {
-        loaders: [{
-            test: /\.scss$/,
-            loaders: sass.extract(['css-loader', 'sass-loader'])
-        }, {
-            test: /\.css$/,
-            loaders: sass.extract(['css-loader'])
-        }]
-    },
+	module: {
+		loaders: [{
+			test: /\.scss$/,
+			loaders: sass.extract(['css-loader', 'sass-loader'])
+		}, {
+			test: /\.css$/,
+			loaders: sass.extract(['css-loader'])
+		}]
+	},
 
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin(),
-        //new BundleAnalyzerPlugin(),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production'),
-            'process.env.HS_ID': JSON.stringify(process.env.HS_ID || false),
-        }),
-        sass,
-        new CopyWebpackPlugin([{
-          from: path.join(__dirname, '../assets'),
-            to: path.join(__dirname, '../dist/assets'),
-        }])
-    ],
+	plugins: [
+		new webpack.optimize.UglifyJsPlugin(),
+		//new BundleAnalyzerPlugin(),
+		new webpack.DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify('production'),
+			'process.env.HS_ID': JSON.stringify(process.env.HS_ID || false),
+		}),
+		sass,
+		new CopyWebpackPlugin([{
+			from: path.join(__dirname, '../assets'),
+			to: path.join(__dirname, '../dist/assets'),
+		}])
+	],
 
-    output: {
-        publicPath: '/'
-    }
+	output: {
+		publicPath: '/',
+		chunkFilename: '[name].js'
+	}
 };
 
 module.exports = merge(common, specific);

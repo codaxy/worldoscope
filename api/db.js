@@ -1,6 +1,6 @@
 let auth;
 
-export const importFirebase = () => System.import("./firebase");
+export const importFirebase = () => System.import(/* webpackChunkName: "firebase" */"./firebase");
 
 export const getFirebase = () =>
 	importFirebase().then(firebase => firebase.firebase);

@@ -28,7 +28,7 @@ export default (
 			<Route route="~/:id" url:bind="url">
 				<AsyncContent
 					onLoadContent={() =>
-						System.import("./report").then(x => x.default)}
+						System.import(/* webpackChunkName: "report" */ "./report").then(x => x.default)}
 				/>
 			</Route>
 			<div class="prose">

@@ -22,7 +22,7 @@ module.exports = {
         }]
     ],
     "plugins": [
-        'lodash'
+        //'lodash'
     ]
 };
 
