@@ -127,7 +127,7 @@ export async function queryCountryIndicators(
 		if (options.sort)
 			x = sorter([
 				{
-					value: x => x.value,
+					field: 'value',
 					direction: options.ascending ? "ASC" : "DESC"
 				}
 			])(x);
