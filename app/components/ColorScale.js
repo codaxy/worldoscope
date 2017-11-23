@@ -7,9 +7,6 @@ export class ColorScale extends Widget {
 			best: undefined,
 			worst: undefined,
 			zero: undefined,
-			className: { structured: true },
-			class: { structured: true },
-			style: { structured: true },
 			format: undefined
 		});
 	}
@@ -30,13 +27,9 @@ export class ColorScale extends Widget {
 
 		instance.colorScale = context.getColorScale(this.name);
 
+		instance.markShouldUpdate(context);
+
 		super.explore(context, instance);
-	}
-
-	prepare(context, instance) {
-		super.prepare(context, instance);
-
-		instance.shouldUpdate = true;
 	}
 
 	render(context, instance, key) {
@@ -85,20 +78,25 @@ export class ColorScale extends Widget {
 }
 
 ColorScale.prototype.name = "default";
+ColorScale.prototype.styled = true;
 
 export class ColorScaleScope extends PureContainer {
 	explore(context, instance) {
-		var previous = context.colorScales;
-		instance.colorScales = context.colorScales = {};
+		instance.colorScales = {};
+		context.push("colorScales", instance.colorScales);
 		super.explore(context, instance);
-		context.colorScales = previous;
+	}
+
+	exploreCleanup(context, instance) {
+		context.pop("colorScales");
 	}
 
 	prepare(context, instance) {
-		var previous = context.colorScales;
-		context.colorScales = instance.colorScales;
-		super.prepare(context, instance);
-		context.colorScales = previous;
+		context.push("colorScales", instance.colorScales);
+	}
+
+	prepareCleanup(context, instance) {
+		context.pop("colorScales");
 	}
 }
 
