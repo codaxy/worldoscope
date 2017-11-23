@@ -92,6 +92,7 @@
 	&:hover {
 		//box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.5);
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+		text-decoration: none;
 	}
 
 	p {
@@ -114,6 +115,7 @@
 	h4 {
 		color: #1154a0;
 		font-weight: 500;
+		font-size: 13px;
 	}
 
 	&.hidden {

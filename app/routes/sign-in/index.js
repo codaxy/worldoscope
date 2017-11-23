@@ -1,74 +1,50 @@
-import { HtmlElement, DocumentTitle, Section} from "cx/widgets";
-import { VDOM } from "cx/ui";
+import {HtmlElement, DocumentTitle, Section, Button} from "cx/widgets";
 
 import Controller from "./Controller";
 
-import { getFirebase } from "api";
-
-let ui;
-
-class AuthContainer extends VDOM.Component {
-	render() {
-		return <div id="firebaseui-auth-container" />;
-	}
-
-	componentDidMount() {
-		System.import("api/firebase").then(({ firebaseui, firebase }) => {
-			// FirebaseUI config.
-			var uiConfig = {
-				// Url to redirect to after a successful sign-in.
-				signInSuccessUrl: "/",
-				callbacks: {
-					signInSuccess: function(user, credential, redirectUrl) {
-						if (window.opener) {
-							// The widget has been opened in a popup, so close the window
-							// and return false to not redirect the opener.
-							window.close();
-							return false;
-						} else {
-							// The widget has been used in redirect mode, so we redirect to the signInSuccessUrl.
-							return true;
-						}
-					}
-				},
-				signInOptions: [
-					// TODO(developer): Remove the providers you don't need for your app.
-					firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-					firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-					firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-					firebase.auth.GithubAuthProvider.PROVIDER_ID,
-					firebase.auth.EmailAuthProvider.PROVIDER_ID
-				],
-				// Terms of service url.
-				tosUrl: "https://www.google.com"
-			};
-			// Initialize the FirebaseUI Widget using Firebase.
-			if (!ui) ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-			// The start method will wait until the DOM is loaded to include the FirebaseUI sign-in widget
-			// within the element corresponding to the selector specified.
-			ui.start("#firebaseui-auth-container", uiConfig);
-		});
-	}
-}
-
 export default (
 	<cx>
-		<DocumentTitle value="Sign In" />
-		<Section mod="card" controller={Controller}>
-			<h1 putInto="header" />
-			<div class="page">
-				<div class="prose">
-					<h2>Sign In</h2>
-					<p>
-						By signing in you'll get the ability to save your reports and star reports made by other people.
-					</p>
-					<p>
-						Please choose one of available sign-in options:
-					</p>
-					<AuthContainer />
-				</div>
+		<DocumentTitle value="Sign In"/>
+
+
+		<div class="page" controller={Controller}>
+			<h1 putInto="header"></h1>
+			<div class="prose">
+				<h2>Sign In</h2>
+				<p>
+					By signing in you'll get the ability to save your reports and star reports made by other people.
+				</p>
+				<p>
+					Please choose one of available sign-in options:
+				</p>
+
+				<Button mod="sign-in" class="google" onClick="signInWithGoogle">
+					<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"/>
+					Sign in with Google
+				</Button>
+
+				<Button mod="sign-in" class="facebook" onClick="signInWithFacebook">
+					<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/facebook.svg"/>
+					Sign in with Facebook
+				</Button>
+
+				<Button mod="sign-in" class="twitter" onClick="signInWithTwitter">
+					<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/twitter.svg"/>
+					Sign in with Twitter
+				</Button>
+
+				<Button mod="sign-in" class="github" onClick="signInWithGitHub">
+					<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/github.svg"/>
+					Sign in with GitHub
+				</Button>
+
+				{/*<Button mod="sign-in" class="email" onClick="signInWithEmail">*/}
+					{/*<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/mail.svg"/>*/}
+					{/*Sign in with email*/}
+				{/*</Button>*/}
+
+				<br/>
 			</div>
-		</Section>
+		</div>
 	</cx>
 );

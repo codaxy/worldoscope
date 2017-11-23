@@ -1,5 +1,44 @@
-@import "~firebaseui/dist/firebaseui.css";
+.cxm-sign-in {
 
-#firebaseui-auth-container {
-  width: 300px;
+	text-transform: none;
+	padding-left: 50px;
+	width: 100%;
+	max-width: 220px;
+	text-align: left;
+	display: block;
+	margin-top: 15px;
+
+	img {
+		width: 18px;
+		height: 18px;
+		position: absolute;
+		left: 15px;
+		top: 50%;
+		margin-top: -9px;
+	}
+
+	&.google {
+		background: white;
+		color: #757575;
+	}
+
+	&.facebook {
+		background: #3b5998;
+		color: white;
+	}
+
+	&.twitter {
+		background: #55acee;
+		color: white;
+	}
+
+	&.github {
+		background: #333;
+		color: white;
+	}
+
+	&.email {
+		background: #db4437;
+		color: white;
+	}
 }
