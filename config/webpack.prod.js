@@ -7,7 +7,7 @@ var webpack = require('webpack'),
     BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var sass = new ExtractTextPlugin({
-    filename: "app.css",
+    filename: "app.[chunkhash].css",
     allChunks: true
 });
 
@@ -38,7 +38,9 @@ var specific = {
 
 	output: {
 		publicPath: '/',
-		chunkFilename: '[name].js'
+		filename: "[name].[chunkhash].js",
+		chunkFilename: '[name].[chunkhash].js',
+		hashDigestLength: 5,
 	}
 };
 
