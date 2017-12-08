@@ -3,6 +3,11 @@ import { queryTopics, queryTopicIndicators, queryRegions } from "api/data";
 
 export default class extends Controller {
 	onInit() {
+		this.store.init({
+			fromYear: 2005,
+			toYear: 2015
+		});
+
 		this.addTrigger(
 			"fromYear",
 			["fromYear"],

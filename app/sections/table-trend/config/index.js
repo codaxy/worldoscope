@@ -80,14 +80,8 @@ export default (
 							<Slider
 								style="flex:1; width: auto; max-width: 250px"
 								range
-								from={{
-									bind: "fromYear",
-									defaultValue: 2005
-								}}
-								to={{
-									bind: "toYear",
-									defaultValue: 2015
-								}}
+								from:bind="fromYear"
+								to:bind="toYear"
 								minValue={1960}
 								maxValue={2020}
 								step={1}

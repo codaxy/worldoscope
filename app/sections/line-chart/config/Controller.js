@@ -8,7 +8,10 @@ import {
 
 export default class extends Controller {
 	onInit() {
-
+		this.store.init({
+			fromYear: 2000,
+			toYear: 2015
+		})
 	}
 
 	queryTopics(q) {
