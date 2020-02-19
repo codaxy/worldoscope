@@ -24,7 +24,15 @@ var specific = {
         port: 8088,
         noInfo: false,
         inline: true,
-        historyApiFallback: true
+        historyApiFallback: true,
+        proxy: {
+            "/worldbank": {
+                target: 'https://api.worldbank.org/v2',
+                pathRewrite: { '^/worldbank': '' },
+                secure: false,
+                changeOrigin: true,
+            }
+        }
     }
 };
 

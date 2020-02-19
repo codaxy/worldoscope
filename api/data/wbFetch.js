@@ -29,7 +29,7 @@ export function wbFetch(url, params) {
 	// 	? "https://api.cxjs.io/worldoscope/"
 	// 	: "https://api.worldbank.org/v2/";
 
-	let urlBase = "https://api.worldbank.org/v2/";
+	let urlBase = WORLDBANK_URL;
 
-	return fetch(urlBase + url + "?" + qs, options).then(x => x.json());
+	return fetch(`${urlBase}/${url}?${qs}`, options).then(x => x.json());
 }

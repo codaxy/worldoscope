@@ -56,6 +56,9 @@ module.exports = {
             template: paths.app('index.html'),
             hash: true,
             scripts: scripts
+        }),
+        new webpack.DefinePlugin({
+            "WORLDBANK_URL": JSON.stringify('/worldbank'),
         })
     ]
 };
